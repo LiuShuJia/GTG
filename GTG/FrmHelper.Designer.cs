@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.清空数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -37,19 +36,12 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.清空数据ToolStripMenuItem,
             this.数据备份ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 清空数据ToolStripMenuItem
-            // 
-            this.清空数据ToolStripMenuItem.Name = "清空数据ToolStripMenuItem";
-            this.清空数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.清空数据ToolStripMenuItem.Text = "清空数据";
             // 
             // 数据备份ToolStripMenuItem
             // 
@@ -76,7 +68,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 清空数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据备份ToolStripMenuItem;
     }
 }
