@@ -8,5 +8,6 @@ namespace GTG
 {
     public class DBHelper
     {
+
     }
 }
