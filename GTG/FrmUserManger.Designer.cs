@@ -54,7 +54,6 @@
             // 
             // Tsmiupuserkey
             // 
-            this.Tsmiupuserkey.Enabled = false;
             this.Tsmiupuserkey.Name = "Tsmiupuserkey";
             this.Tsmiupuserkey.Size = new System.Drawing.Size(68, 21);
             this.Tsmiupuserkey.Text = "修改密码";

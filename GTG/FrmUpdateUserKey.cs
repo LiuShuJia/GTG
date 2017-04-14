@@ -20,25 +20,24 @@ namespace GTG
         public FrmUpdateUserKey(string s)
         {
             InitializeComponent();
-            this.UserName = s;
-            oldkey = this.txtoldpassword.Text.Trim();
-            newkey = this.txtnewpassword.Text.Trim();
-            twokey = this.txttwopassword.Text.Trim();
+            this.UserName =s;
         }
         private string UserName = "";
-        private string oldkey = "";
-        private string newkey = "";
-        private string twokey = "";
         private DBHelper helper = new DBHelper();
         private void btnModify_Click(object sender, EventArgs e)
-        { 
-            bool isEqual = Isnullandequal(oldkey, twokey);
+        {        
+            string oldkey = this.txtoldpassword.Text.Trim();
+            string newkey = this.txtnewpassword.Text.Trim();
+            string twokey = this.txttwopassword.Text.Trim();
+            bool isEqual = Isnullandequal(newkey , twokey);
             if (isEqual == true)
             {
-                string strSQl = @"update admin set loginPWD='@loginPWD'where Loginid='@loginid'";
-                int row = helper.ExecuteNonQuery(strSQl, CommandType.Text,
+                string strSQL = @"update Admin set LoginPWD=@loginPWD where LoginId=@loginid";
+
+                int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                     new SqlParameter("@loginid", UserName),
-                    new SqlParameter("@loginPWD", oldkey));
+                    new SqlParameter("@loginPWD", this.txtnewpassword.Text.Trim()));
+                MessageBox.Show(row.ToString());
                 if (row > 0)
                 {
                     MessageBox.Show("密码修改成功");
@@ -51,25 +50,17 @@ namespace GTG
             }
             else
             {
-                MessageBox.Show("请核对信息，输入错误");
+                MessageBox.Show("请核对信息，注意新密码和确认密码要一致");
             }
-
         }
         public bool Isnullandequal(string s,string s1)
         {
             bool f = false;
-            if (s != ""&&s==s1)
+            if (s != ""&&s==s1)//不能为空且两个要等
             {
                 f = true;
             }
             return f;
-        }
-
-        private void FrmUpdateUserKey_Load(object sender, EventArgs e)
-        {
-            this.txtoldpassword.Focus();
-            this.txtnewpassword.Enabled = false;
-            this.txttwopassword.Enabled = false;            
         }
 
         private void txtoldpassword_Leave(object sender, EventArgs e)
@@ -83,11 +74,20 @@ namespace GTG
                     password = reader.GetString(reader.GetOrdinal("LoginPWD")).Trim();//获取该用户名对应的密码                  
                 }
             }
-            if (oldkey== password)
+                if (this.txtoldpassword.Text.Trim()== password)
+                {
+                    this.txttwopassword.Enabled = true;//如果密码输入正确的话,就设置确认密码可用
+            } 
+                else
             {
-                this.txtnewpassword.Enabled = true;
-                this.txttwopassword.Enabled = true;
-            }
+                MessageBox.Show("您输入的密码有误");
+                this.txttwopassword.Enabled = false;//如果密码错误，让确认密码不可用
+            }          
+        }
+
+        private void FrmUpdateUserKey_Load(object sender, EventArgs e)
+        {
+            this.txttwopassword.Enabled =false;//设置让确认密码不可用，如果密码输入不正确的话
         }
     }
 }

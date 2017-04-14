@@ -30,13 +30,13 @@
         {
             this.txtIDcard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSex = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtrealname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.btnMofidy = new System.Windows.Forms.Button();
+            this.cbosex = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtIDcard
@@ -45,6 +45,7 @@
             this.txtIDcard.Name = "txtIDcard";
             this.txtIDcard.Size = new System.Drawing.Size(100, 21);
             this.txtIDcard.TabIndex = 3;
+            this.txtIDcard.Leave += new System.EventHandler(this.txtIDcard_Leave);
             // 
             // label2
             // 
@@ -54,13 +55,6 @@
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "真实姓名：";
-            // 
-            // txtSex
-            // 
-            this.txtSex.Location = new System.Drawing.Point(137, 82);
-            this.txtSex.Name = "txtSex";
-            this.txtSex.Size = new System.Drawing.Size(100, 21);
-            this.txtSex.TabIndex = 5;
             // 
             // label3
             // 
@@ -86,6 +80,7 @@
             this.txtrealname.Name = "txtrealname";
             this.txtrealname.Size = new System.Drawing.Size(104, 21);
             this.txtrealname.TabIndex = 9;
+            this.txtrealname.Leave += new System.EventHandler(this.txtrealname_Leave);
             // 
             // label5
             // 
@@ -102,6 +97,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 21);
             this.txtPhone.TabIndex = 11;
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // btnMofidy
             // 
@@ -113,20 +109,34 @@
             this.btnMofidy.UseVisualStyleBackColor = true;
             this.btnMofidy.Click += new System.EventHandler(this.btnMofidy_Click);
             // 
+            // cbosex
+            // 
+            this.cbosex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbosex.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbosex.FormattingEnabled = true;
+            this.cbosex.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.cbosex.Location = new System.Drawing.Point(137, 82);
+            this.cbosex.Name = "cbosex";
+            this.cbosex.Size = new System.Drawing.Size(104, 20);
+            this.cbosex.TabIndex = 13;
+            // 
             // FrmUpdateUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 296);
+            this.Controls.Add(this.cbosex);
             this.Controls.Add(this.btnMofidy);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtrealname);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtSex);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIDcard);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.Name = "FrmUpdateUserInfo";
             this.Text = "修改用户信息";
             this.Load += new System.EventHandler(this.FrmUpdateUserInfo_Load);
@@ -139,12 +149,12 @@
 
         private System.Windows.Forms.TextBox txtIDcard;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSex;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtrealname;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Button btnMofidy;
+        private System.Windows.Forms.ComboBox cbosex;
     }
 }

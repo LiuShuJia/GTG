@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.txtnewpassword = new System.Windows.Forms.TextBox();
             this.txttwopassword = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +99,10 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmUpdateUserKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -108,9 +115,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmUpdateUserKey";
             this.Text = "修改用户密码";
             this.Load += new System.EventHandler(this.FrmUpdateUserKey_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +134,6 @@
         private System.Windows.Forms.TextBox txtnewpassword;
         private System.Windows.Forms.TextBox txttwopassword;
         private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

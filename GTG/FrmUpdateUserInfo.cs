@@ -26,21 +26,29 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void btnMofidy_Click(object sender, EventArgs e)
         {
-            string strSQL = @"update  Admin set Aname=@name,Asex=@sex,ACardID=@cardID,APhone= @phone where Loginid=@Logonid";
-            int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                new SqlParameter("@Loginid", userName),
-                new SqlParameter("@name", this.txtrealname.Text.Trim()),
-                new SqlParameter("@sex", this.txtSex.Text.Trim()),
-                new SqlParameter("@cardID", this.txtIDcard.Text.Trim()),
-                new SqlParameter("@phont", this.txtPhone.Text.Trim()));
-            if(row > 0)
+            bool fName = Isnull(this.txtrealname.Text.Trim());
+            bool fsex = Isnull(this.cbosex.Text.Trim());
+            bool fIDcard = Isnull(this.txtIDcard.Text.Trim());
+            bool fphone =Isnull(this.txtPhone.Text.Trim());
+
+            if (fName &&fsex &&fIDcard &&fphone)
             {
-                MessageBox.Show("修改成功");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("修改失败");
+                string strSQL = @"update  Admin set Aname=@name,Asex=@sex,ACardID=@cardID,APhone= @phone where Loginid=@Logonid";
+                int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
+                    new SqlParameter("@Logonid", userName),
+                    new SqlParameter("@name", this.txtrealname.Text.Trim()),
+                    new SqlParameter("@sex", this.cbosex.Text.Trim()),
+                    new SqlParameter("@cardID", this.txtIDcard.Text.Trim()),
+                    new SqlParameter("@phone", this.txtPhone.Text.Trim()));
+                if (row > 0)
+                {
+                    MessageBox.Show("修改成功");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
             }
         }
       
@@ -48,15 +56,55 @@ namespace GTG
         {
             string strSQL = @"select Aname,Asex,ACardID,APhone from Admin where Loginid=@Logonid";
 
-            using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@LoginId", userName)))
+            using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Logonid", userName)))
             {
                 if (reader.Read())
                 {
                     this.txtrealname.Text = reader.GetString(reader.GetOrdinal("Aname"));
-                    this.txtSex.Text = reader.GetString(reader.GetOrdinal("Asex"));
+                    this.cbosex.Text = reader.GetString(reader.GetOrdinal("Asex"));
                     this.txtIDcard.Text = reader.GetString(reader.GetOrdinal("ACardID"));
                     this.txtPhone.Text = reader.GetString(reader.GetOrdinal("APhone"));
                 }
+            }
+            MessageBox.Show(this.cbosex.Text);
+        }
+        public bool Isnull(string s)
+        {
+            bool f = false;
+            if (s != "")
+            {
+                f = true;
+            }
+            return f;
+        }
+
+        private void txtrealname_Leave(object sender, EventArgs e)
+        {
+            while (this.txtrealname.Text.Trim() == "")
+            {
+                MessageBox.Show("真实姓名不能为空！");
+                this.txtrealname.Focus();
+                return;
+            }
+        }
+
+        private void txtIDcard_Leave(object sender, EventArgs e)
+        {
+            while (this.txtIDcard.Text.Trim() == "")
+            {
+                MessageBox.Show("身份证号不能为空！");
+                this.txtIDcard.Focus();
+                return;
+            }
+        }
+
+        private void txtPhone_Leave(object sender, EventArgs e)
+        {
+            while (this.txtPhone.Text.Trim() == "")
+            {
+                MessageBox.Show("联系方式不能为空！");
+                this.txtPhone.Focus();
+                return;
             }
         }
     }

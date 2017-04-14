@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GTG
 {
@@ -16,6 +17,7 @@ namespace GTG
         {
             InitializeComponent();
         }
+        private DBHelper helper = new DBHelper();
 
         private void Form1_Load(object sender, EventArgs e)
         {

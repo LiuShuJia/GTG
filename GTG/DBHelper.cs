@@ -14,7 +14,6 @@ namespace GTG
             public DBHelper()
             {
                 con = new SqlConnection(strCon);
-
                 cmd = new SqlCommand();
                 cmd.Connection = con;
             }
@@ -25,30 +24,30 @@ namespace GTG
 
             public int ExecuteNonQuery(string strSQL, CommandType commandtype = CommandType.Text, params IDataParameter[] parameter)
             {
-                int rows = 0;
+            int rows = 0;
 
-                try
+            try
+            {
+                this.cmd.CommandText = strSQL;
+                this.cmd.CommandType = commandtype;
+                this.cmd.Parameters.Clear();
+                foreach (var item in parameter)
                 {
-                    this.cmd.CommandText = strSQL;
-                    this.cmd.CommandType = commandtype;
-                    this.cmd.Parameters.Clear();
-                    foreach (var item in parameter)
-                    {
-                        this.cmd.Parameters.Add(item);
-                    }
-                    con.Open();
-                    rows = cmd.ExecuteNonQuery();
+                    this.cmd.Parameters.Add(item);
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    con.Close();
-                }
-                return rows;
+                con.Open();
+                rows = cmd.ExecuteNonQuery();
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return rows;
+        }
             public Task<int> ExecuteNonQueryAsync(string strSQL, CommandType commandtype = CommandType.Text, params IDataParameter[] parameter)
             {
                 return Task<int>.Run(() =>
