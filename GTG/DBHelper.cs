@@ -18,7 +18,7 @@ namespace GTG
                 cmd.Connection = con;
             }
 
-        private string strCon = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+            private string strCon = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
             private IDbConnection con = null;
             private IDbCommand cmd = null;
 
