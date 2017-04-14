@@ -102,6 +102,18 @@
     <Compile Include="FrmStoreFront.Designer.cs">
       <DependentUpon>FrmStoreFront.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateUserInfo.Designer.cs">
+      <DependentUpon>FrmUpdateUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateUserKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateUserKey.Designer.cs">
+      <DependentUpon>FrmUpdateUserKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUserManger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,12 @@
     <EmbeddedResource Include="FrmStoreFront.resx">
       <DependentUpon>FrmStoreFront.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateUserInfo.resx">
+      <DependentUpon>FrmUpdateUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateUserKey.resx">
+      <DependentUpon>FrmUpdateUserKey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUserManger.resx">
       <DependentUpon>FrmUserManger.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +184,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -182,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
