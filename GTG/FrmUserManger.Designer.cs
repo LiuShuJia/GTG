@@ -29,33 +29,35 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.修改用户信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsmiupuserinfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsmiupuserkey = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.修改用户信息ToolStripMenuItem,
-            this.修改密码ToolStripMenuItem});
+            this.Tsmiupuserinfo,
+            this.Tsmiupuserkey});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(391, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 修改用户信息ToolStripMenuItem
+            // Tsmiupuserinfo
             // 
-            this.修改用户信息ToolStripMenuItem.Name = "修改用户信息ToolStripMenuItem";
-            this.修改用户信息ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.修改用户信息ToolStripMenuItem.Text = "修改用户信息";
+            this.Tsmiupuserinfo.Name = "Tsmiupuserinfo";
+            this.Tsmiupuserinfo.Size = new System.Drawing.Size(92, 21);
+            this.Tsmiupuserinfo.Text = "修改用户信息";
+            this.Tsmiupuserinfo.Click += new System.EventHandler(this.Tsmiupuserinfo_Click);
             // 
-            // 修改密码ToolStripMenuItem
+            // Tsmiupuserkey
             // 
-            this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.修改密码ToolStripMenuItem.Text = "修改密码";
+            this.Tsmiupuserkey.Name = "Tsmiupuserkey";
+            this.Tsmiupuserkey.Size = new System.Drawing.Size(68, 21);
+            this.Tsmiupuserkey.Text = "修改密码";
+            this.Tsmiupuserkey.Click += new System.EventHandler(this.Tsmiupuserkey_Click);
             // 
             // FrmUserManger
             // 
@@ -76,7 +78,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 修改用户信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Tsmiupuserinfo;
+        private System.Windows.Forms.ToolStripMenuItem Tsmiupuserkey;
     }
 }

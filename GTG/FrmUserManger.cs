@@ -16,5 +16,26 @@ namespace GTG
         {
             InitializeComponent();
         }
+        public FrmUserManger(string s)
+        {
+            InitializeComponent();
+            this.UserName = s;
+        }
+        private string UserName = "";
+        private void Tsmiupuserinfo_Click(object sender, EventArgs e)
+        {
+            FrmUpdateUserInfo finfo = new FrmUpdateUserInfo(UserName);
+            this.Hide();
+            finfo.ShowDialog();
+            this.Show();
+        }
+
+        private void Tsmiupuserkey_Click(object sender, EventArgs e)
+        {
+            FrmUpdateUserKey fkey = new GTG.FrmUpdateUserKey(UserName);
+            this.Hide();
+            fkey.ShowDialog();
+            this.Show();
+        }
     }
 }
