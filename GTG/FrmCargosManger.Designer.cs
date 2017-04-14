@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.入库管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.货品入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.货品入库单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出库管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.货品出库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.货品出库信息单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.货品入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.货品入库单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出库入库单管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,18 @@
             this.入库管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.入库管理ToolStripMenuItem.Text = "入库管理";
             // 
+            // 货品入库ToolStripMenuItem
+            // 
+            this.货品入库ToolStripMenuItem.Name = "货品入库ToolStripMenuItem";
+            this.货品入库ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.货品入库ToolStripMenuItem.Text = "货品入库";
+            // 
+            // 货品入库单ToolStripMenuItem
+            // 
+            this.货品入库单ToolStripMenuItem.Name = "货品入库单ToolStripMenuItem";
+            this.货品入库单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.货品入库单ToolStripMenuItem.Text = "货品入库单";
+            // 
             // 出库管理ToolStripMenuItem
             // 
             this.出库管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -80,18 +92,6 @@
             this.货品出库信息单ToolStripMenuItem.Name = "货品出库信息单ToolStripMenuItem";
             this.货品出库信息单ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.货品出库信息单ToolStripMenuItem.Text = "货品出库信息单";
-            // 
-            // 货品入库ToolStripMenuItem
-            // 
-            this.货品入库ToolStripMenuItem.Name = "货品入库ToolStripMenuItem";
-            this.货品入库ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.货品入库ToolStripMenuItem.Text = "货品入库";
-            // 
-            // 货品入库单ToolStripMenuItem
-            // 
-            this.货品入库单ToolStripMenuItem.Name = "货品入库单ToolStripMenuItem";
-            this.货品入库单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.货品入库单ToolStripMenuItem.Text = "货品入库单";
             // 
             // 出库入库单管理ToolStripMenuItem
             // 
