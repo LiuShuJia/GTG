@@ -84,6 +84,18 @@
     <Compile Include="FrmOutboundInventoryTable.Designer.cs">
       <DependentUpon>FrmOutboundInventoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPurchaseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPurchaseList.Designer.cs">
+      <DependentUpon>FrmPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPurchaseListDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPurchaseListDetail.Designer.cs">
+      <DependentUpon>FrmPurchaseListDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStoreFront.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +107,18 @@
     </Compile>
     <Compile Include="FrmUserManger.Designer.cs">
       <DependentUpon>FrmUserManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseList.Designer.cs">
+      <DependentUpon>FrmWarehouseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWarehouseListDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWarehouseListDetail.Designer.cs">
+      <DependentUpon>FrmWarehouseListDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,11 +140,23 @@
     <EmbeddedResource Include="FrmOutboundInventoryTable.resx">
       <DependentUpon>FrmOutboundInventoryTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPurchaseList.resx">
+      <DependentUpon>FrmPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPurchaseListDetail.resx">
+      <DependentUpon>FrmPurchaseListDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStoreFront.resx">
       <DependentUpon>FrmStoreFront.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserManger.resx">
       <DependentUpon>FrmUserManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseList.resx">
+      <DependentUpon>FrmWarehouseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWarehouseListDetail.resx">
+      <DependentUpon>FrmWarehouseListDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
