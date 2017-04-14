@@ -29,25 +29,34 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.数据备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRecover = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.数据备份ToolStripMenuItem});
+            this.tsmiBackup,
+            this.tsmiRecover});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 数据备份ToolStripMenuItem
+            // tsmiBackup
             // 
-            this.数据备份ToolStripMenuItem.Name = "数据备份ToolStripMenuItem";
-            this.数据备份ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.数据备份ToolStripMenuItem.Text = "数据备份";
+            this.tsmiBackup.Name = "tsmiBackup";
+            this.tsmiBackup.Size = new System.Drawing.Size(68, 21);
+            this.tsmiBackup.Text = "数据备份";
+            this.tsmiBackup.Click += new System.EventHandler(this.tsmiBackup_Click);
+            // 
+            // tsmiRecover
+            // 
+            this.tsmiRecover.Name = "tsmiRecover";
+            this.tsmiRecover.Size = new System.Drawing.Size(68, 21);
+            this.tsmiRecover.Text = "数据恢复";
             // 
             // FrmHelper
             // 
@@ -68,6 +77,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 数据备份ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBackup;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRecover;
     }
 }
