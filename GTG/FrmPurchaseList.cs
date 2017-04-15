@@ -101,12 +101,12 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
             if (reader.Read())
             {
-                this.txtUnit.Text = reader.GetString(reader.GetOrdinal("GUnit"));
+                this.lblUnit1.Text = reader.GetString(reader.GetOrdinal("GUnit"));
             }
             reader.Close();
             if (txtUnit.Text.Trim() != "")
             {
-                txtUnit.Enabled = false;
+                txtUnit.Visible = false;
             }
         }
 

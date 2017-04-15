@@ -30,15 +30,15 @@ namespace GTG
             string strSQL = "select * from PurchaseList ";
             adapter = new SqlDataAdapter(strSQL, strCon);
             adapter.Fill(ds, "qq");
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.DataSource = ds.Tables["qq"];
+            this.dvgPurchaseList.AutoGenerateColumns = false;
+            this.dvgPurchaseList.DataSource = ds.Tables["qq"];
 
 
             strSQL = "select * from WarehouseList";
             adapter = new SqlDataAdapter(strSQL, strCon);
             adapter.Fill(ds, "q");
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.DataSource = ds.Tables["q"];
+            this.dvgWarehouseList.AutoGenerateColumns = false;
+            this.dvgWarehouseList.DataSource = ds.Tables["q"];
         }
     }
 }

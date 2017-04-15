@@ -30,11 +30,12 @@
         {
             this.lbText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnWarehouseList = new System.Windows.Forms.Button();
             this.txtNumble = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNumble = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbText
@@ -57,72 +58,81 @@
             this.label3.Size = new System.Drawing.Size(0, 12);
             this.label3.TabIndex = 14;
             // 
-            // button1
+            // btnWarehouseList
             // 
-            this.button1.Location = new System.Drawing.Point(218, 302);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 38);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "出库";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnWarehouseList.Location = new System.Drawing.Point(130, 146);
+            this.btnWarehouseList.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnWarehouseList.Name = "btnWarehouseList";
+            this.btnWarehouseList.Size = new System.Drawing.Size(114, 26);
+            this.btnWarehouseList.TabIndex = 13;
+            this.btnWarehouseList.Text = "出库";
+            this.btnWarehouseList.UseVisualStyleBackColor = true;
+            this.btnWarehouseList.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtNumble
             // 
-            this.txtNumble.Location = new System.Drawing.Point(218, 207);
+            this.txtNumble.Location = new System.Drawing.Point(130, 87);
             this.txtNumble.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtNumble.Name = "txtNumble";
-            this.txtNumble.Size = new System.Drawing.Size(239, 21);
+            this.txtNumble.Size = new System.Drawing.Size(137, 21);
             this.txtNumble.TabIndex = 12;
             this.txtNumble.Enter += new System.EventHandler(this.txtNumble_Enter);
             this.txtNumble.Leave += new System.EventHandler(this.txtNumble_Leave);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(218, 116);
+            this.txtName.Location = new System.Drawing.Point(130, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(239, 21);
+            this.txtName.Size = new System.Drawing.Size(137, 21);
             this.txtName.TabIndex = 11;
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
-            // label2
+            // lblNumble
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(46, 216);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "请输入出库商品的数量:";
+            this.lblNumble.AutoSize = true;
+            this.lblNumble.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblNumble.Location = new System.Drawing.Point(15, 90);
+            this.lblNumble.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblNumble.Name = "lblNumble";
+            this.lblNumble.Size = new System.Drawing.Size(103, 12);
+            this.lblNumble.TabIndex = 10;
+            this.lblNumble.Text = "出库商品的数量:";
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(46, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 12);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "请输入出库商品的名称:";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblName.Location = new System.Drawing.Point(15, 41);
+            this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(103, 12);
+            this.lblName.TabIndex = 9;
+            this.lblName.Text = "出库商品的名称:";
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(128, 129);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(0, 12);
+            this.lblStock.TabIndex = 16;
             // 
             // FrmWarehouseList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 449);
+            this.ClientSize = new System.Drawing.Size(297, 242);
+            this.Controls.Add(this.lblStock);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnWarehouseList);
             this.Controls.Add(this.txtNumble);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNumble);
+            this.Controls.Add(this.lblName);
             this.Name = "FrmWarehouseList";
-            this.Text = "FrmWarehouseList";
+            this.Text = "出库";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,10 +142,11 @@
 
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnWarehouseList;
         private System.Windows.Forms.TextBox txtNumble;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNumble;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblStock;
     }
 }

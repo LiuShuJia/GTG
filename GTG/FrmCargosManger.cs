@@ -46,5 +46,23 @@ namespace GTG
             FrmPurchaseListDetail f = new FrmPurchaseListDetail();
             f.ShowDialog();
         }
+
+        private void tsmiWarehous_Click(object sender, EventArgs e)
+        {
+            FrmWarehouseList f = new FrmWarehouseList();
+            f.ShowDialog();
+        }
+
+        private void tsmiPurc_Click(object sender, EventArgs e)
+        {
+            FrmPurchaseList f = new FrmPurchaseList();
+            f.ShowDialog();
+        }
+
+        private void 出库入库详情表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDetailed f = new FrmDetailed();
+            f.ShowDialog();
+        }
     }
 }

@@ -80,18 +80,25 @@ namespace GTG
 
         private void txtNumble_Enter(object sender, EventArgs e)
         {
+            lblStock.Text = "";
             string GName = txtName.Text.Trim();
+            string unit = "";
             int numble = 0;
             string strSQl = "select * from Goods where  GName=@GName  ";
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
             if (reader.Read())
             {
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
+                unit = reader.GetString(reader.GetOrdinal("GNum"));
             }
             reader.Close();
             if (numble == 0)
             {
                 MessageBox.Show("目前没有该商品！");
+            }
+            else
+            {
+                lblStock.Text = GName + "" + numble + unit;
             }
             if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
             {

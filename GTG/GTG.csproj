@@ -60,6 +60,12 @@
     <Compile Include="FrmCargosManger.Designer.cs">
       <DependentUpon>FrmCargosManger.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetailed.Designer.cs">
+      <DependentUpon>FrmDetailed.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGoods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +95,6 @@
     </Compile>
     <Compile Include="FrmPurchaseList.Designer.cs">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPurchaseListDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPurchaseListDetail.Designer.cs">
-      <DependentUpon>FrmPurchaseListDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStoreFront.cs">
       <SubType>Form</SubType>
@@ -126,12 +126,6 @@
     <Compile Include="FrmWarehouseList.Designer.cs">
       <DependentUpon>FrmWarehouseList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmWarehouseListDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmWarehouseListDetail.Designer.cs">
-      <DependentUpon>FrmWarehouseListDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -139,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCargosManger.resx">
       <DependentUpon>FrmCargosManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailed.resx">
+      <DependentUpon>FrmDetailed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGoods.resx">
       <DependentUpon>FrmGoods.cs</DependentUpon>
@@ -155,9 +152,6 @@
     <EmbeddedResource Include="FrmPurchaseList.resx">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPurchaseListDetail.resx">
-      <DependentUpon>FrmPurchaseListDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmStoreFront.resx">
       <DependentUpon>FrmStoreFront.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,9 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWarehouseList.resx">
       <DependentUpon>FrmWarehouseList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmWarehouseListDetail.resx">
-      <DependentUpon>FrmWarehouseListDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
