@@ -23,11 +23,10 @@ namespace GTG
         private void btnSelect_Click(object sender, EventArgs e)
         {
             string gname = txtName.Text;
-            string gnum = txtNum.Text;
             string gstyle = txtStyle.Text;
 
             DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"GName like '%{gname}%' and GNum like '%{gnum}%' and GStyle like '%{gstyle}%'";
+            dv.RowFilter = $"GName like '%{gname}%'";
             this.dataGridView1.DataSource = dv;
         }
 
