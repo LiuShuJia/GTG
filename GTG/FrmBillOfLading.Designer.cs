@@ -54,6 +54,7 @@
             this.btnSelect.TabIndex = 15;
             this.btnSelect.Text = "查询";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // txtSaleName
             // 
