@@ -54,11 +54,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBillOfLading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBillOfLading.Designer.cs">
+      <DependentUpon>FrmBillOfLading.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCargosManger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCargosManger.Designer.cs">
       <DependentUpon>FrmCargosManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClerk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClerk.Designer.cs">
+      <DependentUpon>FrmClerk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClientele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClientele.Designer.cs">
+      <DependentUpon>FrmClientele.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDetailed.cs">
       <SubType>Form</SubType>
@@ -96,6 +114,12 @@
     <Compile Include="FrmPurchaseList.Designer.cs">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSalesTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalesTicket.Designer.cs">
+      <DependentUpon>FrmSalesTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStoreFront.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,8 +155,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBillOfLading.resx">
+      <DependentUpon>FrmBillOfLading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCargosManger.resx">
       <DependentUpon>FrmCargosManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClerk.resx">
+      <DependentUpon>FrmClerk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClientele.resx">
+      <DependentUpon>FrmClientele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetailed.resx">
       <DependentUpon>FrmDetailed.cs</DependentUpon>
@@ -151,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPurchaseList.resx">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalesTicket.resx">
+      <DependentUpon>FrmSalesTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStoreFront.resx">
       <DependentUpon>FrmStoreFront.cs</DependentUpon>

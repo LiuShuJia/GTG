@@ -17,40 +17,46 @@ namespace GTG
         {
             InitializeComponent();
         }
+        public FrmStoreFront(FrmStoreFront f)
+        {
+            this.f = f;
+            InitializeComponent();
+        }
         public FrmStoreFront(string CCardID)
         {
             this.CCardID = CCardID;
             InitializeComponent();
         }
+        private FrmStoreFront f;
         private DBHelper helper = new DBHelper();
         private string CCardID;
         private void tsmiClerk_Click(object sender, EventArgs e)
         {
-            string SName = this.cmbName.Text.Trim();
-            string SAddress= this.txtAddress.Text.Trim();
-            string strSQL = "select * from CLerk where (SName=@SName or len(@SName)=0)and (SAddress=@SAddress or len(@SAddress)=0)";
-            using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
-                  new SqlParameter("@SName", this.cmbName.Text.Trim()),
-                   new SqlParameter("@SAddress", this.txtAddress.Text.Trim())))
-            {
-                while (reader.Read())
-                {
-                    SName= reader.GetString(reader.GetOrdinal("SName"));
-                    this.cmbName.Items.Add(SName);
-                    SAddress = reader.GetString(reader.GetOrdinal("SAddress"));
-                    this.cmbText2.Items.Add(SName);
+            //string SName = this.cmbName.Text.Trim();
+            //string SAddress= this.txtAddress.Text.Trim();
+            //string strSQL = "select * from CLerk where (SName=@SName or len(@SName)=0)and (SAddress=@SAddress or len(@SAddress)=0)";
+            //using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
+            //      new SqlParameter("@SName", this.cmbName.Text.Trim()),
+            //       new SqlParameter("@SAddress", this.txtAddress.Text.Trim())))
+            //{
+            //    while (reader.Read())
+            //    {
+            //        SName= reader.GetString(reader.GetOrdinal("SName"));
+            //        this.cmbName.Items.Add(SName);
+            //        SAddress = reader.GetString(reader.GetOrdinal("SAddress"));
+            //        this.cmbText2.Items.Add(SName);
                     
 
-                    ListViewItem lst = new ListViewItem();
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
+            //        ListViewItem lst = new ListViewItem();
+            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
+            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
+            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
+            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
 
-                    this.lstTable.Items.Add(lst);
-                }
-                reader.Close();
-            }
+            //        this.lstTable.Items.Add(lst);
+            //    }
+            //    reader.Close();
+            //}
         }
 
         private void tsmi_Click(object sender, EventArgs e)
@@ -65,7 +71,7 @@ namespace GTG
 
         private void FrmStoreFront_Load(object sender, EventArgs e)
         {
-            string SName = this.cmbName.Text.Trim(); ;
+            string SName = this.cmbSaleName.Text.Trim(); ;
             string SAddress = this.txtAddress.Text.Trim();
             string strSQL = "select * from CLerk where SID=@SID";
             using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text))
@@ -103,6 +109,12 @@ namespace GTG
         private void tsmiClientele_Click(object sender, EventArgs e)                            //客户信息表
         {
             //lblText1.Text = "按姓名查询：";
+        }
+
+        private void tsmiClerk_Click_1(object sender, EventArgs e)
+        {
+            FrmClerk f = new FrmClerk();
+            f.ShowDialog();
         }
     }
 }
