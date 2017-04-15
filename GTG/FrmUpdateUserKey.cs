@@ -28,7 +28,7 @@ namespace GTG
         {        
             string oldkey = this.txtoldpassword.Text.Trim();
             string newkey = this.txtnewpassword.Text.Trim();
-            string twokey = this.txttwopassword.Text.Trim();
+            string twokey = this.txtsureNewpassword.Text.Trim();
             bool isEqual = Isnullandequal(newkey , twokey);
             if (isEqual == true)
             {
@@ -76,18 +76,18 @@ namespace GTG
             }
                 if (this.txtoldpassword.Text.Trim()== password)
                 {
-                    this.txttwopassword.Enabled = true;//如果密码输入正确的话,就设置确认密码可用
+                    this.txtsureNewpassword.Enabled = true;//如果密码输入正确的话,就设置确认密码可用
             } 
                 else
             {
                 MessageBox.Show("您输入的密码有误");
-                this.txttwopassword.Enabled = false;//如果密码错误，让确认密码不可用
+                this.txtsureNewpassword.Enabled = false;//如果密码错误，让确认密码不可用
             }          
         }
 
         private void FrmUpdateUserKey_Load(object sender, EventArgs e)
         {
-            this.txttwopassword.Enabled =false;//设置让确认密码不可用，如果密码输入不正确的话
+            this.txtsureNewpassword.Enabled =false;//设置让确认密码不可用，如果密码输入不正确的话
         }
     }
 }
