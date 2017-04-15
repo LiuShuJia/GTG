@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace GTG
 {
-    public partial class Form1 : Form
+    public partial class FrmLogin : Form
     {
-        public Form1()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -26,13 +26,13 @@ namespace GTG
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if (this.txtKey.Text.Trim() == "")//如果txtkey从没有获得焦点，就点击按钮时判断是否为空
+            if (this.txtpassword.Text.Trim() == "")//如果txtkey从没有获得焦点，就点击按钮时判断是否为空
             {
                 MessageBox.Show("请输入密码！");
                 return;
             }
             string userName = this.txtUserName.Text.Trim();
-            string key = this.txtKey.Text.Trim();
+            string key = this.txtpassword.Text.Trim();
             int i = 0;//设置i为0
             string password = "";
             string strSQL = @"select LoginPWD from Admin where LoginId=@LoginId";
@@ -48,7 +48,7 @@ namespace GTG
             {
                 MessageBox.Show("用户名不存在！");
                 this.txtUserName.Clear();
-                this.txtKey.Clear();
+                this.txtpassword.Clear();
             }
             else
             {
@@ -59,32 +59,21 @@ namespace GTG
                     this.Hide();
                     fum.ShowDialog();
                     this.txtUserName.Clear();
-                    this.txtKey.Clear();
+                    this.txtpassword.Clear();
                     this.Show();
                 }
                 else
                 {
                     MessageBox.Show("您的密码不正确！");
-                    this.txtKey.Clear();
+                    this.txtpassword.Clear();
                 }
             }
         }
 
-        private void picsee_Click(object sender, EventArgs e)
-        {
-            if (this.txtKey.PasswordChar == '*')//如果为*，则变成字符串，反之也是
-            {
-                this.txtKey.PasswordChar = (char)0;
-            }
-            else
-            {
-                this.txtKey.PasswordChar = '*';
-            }
-        }
-
+      
         private void picsee_MouseDown(object sender, MouseEventArgs e)
         {
-            this.txtKey.PasswordChar = (char)0;//鼠标离开变成*
+            this.txtpassword.PasswordChar = (char)0;//鼠标离开变成*
         }
 
         private void txtKey_Enter(object sender, EventArgs e)
@@ -99,10 +88,22 @@ namespace GTG
 
         private void txtKey_Leave(object sender, EventArgs e)
         {
-            if (this.txtKey.Text.Trim() == "")//在离开控件是判断密码是否为空
+            if (this.txtpassword.Text.Trim() == "")//在离开控件是判断密码是否为空
             {
                 MessageBox.Show("请输入密码！");
                 return;
+            }
+        }
+
+        private void piceye_Click(object sender, EventArgs e)
+        {
+            if (this.txtpassword.PasswordChar == '*')//如果为*，则变成字符串，反之也是
+            {
+                this.txtpassword.PasswordChar = (char)0;
+            }
+            else
+            {
+                this.txtpassword.PasswordChar = '*';
             }
         }
     }
