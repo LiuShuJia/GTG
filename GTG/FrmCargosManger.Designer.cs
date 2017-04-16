@@ -32,7 +32,7 @@
             this.tsmiPurc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWarehous = new System.Windows.Forms.ToolStripMenuItem();
             this.出库入库单管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.出库入库详情表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDetailed = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             this.tsmiPurc,
             this.tsmiWarehous,
             this.出库入库单管理ToolStripMenuItem,
-            this.出库入库详情表ToolStripMenuItem});
+            this.tsmiDetailed});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(435, 25);
@@ -54,13 +54,14 @@
             this.tsmiPurc.Name = "tsmiPurc";
             this.tsmiPurc.Size = new System.Drawing.Size(68, 21);
             this.tsmiPurc.Text = "入库管理";
-            this.tsmiPurc.Click += new System.EventHandler(this.tsmiPurc_Click);
+            this.tsmiPurc.Click += new System.EventHandler(this.tsmiPurc_Click_1);
             // 
             // tsmiWarehous
             // 
             this.tsmiWarehous.Name = "tsmiWarehous";
             this.tsmiWarehous.Size = new System.Drawing.Size(68, 21);
             this.tsmiWarehous.Text = "出库管理";
+            this.tsmiWarehous.Click += new System.EventHandler(this.tsmiWarehous_Click_1);
             // 
             // 出库入库单管理ToolStripMenuItem
             // 
@@ -69,12 +70,12 @@
             this.出库入库单管理ToolStripMenuItem.Text = "出库入库单表";
             this.出库入库单管理ToolStripMenuItem.Click += new System.EventHandler(this.tsmiOutboundInventoryTable);
             // 
-            // 出库入库详情表ToolStripMenuItem
+            // tsmiDetailed
             // 
-            this.出库入库详情表ToolStripMenuItem.Name = "出库入库详情表ToolStripMenuItem";
-            this.出库入库详情表ToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
-            this.出库入库详情表ToolStripMenuItem.Text = "出库入库详情表";
-            this.出库入库详情表ToolStripMenuItem.Click += new System.EventHandler(this.出库入库详情表ToolStripMenuItem_Click);
+            this.tsmiDetailed.Name = "tsmiDetailed";
+            this.tsmiDetailed.Size = new System.Drawing.Size(104, 21);
+            this.tsmiDetailed.Text = "出库入库详情表";
+            this.tsmiDetailed.Click += new System.EventHandler(this.tsmiDetailed_Click);
             // 
             // FrmCargosManger
             // 
@@ -98,6 +99,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiPurc;
         private System.Windows.Forms.ToolStripMenuItem tsmiWarehous;
         private System.Windows.Forms.ToolStripMenuItem 出库入库单管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 出库入库详情表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDetailed;
     }
 }

@@ -19,6 +19,13 @@ namespace GTG
         {
             InitializeComponent();
         }
+        public FrmPurchaseList(Form parentForm)
+        {
+            InitializeComponent();
+            this.parentForm = parentForm;
+
+        }
+        private Form parentForm;
         private DBHelper helper = new DBHelper();
         private void button1_Click(object sender, EventArgs e)
         {
@@ -44,24 +51,25 @@ namespace GTG
             }
             else
             {
-                strSQl = "insert into Goods (GName,GNum,GUnit)valuse(@GName,@GNum,@GUnit)  ";
+                strSQl = "insert into Goods (GName,GNum,GUnit)values(@GName,@GNum,@GUnit)  ";
             }
             int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
                     new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit));
             
             if (rows > 0)
             {
-                int wid = 0;
-                strSQl = "insert into PurchaseList (WID,PinDate)valuse(@WID,getdate())  ";
+                int wid = 1;
+                strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
                 rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
                 if (rows > 0)
                 {
-                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum,)valuse(select max(PID) from PurchaseList," +
+                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values(select max(PID) from PurchaseList," +
                         "select GID from Goods where GName=@GName,@GNum)  ";
                     rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
                      new SqlParameter("@GNum", Numble));
                     if (rows > 0)
                     {
+                        this.lblUnit1.Text = "";
                         if (numble > 0)
                         {
                             MessageBox.Show("入库成功！");
@@ -104,9 +112,10 @@ namespace GTG
                 this.lblUnit1.Text = reader.GetString(reader.GetOrdinal("GUnit"));
             }
             reader.Close();
-            if (txtUnit.Text.Trim() != "")
+            if (lblUnit1.Text.Trim() != "")
             {
                 txtUnit.Visible = false;
+                this.txtUnit.Text = this.lblUnit1.Text;
             }
         }
 

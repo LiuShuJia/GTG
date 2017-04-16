@@ -19,49 +19,55 @@ namespace GTG
         
         private void tsmiOutboundInventoryTable(object sender, EventArgs e)
         {
-            FrmOutboundInventoryTable f = new FrmOutboundInventoryTable();
+            FrmOutboundInventoryTable f = new FrmOutboundInventoryTable(this);
             f.ShowDialog();
         }
 
         private void tsmiWarehouseList_Click(object sender, EventArgs e)
         {
-            FrmWarehouseList f = new FrmWarehouseList();
-            f.ShowDialog();
+            
         }
 
         private void tsmiPurchaseList_Click(object sender, EventArgs e)
         {
-            FrmPurchaseList f = new FrmPurchaseList();
-            f.ShowDialog();
+           
         }
 
         private void tsmiWarehouseListDetail_Click(object sender, EventArgs e)
         {
-            FrmWarehouseListDetail f = new FrmWarehouseListDetail();
-            f.ShowDialog();
         }
 
         private void tsmiPurchaseListDetail_Click(object sender, EventArgs e)
         {
-            FrmPurchaseListDetail f = new FrmPurchaseListDetail();
-            f.ShowDialog();
         }
 
         private void tsmiWarehous_Click(object sender, EventArgs e)
         {
-            FrmWarehouseList f = new FrmWarehouseList();
+            FrmWarehouseList f = new FrmWarehouseList(this);
             f.ShowDialog();
         }
 
         private void tsmiPurc_Click(object sender, EventArgs e)
         {
-            FrmPurchaseList f = new FrmPurchaseList();
+            FrmPurchaseList f = new FrmPurchaseList(this);
+            f.ShowDialog();
+        }
+        
+        private void tsmiDetailed_Click(object sender, EventArgs e)
+        {
+            FrmDetailed f = new FrmDetailed(this);
             f.ShowDialog();
         }
 
-        private void 出库入库详情表ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiPurc_Click_1(object sender, EventArgs e)
         {
-            FrmDetailed f = new FrmDetailed();
+            FrmPurchaseList f = new FrmPurchaseList(this);
+            f.ShowDialog();
+        }
+
+        private void tsmiWarehous_Click_1(object sender, EventArgs e)
+        {
+            FrmWarehouseList f = new FrmWarehouseList(this);
             f.ShowDialog();
         }
     }

@@ -32,10 +32,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnWarehouseList = new System.Windows.Forms.Button();
             this.txtNumble = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.lblNumble = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
+            this.cboName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbText
@@ -74,19 +74,10 @@
             this.txtNumble.Location = new System.Drawing.Point(130, 87);
             this.txtNumble.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtNumble.Name = "txtNumble";
-            this.txtNumble.Size = new System.Drawing.Size(137, 21);
+            this.txtNumble.Size = new System.Drawing.Size(121, 21);
             this.txtNumble.TabIndex = 12;
             this.txtNumble.Enter += new System.EventHandler(this.txtNumble_Enter);
             this.txtNumble.Leave += new System.EventHandler(this.txtNumble_Leave);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(130, 38);
-            this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(137, 21);
-            this.txtName.TabIndex = 11;
-            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // lblNumble
             // 
@@ -118,21 +109,31 @@
             this.lblStock.Size = new System.Drawing.Size(0, 12);
             this.lblStock.TabIndex = 16;
             // 
+            // cboName
+            // 
+            this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboName.FormattingEnabled = true;
+            this.cboName.Location = new System.Drawing.Point(130, 41);
+            this.cboName.Name = "cboName";
+            this.cboName.Size = new System.Drawing.Size(121, 20);
+            this.cboName.TabIndex = 17;
+            // 
             // FrmWarehouseList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 242);
+            this.Controls.Add(this.cboName);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnWarehouseList);
             this.Controls.Add(this.txtNumble);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblNumble);
             this.Controls.Add(this.lblName);
             this.Name = "FrmWarehouseList";
             this.Text = "出库";
+            this.Load += new System.EventHandler(this.FrmWarehouseList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,9 +145,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnWarehouseList;
         private System.Windows.Forms.TextBox txtNumble;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblNumble;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.ComboBox cboName;
     }
 }

@@ -18,6 +18,13 @@ namespace GTG
         {
             InitializeComponent();
         }
+        public FrmWarehouseList(Form parentForm)
+        {
+            InitializeComponent();
+            this.parentForm = parentForm;
+
+        }
+        private Form parentForm;
         private DBHelper helper = new DBHelper();
         private void button1_Click(object sender, EventArgs e)
         {
@@ -26,7 +33,7 @@ namespace GTG
                 MessageBox.Show("商品数量必须大于0！");
                 return;
             }
-            string GName = txtName.Text.Trim();
+            string GName = cboName.Text.Trim();
             string Numble = txtNumble.Text.Trim();
             int numble = 0;
             string strSQl = "select * from Goods where  GName=@GName  ";
@@ -43,12 +50,12 @@ namespace GTG
                     new SqlParameter("@GNum", Numble));
                 if (rows > 0)
                 {
-                    int wid = 0;
-                    strSQl = "insert into PurchaseList (WID,PinDate)valuse(@WID,getdate())  ";
+                    int wid = 1;
+                    strSQl = "insert into WarehouseList (WID,PinDate)values(@WID,getdate())  ";
                     rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
                     if (rows > 0)
                     {
-                        strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum,)valuse(select max(PID) from PurchaseList," +
+                        strSQl = "insert into WarehouseListDetail (WLDID,GID,WLDNum,)values(select max(PID) from PurchaseList," +
                             "select GID from Goods where GName=@GName,@GNum)  ";
                         rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
                          new SqlParameter("@GNum", Numble));
@@ -81,7 +88,7 @@ namespace GTG
         private void txtNumble_Enter(object sender, EventArgs e)
         {
             lblStock.Text = "";
-            string GName = txtName.Text.Trim();
+            string GName = cboName.Text.Trim();
             string unit = "";
             int numble = 0;
             string strSQl = "select * from Goods where  GName=@GName  ";
@@ -89,7 +96,7 @@ namespace GTG
             if (reader.Read())
             {
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
-                unit = reader.GetString(reader.GetOrdinal("GNum"));
+                unit = reader.GetString(reader.GetOrdinal("GUnit"));
             }
             reader.Close();
             if (numble == 0)
@@ -98,9 +105,9 @@ namespace GTG
             }
             else
             {
-                lblStock.Text = GName + "" + numble + unit;
+                lblStock.Text = GName + "的库存为：" + numble + unit;
             }
-            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
+            if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
             {
                 MessageBox.Show("商品名不能为空！");
             }
@@ -108,7 +115,7 @@ namespace GTG
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text.Trim(),@"^\w+$")==false )
+            if (Regex.IsMatch(cboName.Text.Trim(),@"^\w+$")==false )
             {
                 MessageBox.Show("商品名不能为空！");
             }
@@ -120,6 +127,17 @@ namespace GTG
             {
                 MessageBox.Show("商品数量必须大于0！");
             }
+        }
+
+        private void FrmWarehouseList_Load(object sender, EventArgs e)
+        {
+            string strSQl = "select * from Goods ";
+            IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text);
+            if (reader.Read())
+            {
+                this.cboName.Items.Add(reader.GetInt32(reader.GetOrdinal("GName")));
+            }
+            reader.Close();
         }
     }
 }

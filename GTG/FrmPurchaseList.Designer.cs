@@ -68,7 +68,6 @@
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(61, 21);
             this.txtUnit.TabIndex = 17;
-            this.txtUnit.Visible = false;
             this.txtUnit.Enter += new System.EventHandler(this.txtUnit_Enter);
             this.txtUnit.Leave += new System.EventHandler(this.txtUnit_Leave);
             // 
@@ -165,7 +164,7 @@
         private System.Windows.Forms.Label lblNuit;
         private System.Windows.Forms.Label lblNumble;
         private System.Windows.Forms.Label lblName;
-        public System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Label lblUnit1;
+        private System.Windows.Forms.TextBox txtUnit;
     }
 }
