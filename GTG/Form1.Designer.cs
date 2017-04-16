@@ -41,10 +41,10 @@
             // piceye
             // 
             this.piceye.Image = global::GTG.Properties.Resources.eye1;
-            this.piceye.Location = new System.Drawing.Point(208, 171);
+            this.piceye.Location = new System.Drawing.Point(254, 170);
             this.piceye.Margin = new System.Windows.Forms.Padding(4);
             this.piceye.Name = "piceye";
-            this.piceye.Size = new System.Drawing.Size(36, 26);
+            this.piceye.Size = new System.Drawing.Size(26, 26);
             this.piceye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piceye.TabIndex = 20;
             this.piceye.TabStop = false;
@@ -55,7 +55,7 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblLogin.Location = new System.Drawing.Point(124, 40);
+            this.lblLogin.Location = new System.Drawing.Point(99, 41);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(110, 24);
@@ -68,7 +68,7 @@
             this.txtpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '*';
-            this.txtpassword.Size = new System.Drawing.Size(116, 25);
+            this.txtpassword.Size = new System.Drawing.Size(152, 25);
             this.txtpassword.TabIndex = 18;
             this.txtpassword.Enter += new System.EventHandler(this.txtKey_Enter);
             this.txtpassword.Leave += new System.EventHandler(this.txtKey_Leave);
@@ -78,12 +78,12 @@
             this.txtUserName.Location = new System.Drawing.Point(128, 105);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(116, 25);
+            this.txtUserName.Size = new System.Drawing.Size(152, 25);
             this.txtUserName.TabIndex = 17;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(128, 236);
+            this.btnLogin.Location = new System.Drawing.Point(103, 237);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(116, 29);
@@ -95,7 +95,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(40, 171);
+            this.lblPassword.Location = new System.Drawing.Point(53, 171);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(52, 15);
@@ -105,7 +105,7 @@
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(40, 108);
+            this.lblUserName.Location = new System.Drawing.Point(53, 108);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(67, 15);
