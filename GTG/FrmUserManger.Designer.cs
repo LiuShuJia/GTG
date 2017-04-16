@@ -36,36 +36,40 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Tsmiupuserinfo,
             this.Tsmiupuserkey});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(391, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(315, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // Tsmiupuserinfo
             // 
             this.Tsmiupuserinfo.Name = "Tsmiupuserinfo";
-            this.Tsmiupuserinfo.Size = new System.Drawing.Size(92, 21);
+            this.Tsmiupuserinfo.Size = new System.Drawing.Size(111, 24);
             this.Tsmiupuserinfo.Text = "修改用户信息";
             this.Tsmiupuserinfo.Click += new System.EventHandler(this.Tsmiupuserinfo_Click);
             // 
             // Tsmiupuserkey
             // 
             this.Tsmiupuserkey.Name = "Tsmiupuserkey";
-            this.Tsmiupuserkey.Size = new System.Drawing.Size(68, 21);
+            this.Tsmiupuserkey.Size = new System.Drawing.Size(81, 24);
             this.Tsmiupuserkey.Text = "修改密码";
             this.Tsmiupuserkey.Click += new System.EventHandler(this.Tsmiupuserkey_Click);
             // 
             // FrmUserManger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 261);
+            this.ClientSize = new System.Drawing.Size(315, 299);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmUserManger";
             this.Text = "用户管理界面";
             this.menuStrip1.ResumeLayout(false);

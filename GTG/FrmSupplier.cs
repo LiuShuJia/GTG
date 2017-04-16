@@ -11,28 +11,28 @@ using System.Data.SqlClient;
 
 namespace GTG
 {
-    public partial class FrmGoods : Form
+    public partial class FrmSupplier : Form
     {
-        public FrmGoods()
+        public FrmSupplier()
         {
             InitializeComponent();
         }
         private string strCon = @"server=.\SQL2014;database=GTGDB;uid=sa;password=123;";
         private SqlDataAdapter adapter = null;
         private DataSet ds = new DataSet();
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void btnQue_Click(object sender, EventArgs e)
         {
-            string gname = txtName.Text;
-            string gstyle = txtStyle.Text;
+            string Sname = txtName.Text;
+            string gstyle = txtPhone.Text;
 
             DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"GName like '%{gname}%' and Gstyle like '%{gstyle}%";
+            dv.RowFilter = $"SPName  like '%{Sname}%' and SPMan  like '%{gstyle}%' ";
             this.dataGridView1.DataSource = dv;
         }
 
-        private void FrmGoods_Load(object sender, EventArgs e)
+        private void FrmSupplier_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from Goods";
+            string strSQL = "select * from Supplier";
             adapter = new SqlDataAdapter(strSQL, strCon);
             adapter.Fill(ds, "qq");
             this.dataGridView1.AutoGenerateColumns = false;

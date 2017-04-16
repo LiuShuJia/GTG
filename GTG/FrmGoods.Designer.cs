@@ -39,10 +39,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtNum = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -133,15 +131,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "商品名：";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "商品单位：";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -158,13 +147,6 @@
             this.txtName.Size = new System.Drawing.Size(134, 21);
             this.txtName.TabIndex = 6;
             // 
-            // txtNum
-            // 
-            this.txtNum.Location = new System.Drawing.Point(337, 37);
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(134, 21);
-            this.txtNum.TabIndex = 7;
-            // 
             // txtStyle
             // 
             this.txtStyle.Location = new System.Drawing.Point(102, 85);
@@ -174,7 +156,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(337, 83);
+            this.btnSelect.Location = new System.Drawing.Point(330, 37);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(134, 23);
             this.btnSelect.TabIndex = 9;
@@ -189,10 +171,8 @@
             this.ClientSize = new System.Drawing.Size(543, 481);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtStyle);
-            this.Controls.Add(this.txtNum);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -221,10 +201,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.TextBox txtStyle;
         private System.Windows.Forms.Button btnSelect;
     }

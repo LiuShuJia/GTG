@@ -29,71 +29,81 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbloldpassword = new System.Windows.Forms.Label();
+            this.lblnewpassword = new System.Windows.Forms.Label();
+            this.lblsureNewpassword = new System.Windows.Forms.Label();
             this.txtoldpassword = new System.Windows.Forms.TextBox();
             this.txtnewpassword = new System.Windows.Forms.TextBox();
-            this.txttwopassword = new System.Windows.Forms.TextBox();
+            this.txtsureNewpassword = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lbloldpassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "旧密码：";
+            this.lbloldpassword.AutoSize = true;
+            this.lbloldpassword.Location = new System.Drawing.Point(68, 53);
+            this.lbloldpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbloldpassword.Name = "lbloldpassword";
+            this.lbloldpassword.Size = new System.Drawing.Size(67, 15);
+            this.lbloldpassword.TabIndex = 0;
+            this.lbloldpassword.Text = "旧密码：";
             // 
-            // label2
+            // lblnewpassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "新密码：";
+            this.lblnewpassword.AutoSize = true;
+            this.lblnewpassword.Location = new System.Drawing.Point(68, 120);
+            this.lblnewpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblnewpassword.Name = "lblnewpassword";
+            this.lblnewpassword.Size = new System.Drawing.Size(67, 15);
+            this.lblnewpassword.TabIndex = 1;
+            this.lblnewpassword.Text = "新密码：";
             // 
-            // label3
+            // lblsureNewpassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "确定新密码：";
+            this.lblsureNewpassword.AutoSize = true;
+            this.lblsureNewpassword.Location = new System.Drawing.Point(36, 193);
+            this.lblsureNewpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblsureNewpassword.Name = "lblsureNewpassword";
+            this.lblsureNewpassword.Size = new System.Drawing.Size(97, 15);
+            this.lblsureNewpassword.TabIndex = 2;
+            this.lblsureNewpassword.Text = "确定新密码：";
             // 
             // txtoldpassword
             // 
-            this.txtoldpassword.Location = new System.Drawing.Point(112, 44);
+            this.txtoldpassword.Location = new System.Drawing.Point(146, 49);
+            this.txtoldpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtoldpassword.Name = "txtoldpassword";
-            this.txtoldpassword.Size = new System.Drawing.Size(100, 21);
+            this.txtoldpassword.PasswordChar = '*';
+            this.txtoldpassword.Size = new System.Drawing.Size(92, 25);
             this.txtoldpassword.TabIndex = 3;
             this.txtoldpassword.Leave += new System.EventHandler(this.txtoldpassword_Leave);
             // 
             // txtnewpassword
             // 
-            this.txtnewpassword.Location = new System.Drawing.Point(112, 101);
+            this.txtnewpassword.Location = new System.Drawing.Point(146, 120);
+            this.txtnewpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtnewpassword.Name = "txtnewpassword";
-            this.txtnewpassword.Size = new System.Drawing.Size(100, 21);
+            this.txtnewpassword.PasswordChar = '*';
+            this.txtnewpassword.Size = new System.Drawing.Size(92, 25);
             this.txtnewpassword.TabIndex = 4;
             // 
-            // txttwopassword
+            // txtsureNewpassword
             // 
-            this.txttwopassword.Location = new System.Drawing.Point(112, 156);
-            this.txttwopassword.Name = "txttwopassword";
-            this.txttwopassword.Size = new System.Drawing.Size(100, 21);
-            this.txttwopassword.TabIndex = 5;
+            this.txtsureNewpassword.Location = new System.Drawing.Point(146, 189);
+            this.txtsureNewpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsureNewpassword.Name = "txtsureNewpassword";
+            this.txtsureNewpassword.PasswordChar = '*';
+            this.txtsureNewpassword.Size = new System.Drawing.Size(92, 25);
+            this.txtsureNewpassword.TabIndex = 5;
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(90, 216);
+            this.btnModify.Location = new System.Drawing.Point(138, 260);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.Size = new System.Drawing.Size(100, 29);
             this.btnModify.TabIndex = 6;
             this.btnModify.Text = "修改";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -105,16 +115,17 @@
             // 
             // FrmUpdateUserKey
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 259);
+            this.ClientSize = new System.Drawing.Size(310, 332);
             this.Controls.Add(this.btnModify);
-            this.Controls.Add(this.txttwopassword);
+            this.Controls.Add(this.txtsureNewpassword);
             this.Controls.Add(this.txtnewpassword);
             this.Controls.Add(this.txtoldpassword);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblsureNewpassword);
+            this.Controls.Add(this.lblnewpassword);
+            this.Controls.Add(this.lbloldpassword);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FrmUpdateUserKey";
             this.Text = "修改用户密码";
@@ -127,12 +138,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbloldpassword;
+        private System.Windows.Forms.Label lblnewpassword;
+        private System.Windows.Forms.Label lblsureNewpassword;
         private System.Windows.Forms.TextBox txtoldpassword;
         private System.Windows.Forms.TextBox txtnewpassword;
-        private System.Windows.Forms.TextBox txttwopassword;
+        private System.Windows.Forms.TextBox txtsureNewpassword;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
