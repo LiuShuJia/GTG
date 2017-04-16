@@ -78,6 +78,7 @@ namespace GTG
 
         private void tsmiRecover_Click(object sender, EventArgs e)
         {
+
             string openAway = this.txtReduce.Text.ToString().Trim();//读取恢复文件的路径
             string cmdText = @"restore database GTGDB from disk='" + openAway + "' With Replace";
             BakReductSql(cmdText, false);
