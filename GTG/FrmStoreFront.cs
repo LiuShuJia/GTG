@@ -22,41 +22,17 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
-        public FrmStoreFront(string CCardID)
-        {
-            this.CCardID = CCardID;
-            InitializeComponent();
-        }
+        //public FrmStoreFront(string CCardID)
+        //{
+        //    this.CCardID = CCardID;
+        //    InitializeComponent();
+        //}
         private FrmStoreFront f;
         private DBHelper helper = new DBHelper();
         private string CCardID;
         private void tsmiClerk_Click(object sender, EventArgs e)
         {
-            //string SName = this.cmbName.Text.Trim();
-            //string SAddress= this.txtAddress.Text.Trim();
-            //string strSQL = "select * from CLerk where (SName=@SName or len(@SName)=0)and (SAddress=@SAddress or len(@SAddress)=0)";
-            //using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
-            //      new SqlParameter("@SName", this.cmbName.Text.Trim()),
-            //       new SqlParameter("@SAddress", this.txtAddress.Text.Trim())))
-            //{
-            //    while (reader.Read())
-            //    {
-            //        SName= reader.GetString(reader.GetOrdinal("SName"));
-            //        this.cmbName.Items.Add(SName);
-            //        SAddress = reader.GetString(reader.GetOrdinal("SAddress"));
-            //        this.cmbText2.Items.Add(SName);
-                    
-
-            //        ListViewItem lst = new ListViewItem();
-            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
-            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
-            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
-            //        lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
-
-            //        this.lstTable.Items.Add(lst);
-            //    }
-            //    reader.Close();
-            //}
+           
         }
 
         private void tsmi_Click(object sender, EventArgs e)
@@ -71,23 +47,25 @@ namespace GTG
 
         private void FrmStoreFront_Load(object sender, EventArgs e)
         {
-            string SName = this.cmbSaleName.Text.Trim(); ;
-            string SAddress = this.txtAddress.Text.Trim();
-            string strSQL = "select * from CLerk where SID=@SID";
-            using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text))
+            this.lstTable.Items.Clear();
+            string strSQL = "select * from SalesStore";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
+            while (reader.Read())
             {
-                while (reader.Read())
-                {
-                    ListViewItem lst = new ListViewItem();
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
-                    lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
+                string SaleName= reader.GetString(reader.GetOrdinal("SaleName"));
+                this.cmbSaleName.Items.Add(SaleName);
+                string SAddress = reader.GetString(reader.GetOrdinal("SAddress"));
+                this.cmbSaleName.Items.Add(SAddress);
 
-                    this.lstTable.Items.Add(lst);
-                }
-                reader.Close();
+                ListViewItem lst = new ListViewItem();
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
+
+                this.lstTable.Items.Add(lst);
             }
+            reader.Close();
 
         }
 
@@ -98,23 +76,56 @@ namespace GTG
 
         private void tsmiBillOfLading_Click(object sender, EventArgs e)                            //提货表
         {
-            //lblText1.Text = "按日期查询：";
+            FrmBillOfLading f = new FrmBillOfLading();
+            f.ShowDialog();
         }
 
         private void tsmiSalesTicket_Click(object sender, EventArgs e)                              //销售表
         {
-            //lblText1.Text = "按日期查询：";
+            FrmSalesTicket f = new FrmSalesTicket();
+            f.ShowDialog();
         }
 
         private void tsmiClientele_Click(object sender, EventArgs e)                            //客户信息表
         {
-            //lblText1.Text = "按姓名查询：";
+            FrmClientele f = new FrmClientele();
+            f.ShowDialog();
         }
 
         private void tsmiClerk_Click_1(object sender, EventArgs e)
         {
             FrmClerk f = new FrmClerk();
             f.ShowDialog();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            this.lstTable.Items.Clear();
+            if (this.cmbSaleName.Text.Trim() == "查询全部")
+            {
+                this.cmbSaleName.Text = "";
+            }
+            if (this.cmbSManagerName.Text.Trim() == "查询全部")
+            {
+                this.cmbSManagerName.Text = "";
+            }
+            this.lstTable.Items.Clear();
+            string strSQL = "select * from SalesStore where(CHARINDEX(@SaleName,SaleName)>0 or len(@SaleName)=0) and(SAddress=@SAddress or len(@SAddress)=0) and (SManagerName=@SManagerName or len(@SManagerName)=0)";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
+                  new SqlParameter("@SaleName", this.cmbSaleName.Text.Trim()),
+                   new SqlParameter("@SAddress", this.txtAddress.Text.Trim()),
+                   new SqlParameter("@SManagerName", this.cmbSManagerName.Text.Trim()));
+            while (reader.Read())
+            {
+                ListViewItem lst = new ListViewItem();
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
+
+                this.lstTable.Items.Add(lst);
+            }
+            reader.Close();
         }
     }
 }

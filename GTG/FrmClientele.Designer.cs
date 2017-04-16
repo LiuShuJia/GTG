@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbName = new System.Windows.Forms.ComboBox();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,13 +51,6 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(161, 21);
             this.txtAddress.TabIndex = 13;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(99, 32);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(161, 21);
-            this.txtName.TabIndex = 12;
             // 
             // lblAddress
             // 
@@ -94,6 +87,7 @@
             this.btnSelect.TabIndex = 8;
             this.btnSelect.Text = "查询";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // lstTable
             // 
@@ -147,13 +141,23 @@
             this.tsmiModify.Size = new System.Drawing.Size(100, 22);
             this.tsmiModify.Text = "修改";
             // 
+            // cmbName
+            // 
+            this.cmbName.FormattingEnabled = true;
+            this.cmbName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbName.Location = new System.Drawing.Point(99, 35);
+            this.cmbName.Name = "cmbName";
+            this.cmbName.Size = new System.Drawing.Size(161, 20);
+            this.cmbName.TabIndex = 14;
+            // 
             // FrmClientele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 413);
+            this.Controls.Add(this.cmbName);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnAdd);
@@ -161,6 +165,7 @@
             this.Controls.Add(this.lstTable);
             this.Name = "FrmClientele";
             this.Text = "客户信息界面";
+            this.Load += new System.EventHandler(this.FrmClientele_Load);
             this.ctmsStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,7 +175,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAdd;
@@ -182,5 +186,6 @@
         private System.Windows.Forms.ContextMenuStrip ctmsStrip;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
         private System.Windows.Forms.ToolStripMenuItem tsmiModify;
+        private System.Windows.Forms.ComboBox cmbName;
     }
 }

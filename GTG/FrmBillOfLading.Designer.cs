@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.txtSaleName = new System.Windows.Forms.TextBox();
-            this.txtWName = new System.Windows.Forms.TextBox();
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblSaleName = new System.Windows.Forms.Label();
@@ -43,6 +41,8 @@
             this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbWName = new System.Windows.Forms.ComboBox();
+            this.cmbSaleName = new System.Windows.Forms.ComboBox();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,20 +55,6 @@
             this.btnSelect.Text = "查询";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // txtSaleName
-            // 
-            this.txtSaleName.Location = new System.Drawing.Point(127, 65);
-            this.txtSaleName.Name = "txtSaleName";
-            this.txtSaleName.Size = new System.Drawing.Size(135, 21);
-            this.txtSaleName.TabIndex = 14;
-            // 
-            // txtWName
-            // 
-            this.txtWName.Location = new System.Drawing.Point(127, 24);
-            this.txtWName.Name = "txtWName";
-            this.txtWName.Size = new System.Drawing.Size(135, 21);
-            this.txtWName.TabIndex = 13;
             // 
             // dtpTime
             // 
@@ -156,14 +142,34 @@
             this.tsmiModify.Size = new System.Drawing.Size(100, 22);
             this.tsmiModify.Text = "修改";
             // 
+            // cmbWName
+            // 
+            this.cmbWName.FormattingEnabled = true;
+            this.cmbWName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbWName.Location = new System.Drawing.Point(127, 27);
+            this.cmbWName.Name = "cmbWName";
+            this.cmbWName.Size = new System.Drawing.Size(135, 20);
+            this.cmbWName.TabIndex = 16;
+            // 
+            // cmbSaleName
+            // 
+            this.cmbSaleName.FormattingEnabled = true;
+            this.cmbSaleName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbSaleName.Location = new System.Drawing.Point(127, 65);
+            this.cmbSaleName.Name = "cmbSaleName";
+            this.cmbSaleName.Size = new System.Drawing.Size(135, 20);
+            this.cmbSaleName.TabIndex = 17;
+            // 
             // FrmBillOfLading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 465);
+            this.Controls.Add(this.cmbSaleName);
+            this.Controls.Add(this.cmbWName);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.txtSaleName);
-            this.Controls.Add(this.txtWName);
             this.Controls.Add(this.dtpTime);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSaleName);
@@ -171,6 +177,7 @@
             this.Controls.Add(this.lstTable);
             this.Name = "FrmBillOfLading";
             this.Text = "提货单界面";
+            this.Load += new System.EventHandler(this.FrmBillOfLading_Load);
             this.ctmsStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -180,8 +187,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.TextBox txtSaleName;
-        private System.Windows.Forms.TextBox txtWName;
         private System.Windows.Forms.DateTimePicker dtpTime;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblSaleName;
@@ -193,5 +198,7 @@
         private System.Windows.Forms.ContextMenuStrip ctmsStrip;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
         private System.Windows.Forms.ToolStripMenuItem tsmiModify;
+        private System.Windows.Forms.ComboBox cmbWName;
+        private System.Windows.Forms.ComboBox cmbSaleName;
     }
 }

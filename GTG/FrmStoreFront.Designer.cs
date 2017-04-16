@@ -48,8 +48,11 @@
             this.SPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblSManagerName = new System.Windows.Forms.Label();
-            this.txtSManagerName = new System.Windows.Forms.TextBox();
+            this.cmbSManagerName = new System.Windows.Forms.ComboBox();
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
             this.msStrip.SuspendLayout();
+            this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // msStrip
@@ -108,6 +111,7 @@
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "查询";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnAdd
             // 
@@ -161,6 +165,7 @@
             this.SAddress,
             this.SManagerName,
             this.SPhone});
+            this.lstTable.ContextMenuStrip = this.ctmsStrip;
             this.lstTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstTable.FullRowSelect = true;
             this.lstTable.GridLines = true;
@@ -193,8 +198,11 @@
             // 
             // ctmsStrip
             // 
+            this.ctmsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDelete,
+            this.tsmiModify});
             this.ctmsStrip.Name = "ctmsStrip";
-            this.ctmsStrip.Size = new System.Drawing.Size(61, 4);
+            this.ctmsStrip.Size = new System.Drawing.Size(101, 48);
             // 
             // lblSManagerName
             // 
@@ -205,19 +213,34 @@
             this.lblSManagerName.TabIndex = 16;
             this.lblSManagerName.Text = "店长姓名：";
             // 
-            // txtSManagerName
+            // cmbSManagerName
             // 
-            this.txtSManagerName.Location = new System.Drawing.Point(115, 158);
-            this.txtSManagerName.Name = "txtSManagerName";
-            this.txtSManagerName.Size = new System.Drawing.Size(195, 21);
-            this.txtSManagerName.TabIndex = 17;
+            this.cmbSManagerName.FormattingEnabled = true;
+            this.cmbSManagerName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbSManagerName.Location = new System.Drawing.Point(115, 158);
+            this.cmbSManagerName.Name = "cmbSManagerName";
+            this.cmbSManagerName.Size = new System.Drawing.Size(195, 20);
+            this.cmbSManagerName.TabIndex = 17;
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Name = "tsmiDelete";
+            this.tsmiDelete.Size = new System.Drawing.Size(100, 22);
+            this.tsmiDelete.Text = "删除";
+            // 
+            // tsmiModify
+            // 
+            this.tsmiModify.Name = "tsmiModify";
+            this.tsmiModify.Size = new System.Drawing.Size(100, 22);
+            this.tsmiModify.Text = "修改";
             // 
             // FrmStoreFront
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 524);
-            this.Controls.Add(this.txtSManagerName);
+            this.Controls.Add(this.cmbSManagerName);
             this.Controls.Add(this.lblSManagerName);
             this.Controls.Add(this.lstTable);
             this.Controls.Add(this.txtAddress);
@@ -233,6 +256,7 @@
             this.Load += new System.EventHandler(this.FrmStoreFront_Load);
             this.msStrip.ResumeLayout(false);
             this.msStrip.PerformLayout();
+            this.ctmsStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +283,8 @@
         private System.Windows.Forms.ColumnHeader SPhone;
         private System.Windows.Forms.ContextMenuStrip ctmsStrip;
         private System.Windows.Forms.Label lblSManagerName;
-        private System.Windows.Forms.TextBox txtSManagerName;
+        private System.Windows.Forms.ComboBox cmbSManagerName;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
+        private System.Windows.Forms.ToolStripMenuItem tsmiModify;
     }
 }

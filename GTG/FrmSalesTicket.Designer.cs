@@ -33,12 +33,12 @@
             this.STCTID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.STDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSelect = new System.Windows.Forms.Button();
-            this.txtCName = new System.Windows.Forms.TextBox();
-            this.txtSaleName = new System.Windows.Forms.TextBox();
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblCName = new System.Windows.Forms.Label();
             this.lblSaleName = new System.Windows.Forms.Label();
+            this.cmbSaleName = new System.Windows.Forms.ComboBox();
+            this.cmbCName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lstTable
@@ -80,26 +80,13 @@
             this.btnSelect.TabIndex = 22;
             this.btnSelect.Text = "查询";
             this.btnSelect.UseVisualStyleBackColor = true;
-            // 
-            // txtCName
-            // 
-            this.txtCName.Location = new System.Drawing.Point(109, 81);
-            this.txtCName.Name = "txtCName";
-            this.txtCName.Size = new System.Drawing.Size(135, 21);
-            this.txtCName.TabIndex = 21;
-            // 
-            // txtSaleName
-            // 
-            this.txtSaleName.Location = new System.Drawing.Point(109, 40);
-            this.txtSaleName.Name = "txtSaleName";
-            this.txtSaleName.Size = new System.Drawing.Size(135, 21);
-            this.txtSaleName.TabIndex = 20;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // dtpTime
             // 
             this.dtpTime.Location = new System.Drawing.Point(109, 123);
             this.dtpTime.Name = "dtpTime";
-            this.dtpTime.Size = new System.Drawing.Size(135, 21);
+            this.dtpTime.Size = new System.Drawing.Size(146, 21);
             this.dtpTime.TabIndex = 19;
             // 
             // lblTime
@@ -129,14 +116,34 @@
             this.lblSaleName.TabIndex = 16;
             this.lblSaleName.Text = "店面名称：";
             // 
+            // cmbSaleName
+            // 
+            this.cmbSaleName.FormattingEnabled = true;
+            this.cmbSaleName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbSaleName.Location = new System.Drawing.Point(109, 40);
+            this.cmbSaleName.Name = "cmbSaleName";
+            this.cmbSaleName.Size = new System.Drawing.Size(146, 20);
+            this.cmbSaleName.TabIndex = 23;
+            // 
+            // cmbCName
+            // 
+            this.cmbCName.FormattingEnabled = true;
+            this.cmbCName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbCName.Location = new System.Drawing.Point(109, 81);
+            this.cmbCName.Name = "cmbCName";
+            this.cmbCName.Size = new System.Drawing.Size(146, 20);
+            this.cmbCName.TabIndex = 24;
+            // 
             // FrmSalesTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 489);
+            this.Controls.Add(this.cmbCName);
+            this.Controls.Add(this.cmbSaleName);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.txtCName);
-            this.Controls.Add(this.txtSaleName);
             this.Controls.Add(this.dtpTime);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblCName);
@@ -144,6 +151,7 @@
             this.Controls.Add(this.lstTable);
             this.Name = "FrmSalesTicket";
             this.Text = "销售单界面";
+            this.Load += new System.EventHandler(this.FrmSalesTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,11 +164,11 @@
         private System.Windows.Forms.ColumnHeader STCTID;
         private System.Windows.Forms.ColumnHeader STDate;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.TextBox txtCName;
-        private System.Windows.Forms.TextBox txtSaleName;
         private System.Windows.Forms.DateTimePicker dtpTime;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblCName;
         private System.Windows.Forms.Label lblSaleName;
+        private System.Windows.Forms.ComboBox cmbSaleName;
+        private System.Windows.Forms.ComboBox cmbCName;
     }
 }
