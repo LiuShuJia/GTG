@@ -111,6 +111,7 @@
             this.btnQue.TabIndex = 5;
             this.btnQue.Text = "查询";
             this.btnQue.UseVisualStyleBackColor = true;
+            this.btnQue.Click += new System.EventHandler(this.btnQue_Click);
             // 
             // FrmSupplier
             // 
@@ -125,6 +126,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmSupplier";
             this.Text = "FrmSupplier";
+            this.Load += new System.EventHandler(this.FrmSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

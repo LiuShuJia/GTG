@@ -18,15 +18,15 @@ namespace GTG
             InitializeComponent();
         }
         private string strCon = @"server=.\SQL2014;database=GTGDB;uid=sa;password=123;";
-        SqlDataAdapter adapter = null;
-        DataSet ds = new DataSet();
+        private SqlDataAdapter adapter = null;
+        private DataSet ds = new DataSet();
         private void btnSelect_Click(object sender, EventArgs e)
         {
             string gname = txtName.Text;
             string gstyle = txtStyle.Text;
 
             DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"GName like '%{gname}%'";
+            dv.RowFilter = $"GName like '%{gname}%' and Gstyle like '%{gstyle}%";
             this.dataGridView1.DataSource = dv;
         }
 
