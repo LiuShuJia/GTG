@@ -55,10 +55,12 @@ namespace GTG
                 if (password == key)
                 {
                     MessageBox.Show("登录成功");
-                    FrmUserManger fum = new FrmUserManger(this .txtUserName .Text .Trim ());    
+                    FrmMain f = new FrmMain(this);
+                    //FrmUserManger fum = new FrmUserManger(this .txtUserName .Text .Trim ());    
                     this.Hide();
-                    fum.ShowDialog();
-                    this.Show();
+                    f.Show();
+                    //fum.ShowDialog();
+                    //this.Show();
                 }
                 else
                 {

@@ -16,5 +16,25 @@ namespace GTG
         {
             InitializeComponent();
         }
+        public FrmMain(FrmLogin f)
+        {
+            this.frm = f;
+            InitializeComponent();
+        }
+        Form frm;
+        private void lblregister_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frm.Show();
+        }
     }
 }
