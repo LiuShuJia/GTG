@@ -17,26 +17,47 @@ namespace GTG
         {
             InitializeComponent();
         }
-        private string strCon = @"server=.\SQL2014;database=GTGDB;uid=sa;password=123;";
-        private SqlDataAdapter adapter = null;
-        private DataSet ds = new DataSet();
+        DBHelper hepler = new DBHelper();
+        private FrmClientele f;
+        private DBHelper helper = new DBHelper();
         private void btnSelect_Click(object sender, EventArgs e)
         {
             string gname = txtName.Text;
             string gstyle = txtStyle.Text;
+            this.listView1.Items.Clear();
+            string strSQL = "select * from Goods where (CHARINDEX(@gname,gname)>0 or len(@gname)=0) and(CHARINDEX(@gstyle,gstyle)>0 or len(@gstyle)=0)";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
+                new SqlParameter("@gname", gname),
+                new SqlParameter("@gstyle", gstyle));
 
-            DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"GName like '%{gname}%' and Gstyle like '%{gstyle}%";
-            this.dataGridView1.DataSource = dv;
+            while (reader.Read())
+            {
+
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
+
+                this.listView1.Items.Add(lst);
+            }
+            reader.Close();
+
         }
 
         private void FrmGoods_Load(object sender, EventArgs e)
         {
+            this.listView1.Items.Clear();
             string strSQL = "select * from Goods";
-            adapter = new SqlDataAdapter(strSQL, strCon);
-            adapter.Fill(ds, "qq");
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.DataSource = ds.Tables["qq"];
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
+            while (reader.Read())
+            {
+
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
+
+                this.listView1.Items.Add(lst);
+            }
+            reader.Close();
         }
     }
 }

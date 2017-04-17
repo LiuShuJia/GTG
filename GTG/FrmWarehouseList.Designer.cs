@@ -117,6 +117,7 @@
             this.cboName.Name = "cboName";
             this.cboName.Size = new System.Drawing.Size(121, 20);
             this.cboName.TabIndex = 17;
+            this.cboName.Leave += new System.EventHandler(this.cboName_Leave);
             // 
             // FrmWarehouseList
             // 

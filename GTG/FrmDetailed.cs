@@ -28,45 +28,104 @@ namespace GTG
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string name = this.cboName.Text.Trim();
-            DateTime date = this.dtpDateTime.Value;
             if (name == "显示所有")
             {
                 name = "";
             }
-            DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = "GName='name'";
-            dv.RowFilter = "PInDate='date'";
-            this.dvgPurchaseListDetail.DataSource = dv;
+            string gname = "";
+            string id = "";
+            string num = "";
+            string date = "";
+            string strSQL = "select * from PurchaseListDetail " + "   " +
+               "left join Goods on Goods.[GID]=PurchaseListDetail.[GID]" + "   " +
+               "left join PurchaseList on PurchaseList.[PID]=PurchaseListDetail.[PID]" +
+               "where(charindex(@Gname,Gname)>0 or len(@Gname)=0)";
 
-            DataView dv1 = ds.Tables["q"].DefaultView;
-            dv.RowFilter = "GName='name'";
-            dv.RowFilter = "WLDate='date'";
-            this.dvgWarehouseListDetail.DataSource = dv1;
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
+            while (reader.Read())
+            {
+                gname = reader.GetString(reader.GetOrdinal("GName"));
+                id = reader.GetInt32(reader.GetOrdinal("PID")).ToString();
+                num = reader.GetInt32(reader.GetOrdinal("PLDNum")).ToString();
+                date = reader.GetDateTime(reader.GetOrdinal("PInDate")).ToString();
+                ListViewItem item = new ListViewItem(id);
+                item.SubItems.Add(gname);
+                item.SubItems.Add(num);
+                item.SubItems.Add(date);
+
+                lstPurchaseList.Items.Add(item);
+            }
+            reader.Close();
+            strSQL = "select * from WarehouseListDetail" + "   " +
+                "left join Goods on Goods.[GID]=WarehouseListDetail.[GID]" + "   " +
+                "left join WarehouseList on WarehouseList.[WLID]=WarehouseListDetail.[WLID]" +
+               "where (charindex(@Gname,Gname)>0 or len(@Gname)=0)";
+
+            reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
+            while (reader.Read())
+            {
+                gname = reader.GetString(reader.GetOrdinal("GName"));
+                id = reader.GetInt32(reader.GetOrdinal("WLID")).ToString();
+                num = reader.GetInt32(reader.GetOrdinal("WLDNum")).ToString();
+                date = reader.GetDateTime(reader.GetOrdinal("WLDate")).ToString();
+                ListViewItem item = new ListViewItem(id);
+                item.SubItems.Add(gname);
+                item.SubItems.Add(num);
+                item.SubItems.Add(date);
+
+                lstWarehouseList.Items.Add(item);
+            }
+            reader.Close();
+
+            this.cboName.Text = "";
         }
        
-        SqlDataAdapter adapter = null;
-        DataSet ds = new DataSet();
         private void FrmDetailed_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from PurchaseListDetail "+"   " +
+            string name = "";
+            string id = "";
+            string num = "";
+            string date = "";
+            string strSQL = "select * from PurchaseListDetail " + "   " +
                 "left join Goods on Goods.[GID]=PurchaseListDetail.[GID]" + "   " +
                 "left join PurchaseList on PurchaseList.[PID]=PurchaseListDetail.[PID]";
-            adapter = helper.Fill(strSQL, CommandType.Text);
-            adapter.Fill(ds, "qq");
-            this.dvgPurchaseListDetail.AutoGenerateColumns = false;
-            this.dvgPurchaseListDetail.DataSource = ds.Tables["qq"];
 
+            IDataReader reader = helper.ExecuteReader(strSQL);
+            while (reader.Read())
+            {
+                name = reader.GetString(reader.GetOrdinal("GName"));
+                id = reader.GetInt32(reader.GetOrdinal("PID")).ToString();
+                num = reader.GetInt32(reader.GetOrdinal("PLDNum")).ToString();
+                date = reader.GetDateTime(reader.GetOrdinal("PInDate")).ToString();
+                ListViewItem item = new ListViewItem(id);
+                item.SubItems.Add(name);
+                item.SubItems.Add(num);
+                item.SubItems.Add(date);
 
+                lstPurchaseList.Items.Add(item);
+            }
+            reader.Close();
             strSQL = "select * from WarehouseListDetail" + "   " +
                 "left join Goods on Goods.[GID]=WarehouseListDetail.[GID]" + "   " +
                 "left join WarehouseList on WarehouseList.[WLID]=WarehouseListDetail.[WLID]";
-            adapter = helper.Fill(strSQL, CommandType.Text);
-            adapter.Fill(ds, "q");
-            this.dvgWarehouseListDetail.AutoGenerateColumns = false;
-            this.dvgWarehouseListDetail.DataSource = ds.Tables["q"];
 
+            reader = helper.ExecuteReader(strSQL);
+            while (reader.Read())
+            {
+                name = reader.GetString(reader.GetOrdinal("GName"));
+                id = reader.GetInt32(reader.GetOrdinal("WLID")).ToString();
+                num = reader.GetInt32(reader.GetOrdinal("WLDNum")).ToString();
+                date = reader.GetDateTime(reader.GetOrdinal("WLDate")).ToString();
+                ListViewItem item = new ListViewItem(id);
+                item.SubItems.Add(name);
+                item.SubItems.Add(num);
+                item.SubItems.Add(date);
+
+                lstWarehouseList.Items.Add(item);
+            }
+            reader.Close();
             strSQL = "select　* from Goods";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
+             reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
                 this.cboName.Items.Add(reader.GetString(reader.GetOrdinal("GName")));

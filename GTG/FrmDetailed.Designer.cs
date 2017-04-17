@@ -29,24 +29,20 @@
         private void InitializeComponent()
         {
             this.cboName = new System.Windows.Forms.ComboBox();
-            this.lblDateTime = new System.Windows.Forms.Label();
-            this.dtpDateTime = new System.Windows.Forms.DateTimePicker();
             this.btnQuery = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblPurchaseList = new System.Windows.Forms.Label();
             this.lblWarehouseList = new System.Windows.Forms.Label();
-            this.dvgPurchaseListDetail = new System.Windows.Forms.DataGridView();
-            this.dvgWarehouseListDetail = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgPurchaseListDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgWarehouseListDetail)).BeginInit();
+            this.lstPurchaseList = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstWarehouseList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cboName
@@ -60,25 +56,9 @@
             this.cboName.Size = new System.Drawing.Size(121, 20);
             this.cboName.TabIndex = 18;
             // 
-            // lblDateTime
-            // 
-            this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Location = new System.Drawing.Point(171, 24);
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(29, 12);
-            this.lblDateTime.TabIndex = 17;
-            this.lblDateTime.Text = "日期";
-            // 
-            // dtpDateTime
-            // 
-            this.dtpDateTime.Location = new System.Drawing.Point(206, 20);
-            this.dtpDateTime.Name = "dtpDateTime";
-            this.dtpDateTime.Size = new System.Drawing.Size(121, 21);
-            this.dtpDateTime.TabIndex = 16;
-            // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(333, 21);
+            this.btnQuery.Location = new System.Drawing.Point(226, 19);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 15;
@@ -94,15 +74,6 @@
             this.lblName.TabIndex = 14;
             this.lblName.Text = "商品名:";
             // 
-            // lblPurchaseList
-            // 
-            this.lblPurchaseList.AutoSize = true;
-            this.lblPurchaseList.Location = new System.Drawing.Point(1, 243);
-            this.lblPurchaseList.Name = "lblPurchaseList";
-            this.lblPurchaseList.Size = new System.Drawing.Size(77, 12);
-            this.lblPurchaseList.TabIndex = 13;
-            this.lblPurchaseList.Text = "入库详细表：";
-            // 
             // lblWarehouseList
             // 
             this.lblWarehouseList.AutoSize = true;
@@ -112,102 +83,96 @@
             this.lblWarehouseList.TabIndex = 12;
             this.lblWarehouseList.Text = "出库详细表：";
             // 
-            // dvgPurchaseListDetail
+            // lstPurchaseList
             // 
-            this.dvgPurchaseListDetail.AllowUserToAddRows = false;
-            this.dvgPurchaseListDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgPurchaseListDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Column5,
-            this.dataGridViewTextBoxColumn3});
-            this.dvgPurchaseListDetail.Location = new System.Drawing.Point(3, 258);
-            this.dvgPurchaseListDetail.Name = "dvgPurchaseListDetail";
-            this.dvgPurchaseListDetail.RowTemplate.Height = 23;
-            this.dvgPurchaseListDetail.Size = new System.Drawing.Size(445, 150);
-            this.dvgPurchaseListDetail.TabIndex = 11;
+            this.lstPurchaseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lstPurchaseList.Location = new System.Drawing.Point(3, 266);
+            this.lstPurchaseList.Name = "lstPurchaseList";
+            this.lstPurchaseList.Size = new System.Drawing.Size(298, 149);
+            this.lstPurchaseList.TabIndex = 23;
+            this.lstPurchaseList.UseCompatibleStateImageBehavior = false;
+            this.lstPurchaseList.View = System.Windows.Forms.View.Details;
             // 
-            // dvgWarehouseListDetail
+            // columnHeader5
             // 
-            this.dvgWarehouseListDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgWarehouseListDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column4,
-            this.Column3});
-            this.dvgWarehouseListDetail.Location = new System.Drawing.Point(3, 71);
-            this.dvgWarehouseListDetail.Name = "dvgWarehouseListDetail";
-            this.dvgWarehouseListDetail.RowTemplate.Height = 23;
-            this.dvgWarehouseListDetail.Size = new System.Drawing.Size(445, 159);
-            this.dvgWarehouseListDetail.TabIndex = 10;
+            this.columnHeader5.Text = "入库单编号";
+            this.columnHeader5.Width = 81;
             // 
-            // Column1
+            // columnHeader6
             // 
-            this.Column1.DataPropertyName = "WLID";
-            this.Column1.HeaderText = "出库单编号";
-            this.Column1.Name = "Column1";
+            this.columnHeader6.Text = "商品名";
+            this.columnHeader6.Width = 71;
             // 
-            // Column2
+            // columnHeader7
             // 
-            this.Column2.DataPropertyName = "GName";
-            this.Column2.HeaderText = "商品名";
-            this.Column2.Name = "Column2";
+            this.columnHeader7.Text = "数量";
+            this.columnHeader7.Width = 86;
             // 
-            // Column4
+            // columnHeader8
             // 
-            this.Column4.DataPropertyName = "WLDNum";
-            this.Column4.HeaderText = "数量";
-            this.Column4.Name = "Column4";
+            this.columnHeader8.Text = "日期";
             // 
-            // Column3
+            // lstWarehouseList
             // 
-            this.Column3.DataPropertyName = "WLDate";
-            this.Column3.HeaderText = "日期";
-            this.Column3.Name = "Column3";
+            this.lstWarehouseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lstWarehouseList.Location = new System.Drawing.Point(3, 71);
+            this.lstWarehouseList.Name = "lstWarehouseList";
+            this.lstWarehouseList.Size = new System.Drawing.Size(298, 149);
+            this.lstWarehouseList.TabIndex = 22;
+            this.lstWarehouseList.UseCompatibleStateImageBehavior = false;
+            this.lstWarehouseList.View = System.Windows.Forms.View.Details;
             // 
-            // dataGridViewTextBoxColumn1
+            // columnHeader1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "入库单编号";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.columnHeader1.Text = "出库单编号";
+            this.columnHeader1.Width = 81;
             // 
-            // dataGridViewTextBoxColumn2
+            // columnHeader2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "GName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "商品名";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.columnHeader2.Text = "商品名";
+            this.columnHeader2.Width = 71;
             // 
-            // Column5
+            // columnHeader3
             // 
-            this.Column5.DataPropertyName = "PLDNum";
-            this.Column5.HeaderText = "数量";
-            this.Column5.Name = "Column5";
+            this.columnHeader3.Text = "数量";
+            this.columnHeader3.Width = 86;
             // 
-            // dataGridViewTextBoxColumn3
+            // columnHeader4
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PInDate";
-            this.dataGridViewTextBoxColumn3.HeaderText = "日期";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.columnHeader4.Text = "日期";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "入库详细表：";
             // 
             // FrmDetailed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 414);
+            this.ClientSize = new System.Drawing.Size(308, 414);
+            this.Controls.Add(this.lstPurchaseList);
+            this.Controls.Add(this.lstWarehouseList);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cboName);
-            this.Controls.Add(this.lblDateTime);
-            this.Controls.Add(this.dtpDateTime);
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblPurchaseList);
             this.Controls.Add(this.lblWarehouseList);
-            this.Controls.Add(this.dvgPurchaseListDetail);
-            this.Controls.Add(this.dvgWarehouseListDetail);
             this.Name = "FrmDetailed";
             this.Text = "出库入库详情";
             this.Load += new System.EventHandler(this.FrmDetailed_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgPurchaseListDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgWarehouseListDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,21 +181,19 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cboName;
-        private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.DateTimePicker dtpDateTime;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblPurchaseList;
         private System.Windows.Forms.Label lblWarehouseList;
-        private System.Windows.Forms.DataGridView dvgPurchaseListDetail;
-        private System.Windows.Forms.DataGridView dvgWarehouseListDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.ListView lstPurchaseList;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ListView lstWarehouseList;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label1;
     }
 }

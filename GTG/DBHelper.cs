@@ -20,17 +20,7 @@ namespace GTG
         private string strCon = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
         private IDbConnection con = null;
         private IDbCommand cmd = null;
-        /// <summary>
-        /// 数据集的填充
-        /// </summary>
-        /// <param name="strSQL">SQL语句</param>
-        /// <param name="commandtype">SQL语句类型</param>
-        /// <returns></returns>
-        public SqlDataAdapter Fill(string strSQL, CommandType commandtype = CommandType.Text)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(strSQL, strCon);
-            return adapter;
-        }
+      
         /// <summary>
         /// 查询受影响的行数
         /// </summary>
