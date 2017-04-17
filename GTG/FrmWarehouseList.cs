@@ -45,18 +45,17 @@ namespace GTG
             reader.Close();
             if (numble > Convert.ToInt32(Numble))
             {
-                strSQl = "update Goods  set GNum=@GNum where  GName=@GName  ";
-                int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                    new SqlParameter("@GNum", Numble));
+                int wid = 1;
+                strSQl = "insert into WarehouseList (WID,WLDate)values(@WID,getdate())  ";
+                int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
                 if (rows > 0)
                 {
-                    int wid = 1;
-                    strSQl = "insert into WarehouseList (WID,PinDate)values(@WID,getdate())  ";
-                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+                    strSQl = "insert into WarehouseListDetail (WLID,GID,WLDNum)values((select max(WLID) from WarehouseList)," +
+                            "(select GID from Goods where GName=@GName),@GNum)  ";
+                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName), new SqlParameter("@GNum", Numble));
                     if (rows > 0)
                     {
-                        strSQl = "insert into WarehouseListDetail (WLDID,GID,WLDNum,)values(select max(PID) from PurchaseList," +
-                            "select GID from Goods where GName=@GName,@GNum)  ";
+                        strSQl = "update Goods  set GNum=GNum-@GNum where  GName=@GName  ";
                         rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
                          new SqlParameter("@GNum", Numble));
                         if (rows > 0)
@@ -66,17 +65,17 @@ namespace GTG
                         }
                         else
                         {
-                            MessageBox.Show("生成出库详细信息单失败！");
+                            MessageBox.Show("出库失败！");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("生成出库单失败！");
+                        MessageBox.Show("生成出库详细信息单失败！");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("出库失败！");
+                    MessageBox.Show("生成出库单失败！");
                 }
             }
             else
@@ -87,38 +86,12 @@ namespace GTG
 
         private void txtNumble_Enter(object sender, EventArgs e)
         {
-            lblStock.Text = "";
-            string GName = cboName.Text.Trim();
-            string unit = "";
-            int numble = 0;
-            string strSQl = "select * from Goods where  GName=@GName  ";
-            IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
-            if (reader.Read())
-            {
-                numble = reader.GetInt32(reader.GetOrdinal("GNum"));
-                unit = reader.GetString(reader.GetOrdinal("GUnit"));
-            }
-            reader.Close();
-            if (numble == 0)
-            {
-                MessageBox.Show("目前没有该商品！");
-            }
-            else
-            {
-                lblStock.Text = GName + "的库存为：" + numble + unit;
-            }
-            if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
+           
         }
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(cboName.Text.Trim(),@"^\w+$")==false )
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
+           
         }
 
         private void txtNumble_Leave(object sender, EventArgs e)
@@ -133,11 +106,45 @@ namespace GTG
         {
             string strSQl = "select * from Goods ";
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text);
-            if (reader.Read())
+            while (reader.Read())
             {
                 this.cboName.Items.Add(reader.GetInt32(reader.GetOrdinal("GName")));
             }
             reader.Close();
+        }
+
+        private void cboName_Leave(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
+            {
+                MessageBox.Show("商品名不能为空！");
+            }
+            else
+            {
+                lblStock.Text = "";
+                string GName = cboName.Text.Trim();
+                string unit = "";
+                int numble = 0;
+                if (GName != null)
+                {
+                    string strSQl = "select * from Goods where  GName=@GName  ";
+                    IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
+                    if (reader.Read())
+                    {
+                        numble = reader.GetInt32(reader.GetOrdinal("GNum"));
+                        unit = reader.GetString(reader.GetOrdinal("GUnit"));
+                    }
+                    reader.Close();
+                    if (numble == 0)
+                    {
+                        MessageBox.Show("目前没有该商品！");
+                    }
+                    else
+                    {
+                        lblStock.Text = GName + "的库存为：" + numble + unit;
+                    }
+                }
+            }
         }
     }
 }

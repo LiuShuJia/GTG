@@ -47,38 +47,47 @@ namespace GTG
             reader.Close();
             if (numble > 0)
             {
-                strSQl = "update Goods  set GNum=@GNum where  GName=@GName  ";
-            }
-            else
-            {
-                strSQl = "insert into Goods (GName,GNum,GUnit)values(@GName,@GNum,@GUnit)  ";
-            }
-            int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                    new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit));
-            
-            if (rows > 0)
-            {
+
                 int wid = 1;
                 strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
-                rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+                int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
                 if (rows > 0)
                 {
-                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values(select max(PID) from PurchaseList," +
-                        "select GID from Goods where GName=@GName,@GNum)  ";
+                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values((select max(PID) from PurchaseList)," +
+                        "(select GID from Goods where GName=@GName),@GNum)  ";
                     rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
                      new SqlParameter("@GNum", Numble));
                     if (rows > 0)
                     {
-                        this.lblUnit1.Text = "";
                         if (numble > 0)
                         {
-                            MessageBox.Show("入库成功！");
-                            this.Close();
+                            strSQl = "update Goods  set GNum+=@GNum where  GName=@GName  ";
+                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                                 new SqlParameter("@GNum", Numble));
                         }
                         else
                         {
-                            MessageBox.Show("新增货物，入库成功！");
-                            this.Close();
+                            strSQl = "insert into Goods (GName,GNum,GUnit)values(@GName,@GNum,@GUnit)  ";
+                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                                new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit));
+                        }
+                        if (rows > 0)
+                        {
+                            this.lblUnit1.Text = "";
+                            if (numble > 0)
+                            {
+                                MessageBox.Show("入库成功！");
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("新增货物，入库成功！");
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("入库失败！");
                         }
                     }
                     else
@@ -91,11 +100,6 @@ namespace GTG
                     MessageBox.Show("生成出库单失败！");
                 }
             }
-            else
-            {
-                MessageBox.Show("入库失败！");
-            }
-           
         }
 
         private void txtName_Leave(object sender, EventArgs e)
