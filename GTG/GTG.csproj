@@ -78,12 +78,6 @@
     <Compile Include="FrmClientele.Designer.cs">
       <DependentUpon>FrmClientele.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDeliveryNote.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDeliveryNote.Designer.cs">
-      <DependentUpon>FrmDeliveryNote.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDetailed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClientele.resx">
       <DependentUpon>FrmClientele.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmDeliveryNote.resx">
-      <DependentUpon>FrmDeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetailed.resx">
       <DependentUpon>FrmDetailed.cs</DependentUpon>
