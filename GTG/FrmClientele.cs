@@ -80,7 +80,7 @@ namespace GTG
 
         private void txtCTAddress_Leave(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void cmbCTAddress_Leave(object sender, EventArgs e)
@@ -93,6 +93,12 @@ namespace GTG
             {
                 this.cmbCTAddress.Text = "";
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmClienteleAdd f = new FrmClienteleAdd();
+            f.ShowDialog();
         }
     }
 }

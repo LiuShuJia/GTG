@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lstTable = new System.Windows.Forms.ListView();
             this.STSID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.STCTID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,11 +37,6 @@
             this.lblSName = new System.Windows.Forms.Label();
             this.cmbSName = new System.Windows.Forms.ComboBox();
             this.cmbCTName = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstTable
@@ -51,7 +45,6 @@
             this.STSID,
             this.STCTID,
             this.STDate});
-            this.lstTable.ContextMenuStrip = this.ctmsStrip;
             this.lstTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstTable.FullRowSelect = true;
             this.lstTable.GridLines = true;
@@ -79,7 +72,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(279, 21);
+            this.btnSelect.Location = new System.Drawing.Point(282, 41);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 22;
@@ -127,41 +120,11 @@
             this.cmbCTName.TabIndex = 24;
             this.cmbCTName.Leave += new System.EventHandler(this.cmbCTName_Leave);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(279, 62);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 25;
-            this.btnAdd.Text = "增加";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // ctmsStrip
-            // 
-            this.ctmsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDelete,
-            this.tsmiModify});
-            this.ctmsStrip.Name = "ctmsStrip";
-            this.ctmsStrip.Size = new System.Drawing.Size(101, 48);
-            // 
-            // tsmiDelete
-            // 
-            this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(152, 22);
-            this.tsmiDelete.Text = "删除";
-            // 
-            // tsmiModify
-            // 
-            this.tsmiModify.Name = "tsmiModify";
-            this.tsmiModify.Size = new System.Drawing.Size(152, 22);
-            this.tsmiModify.Text = "修改";
-            // 
             // FrmSalesTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 367);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbCTName);
             this.Controls.Add(this.cmbSName);
             this.Controls.Add(this.btnSelect);
@@ -171,7 +134,6 @@
             this.Name = "FrmSalesTicket";
             this.Text = "销售单界面";
             this.Load += new System.EventHandler(this.FrmSalesTicket_Load);
-            this.ctmsStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,9 +150,5 @@
         private System.Windows.Forms.Label lblSName;
         private System.Windows.Forms.ComboBox cmbSName;
         private System.Windows.Forms.ComboBox cmbCTName;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.ContextMenuStrip ctmsStrip;
-        private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
-        private System.Windows.Forms.ToolStripMenuItem tsmiModify;
     }
 }

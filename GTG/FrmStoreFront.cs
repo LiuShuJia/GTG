@@ -73,7 +73,8 @@ namespace GTG
 
         private void btnAdd_Click(object sender, EventArgs e)                                //增加信息
         {
-            
+            FrmStoreFrontAdd f = new FrmStoreFrontAdd();
+            f.ShowDialog();
         }
 
         private void tsmiBillOfLading_Click(object sender, EventArgs e)                            //提货表
