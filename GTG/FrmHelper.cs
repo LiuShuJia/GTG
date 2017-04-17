@@ -18,14 +18,12 @@ namespace GTG
         }
 
         private DBHelper helper = new DBHelper();
-        private void tsmiBackup_Click(object sender, EventArgs e)
-        {
-            //string saveAway = @"E:\c#/GTGDB.bak";
-            string saveAway = this.txtFolder.Text.ToString().Trim()+ "/GTGDB.bak";
-            string cmdText = @"use master backup database GTGDB to disk='" + saveAway + "'";
-            BakReductSql(cmdText, true);
-        }
-
+        
+        /// <summary>
+        /// 浏览备份路径
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBrower_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folder = new FolderBrowserDialog();
@@ -80,6 +78,7 @@ namespace GTG
 
         private void tsmiRecover_Click(object sender, EventArgs e)
         {
+
             string openAway = this.txtReduce.Text.ToString().Trim();//读取恢复文件的路径
             string cmdText = @"restore database GTGDB from disk='" + openAway + "' With Replace";
             BakReductSql(cmdText, false);
@@ -93,6 +92,30 @@ namespace GTG
             {
                 this.txtReduce.Text = dialog.FileName;
             }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtFolder.Text))
+            {
+                MessageBox.Show("请输入备份的路径");
+                return;
+            }
+            string saveAway = this.txtFolder.Text.ToString().Trim() +"/GTGDB.bak";
+            string cmdText = @"use master backup database GTGDB to disk='" + saveAway + "'";
+            BakReductSql(cmdText, true);
+        }
+        
+        private void btnRecever_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtReduce.Text))
+            {
+                MessageBox.Show("请选择恢复文件");
+                return;
+            }
+            string openAway = this.txtReduce.Text.ToString().Trim();//读取恢复文件的路径
+            string cmdText = @"restore database GTGDB from disk='" + openAway + "' With Replace";
+            BakReductSql(cmdText, false);
         }
     }
 }

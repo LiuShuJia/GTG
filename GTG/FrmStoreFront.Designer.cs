@@ -40,17 +40,17 @@
             this.lblSaleName = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.cmbSaleName = new System.Windows.Forms.ComboBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.lstTable = new System.Windows.Forms.ListView();
             this.SaleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SManagerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblSManagerName = new System.Windows.Forms.Label();
-            this.cmbSManagerName = new System.Windows.Forms.ComboBox();
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblSManagerName = new System.Windows.Forms.Label();
+            this.cmbSManagerName = new System.Windows.Forms.ComboBox();
+            this.cmbAddress = new System.Windows.Forms.ComboBox();
             this.msStrip.SuspendLayout();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             this.tsmiClerk});
             this.msStrip.Location = new System.Drawing.Point(0, 0);
             this.msStrip.Name = "msStrip";
-            this.msStrip.Size = new System.Drawing.Size(506, 25);
+            this.msStrip.Size = new System.Drawing.Size(487, 25);
             this.msStrip.TabIndex = 0;
             // 
             // tsmiSalesStore
@@ -105,7 +105,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(379, 77);
+            this.btnSelect.Location = new System.Drawing.Point(359, 56);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
@@ -115,7 +115,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(379, 135);
+            this.btnAdd.Location = new System.Drawing.Point(359, 114);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -126,7 +126,7 @@
             // lblSaleName
             // 
             this.lblSaleName.AutoSize = true;
-            this.lblSaleName.Location = new System.Drawing.Point(44, 66);
+            this.lblSaleName.Location = new System.Drawing.Point(43, 46);
             this.lblSaleName.Name = "lblSaleName";
             this.lblSaleName.Size = new System.Drawing.Size(65, 12);
             this.lblSaleName.TabIndex = 5;
@@ -135,7 +135,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(68, 112);
+            this.lblAddress.Location = new System.Drawing.Point(67, 92);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(41, 12);
             this.lblAddress.TabIndex = 6;
@@ -146,17 +146,12 @@
             this.cmbSaleName.FormattingEnabled = true;
             this.cmbSaleName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbSaleName.Location = new System.Drawing.Point(115, 63);
+            this.cmbSaleName.Location = new System.Drawing.Point(114, 43);
             this.cmbSaleName.Name = "cmbSaleName";
             this.cmbSaleName.Size = new System.Drawing.Size(195, 20);
             this.cmbSaleName.TabIndex = 8;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(115, 109);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(195, 21);
-            this.txtAddress.TabIndex = 12;
+            this.cmbSaleName.Enter += new System.EventHandler(this.cmbSaleName_Enter);
+            this.cmbSaleName.Leave += new System.EventHandler(this.cmbSaleName_Leave);
             // 
             // lstTable
             // 
@@ -169,9 +164,9 @@
             this.lstTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstTable.FullRowSelect = true;
             this.lstTable.GridLines = true;
-            this.lstTable.Location = new System.Drawing.Point(0, 213);
+            this.lstTable.Location = new System.Drawing.Point(0, 184);
             this.lstTable.Name = "lstTable";
-            this.lstTable.Size = new System.Drawing.Size(506, 311);
+            this.lstTable.Size = new System.Drawing.Size(487, 311);
             this.lstTable.TabIndex = 14;
             this.lstTable.UseCompatibleStateImageBehavior = false;
             this.lstTable.View = System.Windows.Forms.View.Details;
@@ -204,25 +199,6 @@
             this.ctmsStrip.Name = "ctmsStrip";
             this.ctmsStrip.Size = new System.Drawing.Size(101, 48);
             // 
-            // lblSManagerName
-            // 
-            this.lblSManagerName.AutoSize = true;
-            this.lblSManagerName.Location = new System.Drawing.Point(44, 161);
-            this.lblSManagerName.Name = "lblSManagerName";
-            this.lblSManagerName.Size = new System.Drawing.Size(65, 12);
-            this.lblSManagerName.TabIndex = 16;
-            this.lblSManagerName.Text = "店长姓名：";
-            // 
-            // cmbSManagerName
-            // 
-            this.cmbSManagerName.FormattingEnabled = true;
-            this.cmbSManagerName.Items.AddRange(new object[] {
-            "查询全部"});
-            this.cmbSManagerName.Location = new System.Drawing.Point(115, 158);
-            this.cmbSManagerName.Name = "cmbSManagerName";
-            this.cmbSManagerName.Size = new System.Drawing.Size(195, 20);
-            this.cmbSManagerName.TabIndex = 17;
-            // 
             // tsmiDelete
             // 
             this.tsmiDelete.Name = "tsmiDelete";
@@ -235,15 +211,46 @@
             this.tsmiModify.Size = new System.Drawing.Size(100, 22);
             this.tsmiModify.Text = "修改";
             // 
+            // lblSManagerName
+            // 
+            this.lblSManagerName.AutoSize = true;
+            this.lblSManagerName.Location = new System.Drawing.Point(43, 141);
+            this.lblSManagerName.Name = "lblSManagerName";
+            this.lblSManagerName.Size = new System.Drawing.Size(65, 12);
+            this.lblSManagerName.TabIndex = 16;
+            this.lblSManagerName.Text = "店长姓名：";
+            // 
+            // cmbSManagerName
+            // 
+            this.cmbSManagerName.FormattingEnabled = true;
+            this.cmbSManagerName.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbSManagerName.Location = new System.Drawing.Point(114, 138);
+            this.cmbSManagerName.Name = "cmbSManagerName";
+            this.cmbSManagerName.Size = new System.Drawing.Size(195, 20);
+            this.cmbSManagerName.TabIndex = 17;
+            this.cmbSManagerName.Leave += new System.EventHandler(this.cmbSManagerName_Leave);
+            // 
+            // cmbAddress
+            // 
+            this.cmbAddress.FormattingEnabled = true;
+            this.cmbAddress.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbAddress.Location = new System.Drawing.Point(114, 89);
+            this.cmbAddress.Name = "cmbAddress";
+            this.cmbAddress.Size = new System.Drawing.Size(195, 20);
+            this.cmbAddress.TabIndex = 18;
+            this.cmbAddress.Leave += new System.EventHandler(this.cmbAddress_Leave);
+            // 
             // FrmStoreFront
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 524);
+            this.ClientSize = new System.Drawing.Size(487, 495);
+            this.Controls.Add(this.cmbAddress);
             this.Controls.Add(this.cmbSManagerName);
             this.Controls.Add(this.lblSManagerName);
             this.Controls.Add(this.lstTable);
-            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.cmbSaleName);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblSaleName);
@@ -274,7 +281,6 @@
         private System.Windows.Forms.Label lblSaleName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.ComboBox cmbSaleName;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.ToolStripMenuItem tsmiClerk;
         private System.Windows.Forms.ListView lstTable;
         private System.Windows.Forms.ColumnHeader SaleName;
@@ -286,5 +292,6 @@
         private System.Windows.Forms.ComboBox cmbSManagerName;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
         private System.Windows.Forms.ToolStripMenuItem tsmiModify;
+        private System.Windows.Forms.ComboBox cmbAddress;
     }
 }

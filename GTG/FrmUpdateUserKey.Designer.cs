@@ -73,7 +73,7 @@
             // txtoldpassword
             // 
             this.txtoldpassword.Location = new System.Drawing.Point(146, 49);
-            this.txtoldpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtoldpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtoldpassword.Name = "txtoldpassword";
             this.txtoldpassword.PasswordChar = '*';
             this.txtoldpassword.Size = new System.Drawing.Size(92, 25);
@@ -83,7 +83,7 @@
             // txtnewpassword
             // 
             this.txtnewpassword.Location = new System.Drawing.Point(146, 120);
-            this.txtnewpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtnewpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtnewpassword.Name = "txtnewpassword";
             this.txtnewpassword.PasswordChar = '*';
             this.txtnewpassword.Size = new System.Drawing.Size(92, 25);
@@ -92,7 +92,7 @@
             // txtsureNewpassword
             // 
             this.txtsureNewpassword.Location = new System.Drawing.Point(146, 189);
-            this.txtsureNewpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsureNewpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtsureNewpassword.Name = "txtsureNewpassword";
             this.txtsureNewpassword.PasswordChar = '*';
             this.txtsureNewpassword.Size = new System.Drawing.Size(92, 25);
@@ -100,8 +100,8 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(138, 260);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModify.Location = new System.Drawing.Point(90, 260);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(100, 29);
             this.btnModify.TabIndex = 6;
@@ -125,7 +125,7 @@
             this.Controls.Add(this.lblsureNewpassword);
             this.Controls.Add(this.lblnewpassword);
             this.Controls.Add(this.lbloldpassword);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmUpdateUserKey";
             this.Text = "修改用户密码";

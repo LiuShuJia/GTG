@@ -29,46 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblCTAddress = new System.Windows.Forms.Label();
+            this.lblCTName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.lstTable = new System.Windows.Forms.ListView();
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CTName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CTAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CTPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ctmsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbName = new System.Windows.Forms.ComboBox();
+            this.cmbCTName = new System.Windows.Forms.ComboBox();
+            this.cmbCTAddress = new System.Windows.Forms.ComboBox();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtAddress
+            // lblCTAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(99, 97);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(161, 21);
-            this.txtAddress.TabIndex = 13;
+            this.lblCTAddress.AutoSize = true;
+            this.lblCTAddress.Location = new System.Drawing.Point(28, 100);
+            this.lblCTAddress.Name = "lblCTAddress";
+            this.lblCTAddress.Size = new System.Drawing.Size(65, 12);
+            this.lblCTAddress.TabIndex = 11;
+            this.lblCTAddress.Text = "客户住址：";
             // 
-            // lblAddress
+            // lblCTName
             // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(36, 100);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(41, 12);
-            this.lblAddress.TabIndex = 11;
-            this.lblAddress.Text = "住址：";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(36, 35);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 12);
-            this.lblName.TabIndex = 10;
-            this.lblName.Text = "姓名：";
+            this.lblCTName.AutoSize = true;
+            this.lblCTName.Location = new System.Drawing.Point(28, 37);
+            this.lblCTName.Name = "lblCTName";
+            this.lblCTName.Size = new System.Drawing.Size(65, 12);
+            this.lblCTName.TabIndex = 10;
+            this.lblCTName.Text = "客户姓名：";
             // 
             // btnAdd
             // 
@@ -92,9 +85,9 @@
             // lstTable
             // 
             this.lstTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Name,
-            this.Address,
-            this.Phone});
+            this.CTName,
+            this.CTAddress,
+            this.CTPhone});
             this.lstTable.ContextMenuStrip = this.ctmsStrip;
             this.lstTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstTable.FullRowSelect = true;
@@ -106,20 +99,20 @@
             this.lstTable.UseCompatibleStateImageBehavior = false;
             this.lstTable.View = System.Windows.Forms.View.Details;
             // 
-            // Name
+            // CTName
             // 
-            this.Name.Text = "客户姓名";
-            this.Name.Width = 118;
+            this.CTName.Text = "客户姓名";
+            this.CTName.Width = 118;
             // 
-            // Address
+            // CTAddress
             // 
-            this.Address.Text = "住址";
-            this.Address.Width = 142;
+            this.CTAddress.Text = "住址";
+            this.CTAddress.Width = 142;
             // 
-            // Phone
+            // CTPhone
             // 
-            this.Phone.Text = "联系电话";
-            this.Phone.Width = 134;
+            this.CTPhone.Text = "联系电话";
+            this.CTPhone.Width = 134;
             // 
             // ctmsStrip
             // 
@@ -141,25 +134,37 @@
             this.tsmiModify.Size = new System.Drawing.Size(100, 22);
             this.tsmiModify.Text = "修改";
             // 
-            // cmbName
+            // cmbCTName
             // 
-            this.cmbName.FormattingEnabled = true;
-            this.cmbName.Items.AddRange(new object[] {
+            this.cmbCTName.FormattingEnabled = true;
+            this.cmbCTName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbName.Location = new System.Drawing.Point(99, 35);
-            this.cmbName.Name = "cmbName";
-            this.cmbName.Size = new System.Drawing.Size(161, 20);
-            this.cmbName.TabIndex = 14;
+            this.cmbCTName.Location = new System.Drawing.Point(99, 35);
+            this.cmbCTName.Name = "cmbCTName";
+            this.cmbCTName.Size = new System.Drawing.Size(161, 20);
+            this.cmbCTName.TabIndex = 14;
+            this.cmbCTName.Leave += new System.EventHandler(this.cmbCTName_Leave);
+            // 
+            // cmbCTAddress
+            // 
+            this.cmbCTAddress.FormattingEnabled = true;
+            this.cmbCTAddress.Items.AddRange(new object[] {
+            "查询全部"});
+            this.cmbCTAddress.Location = new System.Drawing.Point(99, 97);
+            this.cmbCTAddress.Name = "cmbCTAddress";
+            this.cmbCTAddress.Size = new System.Drawing.Size(161, 20);
+            this.cmbCTAddress.TabIndex = 15;
+            this.cmbCTAddress.Leave += new System.EventHandler(this.cmbCTAddress_Leave);
             // 
             // FrmClientele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 413);
-            this.Controls.Add(this.cmbName);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.cmbCTAddress);
+            this.Controls.Add(this.cmbCTName);
+            this.Controls.Add(this.lblCTAddress);
+            this.Controls.Add(this.lblCTName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.lstTable);
@@ -173,19 +178,18 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblCTAddress;
+        private System.Windows.Forms.Label lblCTName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.ListView lstTable;
-        private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Address;
-        private System.Windows.Forms.ColumnHeader Phone;
+        private System.Windows.Forms.ColumnHeader CTName;
+        private System.Windows.Forms.ColumnHeader CTAddress;
+        private System.Windows.Forms.ColumnHeader CTPhone;
         private System.Windows.Forms.ContextMenuStrip ctmsStrip;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
         private System.Windows.Forms.ToolStripMenuItem tsmiModify;
-        private System.Windows.Forms.ComboBox cmbName;
+        private System.Windows.Forms.ComboBox cmbCTName;
+        private System.Windows.Forms.ComboBox cmbCTAddress;
     }
 }
