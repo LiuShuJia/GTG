@@ -17,26 +17,46 @@ namespace GTG
         {
             InitializeComponent();
         }
-        private string strCon = @"server=.\SQL2014;database=GTGDB;uid=sa;password=123;";
-        private SqlDataAdapter adapter = null;
-        private DataSet ds = new DataSet();
+        private FrmClientele f;
+        private DBHelper helper = new DBHelper();
         private void btnQue_Click(object sender, EventArgs e)
         {
             string Sname = txtName.Text;
-            string gstyle = txtPhone.Text;
+            string SPhone = txtPhone.Text;
 
-            DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"SPName  like '%{Sname}%' and SPMan  like '%{gstyle}%' ";
-            this.dataGridView1.DataSource = dv;
+            this.listView1.Items.Clear();
+            string strSQL = "select * from Supplier where (CHARINDEX(@Sname,Sname)>0 or len(@Sname)=0) and(CHARINDEX(@SPhone,SPhone)>0 or len(@SPhone)=0)";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
+                new SqlParameter("@Sname", Sname),
+                new SqlParameter("@SPhone", SPhone)
+                );
+            while (reader.Read())
+            {
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SPName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPMan")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPPhone")));
+                lst.Tag = reader.GetString(reader.GetOrdinal("SPID"));
+                this.listView1.Items.Add(lst);
+            }
+            reader.Close();
         }
 
         private void FrmSupplier_Load(object sender, EventArgs e)
         {
+
+            this.listView1.Items.Clear();
             string strSQL = "select * from Supplier";
-            adapter = new SqlDataAdapter(strSQL, strCon);
-            adapter.Fill(ds, "qq");
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.DataSource = ds.Tables["qq"];
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
+            while (reader.Read())
+            {
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SPName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPMan")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPPhone")));
+                lst.Tag = reader.GetString(reader.GetOrdinal("SPID"));
+
+                this.listView1.Items.Add(lst);
+            }
+            reader.Close();
         }
     }
 }

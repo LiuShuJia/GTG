@@ -17,26 +17,20 @@ namespace GTG
         {
             InitializeComponent();
         }
-        private string strCon = @"server=.\SQL2014;database=GTGDB;uid=sa;password=123;";
-        private SqlDataAdapter adapter = null;
-        private DataSet ds = new DataSet();
+        DBHelper hepler = new DBHelper();
+        private FrmClientele f;
+        private DBHelper helper = new DBHelper();
         private void btnSelect_Click(object sender, EventArgs e)
         {
             string gname = txtName.Text;
             string gstyle = txtStyle.Text;
 
-            DataView dv = ds.Tables["qq"].DefaultView;
-            dv.RowFilter = $"GName like '%{gname}%' and Gstyle like '%{gstyle}%";
-            this.dataGridView1.DataSource = dv;
+        
         }
 
         private void FrmGoods_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from Goods";
-            adapter = new SqlDataAdapter(strSQL, strCon);
-            adapter.Fill(ds, "qq");
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.DataSource = ds.Tables["qq"];
+           
         }
     }
 }
