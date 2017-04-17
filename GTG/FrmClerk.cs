@@ -106,5 +106,11 @@ namespace GTG
                 this.cmbCSex.Text = "";
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmClerkAdd f = new FrmClerkAdd();
+            f.ShowDialog();
+        }
     }
 }
