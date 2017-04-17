@@ -33,7 +33,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnQue = new System.Windows.Forms.Button();
-            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtGname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,13 +80,13 @@
             this.btnQue.UseVisualStyleBackColor = true;
             this.btnQue.Click += new System.EventHandler(this.btnQue_Click);
             // 
-            // txtPhone
+            // txtGname
             // 
-            this.txtPhone.Location = new System.Drawing.Point(185, 62);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(155, 25);
-            this.txtPhone.TabIndex = 10;
+            this.txtGname.Location = new System.Drawing.Point(185, 62);
+            this.txtGname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGname.Name = "txtGname";
+            this.txtGname.Size = new System.Drawing.Size(155, 25);
+            this.txtGname.TabIndex = 10;
             // 
             // txtName
             // 
@@ -123,7 +123,7 @@
             this.ClientSize = new System.Drawing.Size(493, 484);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnQue);
-            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtGname);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -142,7 +142,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btnQue;
-        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtGname;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
