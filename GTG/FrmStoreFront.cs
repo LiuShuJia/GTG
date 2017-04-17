@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace GTG
 {
@@ -29,7 +30,7 @@ namespace GTG
         //}
         private FrmStoreFront f;
         private DBHelper helper = new DBHelper();
-        private string CCardID;
+        
         private void tsmiClerk_Click(object sender, EventArgs e)
         {
            
@@ -52,13 +53,14 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
-                string SaleName= reader.GetString(reader.GetOrdinal("SaleName"));
+                string SaleName= reader.GetString(reader.GetOrdinal("SName"));
                 this.cmbSaleName.Items.Add(SaleName);
                 string SAddress = reader.GetString(reader.GetOrdinal("SAddress"));
-                this.cmbSaleName.Items.Add(SAddress);
+                this.cmbAddress.Items.Add(SAddress);
+                string SManagerName = reader.GetString(reader.GetOrdinal("SManagerName"));
+                this.cmbSManagerName.Items.Add(SManagerName);
 
-                ListViewItem lst = new ListViewItem();
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
@@ -100,25 +102,18 @@ namespace GTG
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            string SName = this.cmbSaleName.Text;
+            string SAddress = this.cmbAddress.Text;
+            string SManagerName = this.cmbSManagerName.Text;
             this.lstTable.Items.Clear();
-            if (this.cmbSaleName.Text.Trim() == "查询全部")
-            {
-                this.cmbSaleName.Text = "";
-            }
-            if (this.cmbSManagerName.Text.Trim() == "查询全部")
-            {
-                this.cmbSManagerName.Text = "";
-            }
-            this.lstTable.Items.Clear();
-            string strSQL = "select * from SalesStore where(CHARINDEX(@SaleName,SaleName)>0 or len(@SaleName)=0) and(SAddress=@SAddress or len(@SAddress)=0) and (SManagerName=@SManagerName or len(@SManagerName)=0)";
+            string strSQL = "select * from SalesStore where(CHARINDEX(@SName,SName)>0 or len(@SName)=0) and(CHARINDEX(@SAddress,SAddress)>0 or len(@SAddress)=0) and (CHARINDEX(@SManagerName,SManagerName)>0 or len(@SManagerName)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
-                  new SqlParameter("@SaleName", this.cmbSaleName.Text.Trim()),
-                   new SqlParameter("@SAddress", this.txtAddress.Text.Trim()),
-                   new SqlParameter("@SManagerName", this.cmbSManagerName.Text.Trim()));
+                  new SqlParameter("@SName", SName),
+                   new SqlParameter("@SAddress", SAddress),
+                   new SqlParameter("@SManagerName", SManagerName));
             while (reader.Read())
             {
-                ListViewItem lst = new ListViewItem();
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
@@ -126,6 +121,47 @@ namespace GTG
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
+        }
+
+        private void cmbSaleName_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbSaleName_Leave(object sender, EventArgs e)
+        {
+            if (this.cmbSaleName.Text.Trim() != "" && !Regex.IsMatch(this.cmbSaleName.Text.Trim(), @"^\w+$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入!");
+            }
+            if (this.cmbSaleName.Text.Trim() == "查询全部" || this.cmbSaleName.Text.Trim() == "")
+            {
+                this.cmbSaleName.Text = "";
+            }
+        }
+
+        private void cmbAddress_Leave(object sender, EventArgs e)
+        {
+            if (this.cmbAddress.Text.Trim() != "" && !Regex.IsMatch(this.cmbAddress.Text.Trim(), @"^\w+$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入!");
+            }
+            if (this.cmbAddress.Text.Trim() == "查询全部" || this.cmbAddress.Text.Trim() == "")
+            {
+                this.cmbAddress.Text = "";
+            }
+        }
+
+        private void cmbSManagerName_Leave(object sender, EventArgs e)
+        {
+            if (this.cmbSManagerName.Text.Trim() != "" && !Regex.IsMatch(this.cmbSManagerName.Text.Trim(), @"^\w+$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入!");
+            }
+            if (this.cmbSManagerName.Text.Trim() == "查询全部" || this.cmbSManagerName.Text.Trim() == "")
+            {
+                this.cmbSManagerName.Text = "";
+            }
         }
     }
 }

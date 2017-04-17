@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.dtpTime = new System.Windows.Forms.DateTimePicker();
-            this.lblTime = new System.Windows.Forms.Label();
             this.lblSaleName = new System.Windows.Forms.Label();
             this.lblWName = new System.Windows.Forms.Label();
             this.lstTable = new System.Windows.Forms.ListView();
@@ -43,12 +41,13 @@
             this.tsmiModify = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbWName = new System.Windows.Forms.ComboBox();
             this.cmbSaleName = new System.Windows.Forms.ComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(303, 63);
+            this.btnSelect.Location = new System.Drawing.Point(296, 30);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 15;
@@ -56,26 +55,10 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // dtpTime
-            // 
-            this.dtpTime.Location = new System.Drawing.Point(127, 107);
-            this.dtpTime.Name = "dtpTime";
-            this.dtpTime.Size = new System.Drawing.Size(135, 21);
-            this.dtpTime.TabIndex = 12;
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(45, 113);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(65, 12);
-            this.lblTime.TabIndex = 11;
-            this.lblTime.Text = "提单日期：";
-            // 
             // lblSaleName
             // 
             this.lblSaleName.AutoSize = true;
-            this.lblSaleName.Location = new System.Drawing.Point(45, 68);
+            this.lblSaleName.Location = new System.Drawing.Point(45, 82);
             this.lblSaleName.Name = "lblSaleName";
             this.lblSaleName.Size = new System.Drawing.Size(65, 12);
             this.lblSaleName.TabIndex = 10;
@@ -84,7 +67,7 @@
             // lblWName
             // 
             this.lblWName.AutoSize = true;
-            this.lblWName.Location = new System.Drawing.Point(45, 27);
+            this.lblWName.Location = new System.Drawing.Point(45, 35);
             this.lblWName.Name = "lblWName";
             this.lblWName.Size = new System.Drawing.Size(65, 12);
             this.lblWName.TabIndex = 9;
@@ -100,9 +83,9 @@
             this.lstTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lstTable.FullRowSelect = true;
             this.lstTable.GridLines = true;
-            this.lstTable.Location = new System.Drawing.Point(0, 172);
+            this.lstTable.Location = new System.Drawing.Point(0, 135);
             this.lstTable.Name = "lstTable";
-            this.lstTable.Size = new System.Drawing.Size(430, 293);
+            this.lstTable.Size = new System.Drawing.Size(403, 211);
             this.lstTable.TabIndex = 8;
             this.lstTable.UseCompatibleStateImageBehavior = false;
             this.lstTable.View = System.Windows.Forms.View.Details;
@@ -147,31 +130,41 @@
             this.cmbWName.FormattingEnabled = true;
             this.cmbWName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbWName.Location = new System.Drawing.Point(127, 27);
+            this.cmbWName.Location = new System.Drawing.Point(127, 32);
             this.cmbWName.Name = "cmbWName";
             this.cmbWName.Size = new System.Drawing.Size(135, 20);
             this.cmbWName.TabIndex = 16;
+            this.cmbWName.Leave += new System.EventHandler(this.cmbWName_Leave);
             // 
             // cmbSaleName
             // 
             this.cmbSaleName.FormattingEnabled = true;
             this.cmbSaleName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbSaleName.Location = new System.Drawing.Point(127, 65);
+            this.cmbSaleName.Location = new System.Drawing.Point(127, 79);
             this.cmbSaleName.Name = "cmbSaleName";
             this.cmbSaleName.Size = new System.Drawing.Size(135, 20);
             this.cmbSaleName.TabIndex = 17;
+            this.cmbSaleName.Leave += new System.EventHandler(this.cmbSaleName_Leave);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(296, 77);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 18;
+            this.btnAdd.Text = "增加";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // FrmBillOfLading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 465);
+            this.ClientSize = new System.Drawing.Size(403, 346);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbSaleName);
             this.Controls.Add(this.cmbWName);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.dtpTime);
-            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSaleName);
             this.Controls.Add(this.lblWName);
             this.Controls.Add(this.lstTable);
@@ -187,8 +180,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.DateTimePicker dtpTime;
-        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblSaleName;
         private System.Windows.Forms.Label lblWName;
         private System.Windows.Forms.ListView lstTable;
@@ -200,5 +191,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiModify;
         private System.Windows.Forms.ComboBox cmbWName;
         private System.Windows.Forms.ComboBox cmbSaleName;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

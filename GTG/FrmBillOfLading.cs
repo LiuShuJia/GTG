@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace GTG
 {
@@ -27,18 +28,16 @@ namespace GTG
         private void btnSelect_Click(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from BillOfLading inner join SalesStore on BillOfLading.SID=SalesStore.SID join Warehouse on BillOfLading.WID=Warehouse.WID where (SaleName=@SaleName or len(@SaleName)=0)and (WName=@WName or len(@WName)=0)and(BSubDate=@BSubDate or len(@BSubDate)=0)";
+            string strSQL = "select * from BillOfLading inner join SalesStore on BillOfLading.SID=SalesStore.SID join Warehouse on BillOfLading.WID=Warehouse.WID where (CHARINDEX(@WName,WName)>0 or len(@WName)=0) and(CHARINDEX(@SName,SName)>0 or len(@SName)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                 new SqlParameter("@WName", this.cmbWName.Text.Trim()),
-                new SqlParameter("@SaleName", this.cmbSaleName.Text.Trim()),
-                new SqlParameter("@BSubDate", this.dtpTime.Text.Trim())
+                new SqlParameter("@SName", this.cmbSaleName.Text.Trim())
                 );
             while (reader.Read())
             {
-                ListViewItem lst = new ListViewItem();
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("WName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("BSubDate")));
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("WName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
+                lst.SubItems.Add(reader.GetDateTime(reader.GetOrdinal("BDate")).ToString());
 
                 this.lstTable.Items.Add(lst);
             }
@@ -52,21 +51,43 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
-                string SaleName = reader.GetString(reader.GetOrdinal("SaleName"));
-                this.cmbSaleName.Items.Add(SaleName);
+                string SName = reader.GetString(reader.GetOrdinal("SName"));
+                this.cmbSaleName.Items.Add(SName);
                 string WName = reader.GetString(reader.GetOrdinal("WName"));
-                this.cmbSaleName.Items.Add(WName);
-                string BSubDate = reader.GetString(reader.GetOrdinal("BSubDate"));
-                this.cmbSaleName.Items.Add(BSubDate);
+                this.cmbWName.Items.Add(WName);
+                
 
-                ListViewItem lst = new ListViewItem();
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("WName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SaleName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("BSubDate")));
-               
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("WName")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SName")));
+                lst.SubItems.Add(reader.GetDateTime(reader.GetOrdinal("BDate")).ToString());
+
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
+        }
+
+        private void cmbWName_Leave(object sender, EventArgs e)
+        {
+            if (this.cmbWName.Text != "" && !Regex.IsMatch(this.cmbWName.Text.Trim(), @"^\w+$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入!");
+            }
+            if (this.cmbWName.Text == "查询全部" || this.cmbWName.Text == "")
+            {
+                this.cmbWName.Text = "";
+            }
+        }
+
+        private void cmbSaleName_Leave(object sender, EventArgs e)
+        {
+            if (this.cmbSaleName.Text != ""&& !Regex.IsMatch(this.cmbSaleName.Text.Trim(), @"^\w+$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入!");
+            }
+            if (this.cmbSaleName.Text == "查询全部" || this.cmbSaleName.Text == "")
+            {
+                this.cmbSaleName.Text = "";
+            }
         }
     }
 }
