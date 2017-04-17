@@ -36,13 +36,14 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.btnMofidy = new System.Windows.Forms.Button();
-            this.cbosex = new System.Windows.Forms.ComboBox();
+            this.rdoMan = new System.Windows.Forms.RadioButton();
+            this.rdoFamale = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // txtIDcard
             // 
             this.txtIDcard.Location = new System.Drawing.Point(146, 157);
-            this.txtIDcard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDcard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDcard.Name = "txtIDcard";
             this.txtIDcard.Size = new System.Drawing.Size(132, 25);
             this.txtIDcard.TabIndex = 3;
@@ -81,9 +82,9 @@
             // txtrealname
             // 
             this.txtrealname.Location = new System.Drawing.Point(146, 41);
-            this.txtrealname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtrealname.Margin = new System.Windows.Forms.Padding(4);
             this.txtrealname.Name = "txtrealname";
-            this.txtrealname.Size = new System.Drawing.Size(137, 25);
+            this.txtrealname.Size = new System.Drawing.Size(132, 25);
             this.txtrealname.TabIndex = 9;
             this.txtrealname.Leave += new System.EventHandler(this.txtrealname_Leave);
             // 
@@ -100,7 +101,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(146, 225);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(132, 25);
             this.txtPhone.TabIndex = 11;
@@ -108,8 +109,8 @@
             // 
             // btnMofidy
             // 
-            this.btnMofidy.Location = new System.Drawing.Point(146, 296);
-            this.btnMofidy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMofidy.Location = new System.Drawing.Point(94, 296);
+            this.btnMofidy.Margin = new System.Windows.Forms.Padding(4);
             this.btnMofidy.Name = "btnMofidy";
             this.btnMofidy.Size = new System.Drawing.Size(132, 29);
             this.btnMofidy.TabIndex = 12;
@@ -117,26 +118,35 @@
             this.btnMofidy.UseVisualStyleBackColor = true;
             this.btnMofidy.Click += new System.EventHandler(this.btnMofidy_Click);
             // 
-            // cbosex
+            // rdoMan
             // 
-            this.cbosex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbosex.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbosex.FormattingEnabled = true;
-            this.cbosex.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.cbosex.Location = new System.Drawing.Point(146, 97);
-            this.cbosex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbosex.Name = "cbosex";
-            this.cbosex.Size = new System.Drawing.Size(137, 23);
-            this.cbosex.TabIndex = 13;
+            this.rdoMan.AutoSize = true;
+            this.rdoMan.Location = new System.Drawing.Point(146, 101);
+            this.rdoMan.Name = "rdoMan";
+            this.rdoMan.Size = new System.Drawing.Size(43, 19);
+            this.rdoMan.TabIndex = 13;
+            this.rdoMan.TabStop = true;
+            this.rdoMan.Text = "男";
+            this.rdoMan.UseVisualStyleBackColor = true;
+            // 
+            // rdoFamale
+            // 
+            this.rdoFamale.AutoSize = true;
+            this.rdoFamale.Location = new System.Drawing.Point(235, 101);
+            this.rdoFamale.Name = "rdoFamale";
+            this.rdoFamale.Size = new System.Drawing.Size(43, 19);
+            this.rdoFamale.TabIndex = 14;
+            this.rdoFamale.TabStop = true;
+            this.rdoFamale.Text = "女";
+            this.rdoFamale.UseVisualStyleBackColor = true;
             // 
             // FrmUpdateUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 366);
-            this.Controls.Add(this.cbosex);
+            this.Controls.Add(this.rdoFamale);
+            this.Controls.Add(this.rdoMan);
             this.Controls.Add(this.btnMofidy);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtrealname);
@@ -145,7 +155,7 @@
             this.Controls.Add(this.lblsex);
             this.Controls.Add(this.txtIDcard);
             this.Controls.Add(this.lblrealName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmUpdateUserInfo";
             this.Text = "修改用户信息";
@@ -165,6 +175,7 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Button btnMofidy;
-        private System.Windows.Forms.ComboBox cbosex;
+        private System.Windows.Forms.RadioButton rdoMan;
+        private System.Windows.Forms.RadioButton rdoFamale;
     }
 }

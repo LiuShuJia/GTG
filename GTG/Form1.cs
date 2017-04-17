@@ -58,8 +58,6 @@ namespace GTG
                     FrmUserManger fum = new FrmUserManger(this .txtUserName .Text .Trim ());    
                     this.Hide();
                     fum.ShowDialog();
-                    this.txtUserName.Clear();
-                    this.txtpassword.Clear();
                     this.Show();
                 }
                 else

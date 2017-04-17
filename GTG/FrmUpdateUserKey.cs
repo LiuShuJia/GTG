@@ -37,7 +37,6 @@ namespace GTG
                 int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                     new SqlParameter("@loginid", UserName),
                     new SqlParameter("@loginPWD", this.txtnewpassword.Text.Trim()));
-                MessageBox.Show(row.ToString());
                 if (row > 0)
                 {
                     MessageBox.Show("密码修改成功");
@@ -88,6 +87,22 @@ namespace GTG
         private void FrmUpdateUserKey_Load(object sender, EventArgs e)
         {
             this.txtsureNewpassword.Enabled =false;//设置让确认密码不可用，如果密码输入不正确的话
+        }
+
+        private void chexkShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this .chexkShow .Checked ==true)
+            {
+                this.txtoldpassword.PasswordChar = (char)0;
+                this.txtnewpassword.PasswordChar = (char)0;
+                this.txtsureNewpassword.PasswordChar = (char)0;
+            }
+            else
+            {
+                this.txtoldpassword.PasswordChar = '*';
+                this.txtnewpassword.PasswordChar = '*';
+                this.txtsureNewpassword.PasswordChar = '*';
+            }
         }
     }
 }

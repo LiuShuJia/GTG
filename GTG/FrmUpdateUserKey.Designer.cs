@@ -37,6 +37,7 @@
             this.txtsureNewpassword = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chexkShow = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +101,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(90, 260);
+            this.btnModify.Location = new System.Drawing.Point(33, 264);
             this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(100, 29);
@@ -113,11 +114,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // chexkShow
+            // 
+            this.chexkShow.AutoSize = true;
+            this.chexkShow.Location = new System.Drawing.Point(157, 270);
+            this.chexkShow.Name = "chexkShow";
+            this.chexkShow.Size = new System.Drawing.Size(89, 19);
+            this.chexkShow.TabIndex = 7;
+            this.chexkShow.Text = "显示密码";
+            this.chexkShow.UseVisualStyleBackColor = true;
+            this.chexkShow.CheckedChanged += new System.EventHandler(this.chexkShow_CheckedChanged);
+            // 
             // FrmUpdateUserKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 332);
+            this.Controls.Add(this.chexkShow);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.txtsureNewpassword);
             this.Controls.Add(this.txtnewpassword);
@@ -146,5 +159,6 @@
         private System.Windows.Forms.TextBox txtsureNewpassword;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox chexkShow;
     }
 }
