@@ -65,12 +65,40 @@ namespace GTG
 
         private void tsmiUp_Click(object sender, EventArgs e)
         {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择供应商！");
+                return;
+            }
+            DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
 
+            FrmDNUpdate f = new FrmDNUpdate(GID);
+            f.ShowDialog();
+            this.btnQue.PerformClick();
         }
 
         private void tsmiRemove_Click(object sender, EventArgs e)
         {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择供应商！");
+                return;
+            }
+            DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
 
+            FrmDNRemove f = new FrmDNRemove(GID);
+            f.ShowDialog();
+            this.btnQue.PerformClick();
         }
     }
 }
