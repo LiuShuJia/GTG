@@ -22,6 +22,14 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            if (txtName.Text==null)
+            {
+                txtName.Text = "";
+            }
+            if (txtStyle.Text == null)
+            {
+                txtStyle.Text = "";
+            }
             string gname = txtName.Text;
             string gstyle = txtStyle.Text;
             this.listView1.Items.Clear();
@@ -33,9 +41,11 @@ namespace GTG
             while (reader.Read())
             {
 
-                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("GName")));
+                lst.SubItems.Add(reader.GetInt32(reader.GetOrdinal("GNum")).ToString ());
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStyle")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStandard")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GUnit")));
 
                 this.listView1.Items.Add(lst);
             }
@@ -51,10 +61,12 @@ namespace GTG
             while (reader.Read())
             {
 
-                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("")));
-
+                ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("GName")));
+                lst.SubItems.Add(reader.GetInt32(reader.GetOrdinal("GNum")).ToString());
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStyle")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStandard")));
+                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GUnit")));
+              
                 this.listView1.Items.Add(lst);
             }
             reader.Close();

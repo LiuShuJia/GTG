@@ -90,7 +90,7 @@ namespace GTG
             string strSQL = "select * from PurchaseList " + "       " +
                 "left join Warehouse on Warehouse.[WID]=PurchaseList.[WID]" +
                "where (charindex(@Gname,WName)>0 or len(@Gname)=0)";
-
+            lstPurchaseList.Items.Clear();
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", Gname));
             while (reader.Read())
             {
@@ -104,6 +104,7 @@ namespace GTG
                 lstPurchaseList.Items.Add(item);
             }
             reader.Close();
+            lstWarehouseList.Items.Clear();
             strSQL = "select * from WarehouseList" + "       " +
                 "left join Warehouse on Warehouse.[WID]=WarehouseList.[WID]" +
                "where (charindex(@Gname,WName)>0 or len(@Gname)=0)";
@@ -121,7 +122,7 @@ namespace GTG
             }
             reader.Close();
 
-            this.cboName.Text = "";
+            this.cboName.Text = "显示所有";
         }
     }
 }

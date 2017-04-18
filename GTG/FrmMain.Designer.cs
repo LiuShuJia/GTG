@@ -58,7 +58,14 @@
             this.treeView1.ItemHeight = 30;
             this.treeView1.Name = "treeView1";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes")))});
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes1"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes2"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes3"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes4"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes5"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes6"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes7")))});
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
             this.treeView1.ShowRootLines = false;
@@ -68,7 +75,6 @@
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel2
             // 
