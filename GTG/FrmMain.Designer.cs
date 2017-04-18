@@ -53,7 +53,7 @@
             this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.treeView1, "treeView1");
             this.treeView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.treeView1.ItemHeight = 30;
+            this.treeView1.ItemHeight = 50;
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.treeView1.Name = "treeView1";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
@@ -63,7 +63,8 @@
             ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes3"))),
             ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes4"))),
             ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes5"))),
-            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes6")))});
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes6"))),
+            ((System.Windows.Forms.TreeNode)(resources.GetObject("treeView1.Nodes7")))});
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
             this.treeView1.ShowRootLines = false;

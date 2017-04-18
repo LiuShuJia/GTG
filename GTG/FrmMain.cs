@@ -42,16 +42,16 @@ namespace GTG
 
         private void treeView1_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode.Text == "产品信息")
+            if (treeView1.SelectedNode.Name == "节点3")
             {
                 FrmInfo f = new FrmInfo();
-
                 f.Size = this.pictureBox1.Size;
                 f.Location = this.pictureBox1.Location;
                 f.MdiParent = this;
                 this.pictureBox1.Visible = false;
                 f.Show();
             }
+            
         }
     }
 }
