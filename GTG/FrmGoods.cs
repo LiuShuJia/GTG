@@ -74,21 +74,21 @@ namespace GTG
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            if (this.listView1.SelectedItems.Count < 1)
-            {
-                MessageBox.Show("请选择商品！");
-                return;
-            }
-            DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-            string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
+            //if (this.listView1.SelectedItems.Count < 1)
+            //{
+            //    MessageBox.Show("请选择商品！");
+            //    return;
+            //}
+            //DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
+            //if (result != DialogResult.OK)
+            //{
+            //    return;
+            //}
+            //string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
             
-            FrmUp f = new FrmUp();
-            f.ShowDialog();
-            this.btnSelect.PerformClick();
+            //FrmUp f = new FrmUp();
+            //f.ShowDialog();
+            //this.btnSelect.PerformClick();
         }
     }
 }
