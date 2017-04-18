@@ -27,11 +27,6 @@ namespace GTG
             this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             frm.Show();
