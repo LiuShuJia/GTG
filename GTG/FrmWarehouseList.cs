@@ -108,11 +108,12 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text);
             while (reader.Read())
             {
-                this.cboName.Items.Add(reader.GetInt32(reader.GetOrdinal("GName")));
+                this.cboName.Items.Add(reader.GetString(reader.GetOrdinal("GName")));
             }
             reader.Close();
+           
         }
-
+        
         private void cboName_Leave(object sender, EventArgs e)
         {
             if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)

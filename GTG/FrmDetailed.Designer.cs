@@ -47,6 +47,7 @@
             // 
             // cboName
             // 
+            this.cboName.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboName.FormattingEnabled = true;
             this.cboName.Items.AddRange(new object[] {
@@ -58,12 +59,13 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(226, 19);
+            this.btnQuery.Location = new System.Drawing.Point(193, 19);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 15;
             this.btnQuery.Text = "查询";
             this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click_1);
             // 
             // lblName
             // 
