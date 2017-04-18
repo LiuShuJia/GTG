@@ -11,13 +11,13 @@ using System.Data.SqlClient;
 
 namespace GTG
 {
-    public partial class FrmDetailed : Form
+    public partial class FrmOutDetailed : Form
     {
-        public FrmDetailed()
+        public FrmOutDetailed()
         {
             InitializeComponent();
         }
-        public FrmDetailed(Form parentForm)
+        public FrmOutDetailed(Form parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
@@ -36,30 +36,12 @@ namespace GTG
             string id = "";
             string num = "";
             string date = "";
-            string strSQL = "select * from PurchaseListDetail " + "   " +
-                "left join Goods on Goods.[GID]=PurchaseListDetail.[GID]" + "   " +
-                "left join PurchaseList on PurchaseList.[PID]=PurchaseListDetail.[PID]";
-
-            IDataReader reader = helper.ExecuteReader(strSQL);
-            while (reader.Read())
-            {
-                name = reader.GetString(reader.GetOrdinal("GName"));
-                id = reader.GetInt32(reader.GetOrdinal("PID")).ToString();
-                num = reader.GetInt32(reader.GetOrdinal("PLDNum")).ToString();
-                date = reader.GetDateTime(reader.GetOrdinal("PInDate")).ToString();
-                ListViewItem item = new ListViewItem(id);
-                item.SubItems.Add(name);
-                item.SubItems.Add(num);
-                item.SubItems.Add(date);
-
-                lstPurchaseList.Items.Add(item);
-            }
-            reader.Close();
-            strSQL = "select * from WarehouseListDetail" + "   " +
+            
+            string strSQL = "select * from WarehouseListDetail" + "   " +
                 "left join Goods on Goods.[GID]=WarehouseListDetail.[GID]" + "   " +
                 "left join WarehouseList on WarehouseList.[WLID]=WarehouseListDetail.[WLID]";
 
-            reader = helper.ExecuteReader(strSQL);
+            IDataReader reader = helper.ExecuteReader(strSQL);
             while (reader.Read())
             {
                 name = reader.GetString(reader.GetOrdinal("GName"));
@@ -94,32 +76,32 @@ namespace GTG
             string id = "";
             string num = "";
             string date = "";
-            string strSQL = "select * from PurchaseListDetail " + "   " +
-               "left join Goods on Goods.[GID]=PurchaseListDetail.[GID]" + "   " +
-               "left join PurchaseList on PurchaseList.[PID]=PurchaseListDetail.[PID]" +
-               "where(charindex(@Gname,Gname)>0 or len(@Gname)=0)";
-            lstPurchaseList.Items.Clear();
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
-            while (reader.Read())
-            {
-                gname = reader.GetString(reader.GetOrdinal("GName"));
-                id = reader.GetInt32(reader.GetOrdinal("PID")).ToString();
-                num = reader.GetInt32(reader.GetOrdinal("PLDNum")).ToString();
-                date = reader.GetDateTime(reader.GetOrdinal("PInDate")).ToString();
-                ListViewItem item = new ListViewItem(id);
-                item.SubItems.Add(gname);
-                item.SubItems.Add(num);
-                item.SubItems.Add(date);
+            //string strSQL = "select * from PurchaseListDetail " + "   " +
+            //   "left join Goods on Goods.[GID]=PurchaseListDetail.[GID]" + "   " +
+            //   "left join PurchaseList on PurchaseList.[PID]=PurchaseListDetail.[PID]" +
+            //   "where(charindex(@Gname,Gname)>0 or len(@Gname)=0)";
+            //lstPurchaseList.Items.Clear();
+            //IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
+            //while (reader.Read())
+            //{
+            //    gname = reader.GetString(reader.GetOrdinal("GName"));
+            //    id = reader.GetInt32(reader.GetOrdinal("PID")).ToString();
+            //    num = reader.GetInt32(reader.GetOrdinal("PLDNum")).ToString();
+            //    date = reader.GetDateTime(reader.GetOrdinal("PInDate")).ToString();
+            //    ListViewItem item = new ListViewItem(id);
+            //    item.SubItems.Add(gname);
+            //    item.SubItems.Add(num);
+            //    item.SubItems.Add(date);
 
-                lstPurchaseList.Items.Add(item);
-            }
-            reader.Close();
-            strSQL = "select * from WarehouseListDetail" + "   " +
+            //    lstPurchaseList.Items.Add(item);
+            //}
+            //reader.Close();
+            string strSQL = "select * from WarehouseListDetail" + "   " +
                 "left join Goods on Goods.[GID]=WarehouseListDetail.[GID]" + "   " +
                 "left join WarehouseList on WarehouseList.[WLID]=WarehouseListDetail.[WLID]" +
                "where (charindex(@Gname,Gname)>0 or len(@Gname)=0)";
             lstWarehouseList.Items.Clear();
-            reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@Gname", name));
             while (reader.Read())
             {
                 gname = reader.GetString(reader.GetOrdinal("GName"));
