@@ -22,6 +22,14 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            if (txtName.Text==null)
+            {
+                txtName.Text = "";
+            }
+            if (txtStyle.Text == null)
+            {
+                txtStyle.Text = "";
+            }
             string gname = txtName.Text;
             string gstyle = txtStyle.Text;
             this.listView1.Items.Clear();
