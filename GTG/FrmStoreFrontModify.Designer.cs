@@ -41,45 +41,54 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(155, 211);
+            this.txtPhone.Location = new System.Drawing.Point(136, 206);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(176, 21);
             this.txtPhone.TabIndex = 18;
+            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // txtSManagerName
             // 
-            this.txtSManagerName.Location = new System.Drawing.Point(155, 157);
+            this.txtSManagerName.Location = new System.Drawing.Point(136, 152);
             this.txtSManagerName.Name = "txtSManagerName";
             this.txtSManagerName.Size = new System.Drawing.Size(176, 21);
             this.txtSManagerName.TabIndex = 17;
+            this.txtSManagerName.Enter += new System.EventHandler(this.txtSManagerName_Enter);
+            this.txtSManagerName.Leave += new System.EventHandler(this.txtSManagerName_Leave);
             // 
             // txtSAddress
             // 
-            this.txtSAddress.Location = new System.Drawing.Point(155, 106);
+            this.txtSAddress.Location = new System.Drawing.Point(136, 101);
             this.txtSAddress.Name = "txtSAddress";
             this.txtSAddress.Size = new System.Drawing.Size(176, 21);
             this.txtSAddress.TabIndex = 16;
+            this.txtSAddress.Enter += new System.EventHandler(this.txtSAddress_Enter);
+            this.txtSAddress.Leave += new System.EventHandler(this.txtSAddress_Leave);
             // 
             // txtSName
             // 
-            this.txtSName.Location = new System.Drawing.Point(155, 57);
+            this.txtSName.Location = new System.Drawing.Point(136, 52);
             this.txtSName.Name = "txtSName";
             this.txtSName.Size = new System.Drawing.Size(176, 21);
             this.txtSName.TabIndex = 15;
+            this.txtSName.Enter += new System.EventHandler(this.txtSName_Enter);
+            this.txtSName.Leave += new System.EventHandler(this.txtSName_Leave);
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(155, 285);
+            this.btnDetermine.Location = new System.Drawing.Point(136, 280);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 14;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(77, 214);
+            this.lblPhone.Location = new System.Drawing.Point(58, 209);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(65, 12);
             this.lblPhone.TabIndex = 13;
@@ -88,7 +97,7 @@
             // lblSManagerName
             // 
             this.lblSManagerName.AutoSize = true;
-            this.lblSManagerName.Location = new System.Drawing.Point(77, 160);
+            this.lblSManagerName.Location = new System.Drawing.Point(58, 155);
             this.lblSManagerName.Name = "lblSManagerName";
             this.lblSManagerName.Size = new System.Drawing.Size(65, 12);
             this.lblSManagerName.TabIndex = 12;
@@ -97,7 +106,7 @@
             // lblSAddress
             // 
             this.lblSAddress.AutoSize = true;
-            this.lblSAddress.Location = new System.Drawing.Point(77, 109);
+            this.lblSAddress.Location = new System.Drawing.Point(58, 104);
             this.lblSAddress.Name = "lblSAddress";
             this.lblSAddress.Size = new System.Drawing.Size(41, 12);
             this.lblSAddress.TabIndex = 11;
@@ -106,7 +115,7 @@
             // lblSName
             // 
             this.lblSName.AutoSize = true;
-            this.lblSName.Location = new System.Drawing.Point(77, 60);
+            this.lblSName.Location = new System.Drawing.Point(58, 55);
             this.lblSName.Name = "lblSName";
             this.lblSName.Size = new System.Drawing.Size(65, 12);
             this.lblSName.TabIndex = 10;
@@ -116,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 390);
+            this.ClientSize = new System.Drawing.Size(372, 349);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtSManagerName);
             this.Controls.Add(this.txtSAddress);
@@ -128,6 +137,7 @@
             this.Controls.Add(this.lblSName);
             this.Name = "FrmStoreFrontModify";
             this.Text = "修改店面信息";
+            this.Load += new System.EventHandler(this.FrmStoreFrontModify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

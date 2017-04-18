@@ -41,15 +41,16 @@
             // 
             // txtCardID
             // 
-            this.txtCardID.Location = new System.Drawing.Point(169, 166);
+            this.txtCardID.Location = new System.Drawing.Point(137, 141);
             this.txtCardID.Name = "txtCardID";
             this.txtCardID.Size = new System.Drawing.Size(176, 21);
             this.txtCardID.TabIndex = 36;
+            this.txtCardID.Leave += new System.EventHandler(this.txtCardID_Leave);
             // 
             // lblCardID
             // 
             this.lblCardID.AutoSize = true;
-            this.lblCardID.Location = new System.Drawing.Point(91, 169);
+            this.lblCardID.Location = new System.Drawing.Point(59, 144);
             this.lblCardID.Name = "lblCardID";
             this.lblCardID.Size = new System.Drawing.Size(77, 12);
             this.lblCardID.TabIndex = 35;
@@ -57,38 +58,42 @@
             // 
             // txtCPhone
             // 
-            this.txtCPhone.Location = new System.Drawing.Point(169, 211);
+            this.txtCPhone.Location = new System.Drawing.Point(137, 192);
             this.txtCPhone.Name = "txtCPhone";
             this.txtCPhone.Size = new System.Drawing.Size(176, 21);
             this.txtCPhone.TabIndex = 34;
+            this.txtCPhone.Leave += new System.EventHandler(this.txtCPhone_Leave);
             // 
             // txtCSex
             // 
-            this.txtCSex.Location = new System.Drawing.Point(169, 113);
+            this.txtCSex.Location = new System.Drawing.Point(137, 92);
             this.txtCSex.Name = "txtCSex";
             this.txtCSex.Size = new System.Drawing.Size(176, 21);
             this.txtCSex.TabIndex = 33;
+            this.txtCSex.Leave += new System.EventHandler(this.txtCSex_Leave);
             // 
             // txtCName
             // 
-            this.txtCName.Location = new System.Drawing.Point(169, 57);
+            this.txtCName.Location = new System.Drawing.Point(137, 43);
             this.txtCName.Name = "txtCName";
             this.txtCName.Size = new System.Drawing.Size(176, 21);
             this.txtCName.TabIndex = 32;
+            this.txtCName.Leave += new System.EventHandler(this.txtCName_Leave);
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(169, 285);
+            this.btnDetermine.Location = new System.Drawing.Point(137, 258);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 31;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
             // lblCPhone
             // 
             this.lblCPhone.AutoSize = true;
-            this.lblCPhone.Location = new System.Drawing.Point(91, 214);
+            this.lblCPhone.Location = new System.Drawing.Point(59, 195);
             this.lblCPhone.Name = "lblCPhone";
             this.lblCPhone.Size = new System.Drawing.Size(65, 12);
             this.lblCPhone.TabIndex = 30;
@@ -97,7 +102,7 @@
             // lblCSex
             // 
             this.lblCSex.AutoSize = true;
-            this.lblCSex.Location = new System.Drawing.Point(91, 116);
+            this.lblCSex.Location = new System.Drawing.Point(59, 95);
             this.lblCSex.Name = "lblCSex";
             this.lblCSex.Size = new System.Drawing.Size(41, 12);
             this.lblCSex.TabIndex = 29;
@@ -106,7 +111,7 @@
             // lblCName
             // 
             this.lblCName.AutoSize = true;
-            this.lblCName.Location = new System.Drawing.Point(91, 60);
+            this.lblCName.Location = new System.Drawing.Point(59, 46);
             this.lblCName.Name = "lblCName";
             this.lblCName.Size = new System.Drawing.Size(65, 12);
             this.lblCName.TabIndex = 28;
@@ -116,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 369);
+            this.ClientSize = new System.Drawing.Size(376, 345);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
             this.Controls.Add(this.txtCPhone);
@@ -128,6 +133,7 @@
             this.Controls.Add(this.lblCName);
             this.Name = "FrmClerkModify";
             this.Text = "修改店员信息";
+            this.Load += new System.EventHandler(this.FrmClerkModify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

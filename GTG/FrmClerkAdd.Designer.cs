@@ -37,11 +37,13 @@
             this.lblCName = new System.Windows.Forms.Label();
             this.lblCardID = new System.Windows.Forms.Label();
             this.txtCardID = new System.Windows.Forms.TextBox();
+            this.lblSName = new System.Windows.Forms.Label();
+            this.cmbSName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtCPhone
             // 
-            this.txtCPhone.Location = new System.Drawing.Point(157, 212);
+            this.txtCPhone.Location = new System.Drawing.Point(129, 225);
             this.txtCPhone.Name = "txtCPhone";
             this.txtCPhone.Size = new System.Drawing.Size(176, 21);
             this.txtCPhone.TabIndex = 25;
@@ -50,7 +52,7 @@
             // 
             // txtCSex
             // 
-            this.txtCSex.Location = new System.Drawing.Point(157, 114);
+            this.txtCSex.Location = new System.Drawing.Point(129, 122);
             this.txtCSex.Name = "txtCSex";
             this.txtCSex.Size = new System.Drawing.Size(176, 21);
             this.txtCSex.TabIndex = 24;
@@ -59,7 +61,7 @@
             // 
             // txtCName
             // 
-            this.txtCName.Location = new System.Drawing.Point(157, 58);
+            this.txtCName.Location = new System.Drawing.Point(129, 71);
             this.txtCName.Name = "txtCName";
             this.txtCName.Size = new System.Drawing.Size(176, 21);
             this.txtCName.TabIndex = 23;
@@ -68,7 +70,7 @@
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(157, 286);
+            this.btnDetermine.Location = new System.Drawing.Point(129, 270);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 22;
@@ -79,7 +81,7 @@
             // lblCPhone
             // 
             this.lblCPhone.AutoSize = true;
-            this.lblCPhone.Location = new System.Drawing.Point(79, 215);
+            this.lblCPhone.Location = new System.Drawing.Point(51, 228);
             this.lblCPhone.Name = "lblCPhone";
             this.lblCPhone.Size = new System.Drawing.Size(65, 12);
             this.lblCPhone.TabIndex = 21;
@@ -88,7 +90,7 @@
             // lblCSex
             // 
             this.lblCSex.AutoSize = true;
-            this.lblCSex.Location = new System.Drawing.Point(79, 117);
+            this.lblCSex.Location = new System.Drawing.Point(75, 125);
             this.lblCSex.Name = "lblCSex";
             this.lblCSex.Size = new System.Drawing.Size(41, 12);
             this.lblCSex.TabIndex = 20;
@@ -97,7 +99,7 @@
             // lblCName
             // 
             this.lblCName.AutoSize = true;
-            this.lblCName.Location = new System.Drawing.Point(79, 61);
+            this.lblCName.Location = new System.Drawing.Point(51, 74);
             this.lblCName.Name = "lblCName";
             this.lblCName.Size = new System.Drawing.Size(65, 12);
             this.lblCName.TabIndex = 19;
@@ -106,7 +108,7 @@
             // lblCardID
             // 
             this.lblCardID.AutoSize = true;
-            this.lblCardID.Location = new System.Drawing.Point(79, 170);
+            this.lblCardID.Location = new System.Drawing.Point(51, 174);
             this.lblCardID.Name = "lblCardID";
             this.lblCardID.Size = new System.Drawing.Size(77, 12);
             this.lblCardID.TabIndex = 26;
@@ -114,18 +116,37 @@
             // 
             // txtCardID
             // 
-            this.txtCardID.Location = new System.Drawing.Point(157, 167);
+            this.txtCardID.Location = new System.Drawing.Point(129, 171);
             this.txtCardID.Name = "txtCardID";
             this.txtCardID.Size = new System.Drawing.Size(176, 21);
             this.txtCardID.TabIndex = 27;
             this.txtCardID.Enter += new System.EventHandler(this.txtCardID_Enter);
             this.txtCardID.Leave += new System.EventHandler(this.txtCardID_Leave);
             // 
+            // lblSName
+            // 
+            this.lblSName.AutoSize = true;
+            this.lblSName.Location = new System.Drawing.Point(51, 30);
+            this.lblSName.Name = "lblSName";
+            this.lblSName.Size = new System.Drawing.Size(65, 12);
+            this.lblSName.TabIndex = 28;
+            this.lblSName.Text = "店面名称：";
+            // 
+            // cmbSName
+            // 
+            this.cmbSName.FormattingEnabled = true;
+            this.cmbSName.Location = new System.Drawing.Point(129, 27);
+            this.cmbSName.Name = "cmbSName";
+            this.cmbSName.Size = new System.Drawing.Size(176, 20);
+            this.cmbSName.TabIndex = 29;
+            // 
             // FrmClerkAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 367);
+            this.ClientSize = new System.Drawing.Size(370, 329);
+            this.Controls.Add(this.cmbSName);
+            this.Controls.Add(this.lblSName);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
             this.Controls.Add(this.txtCPhone);
@@ -137,6 +158,7 @@
             this.Controls.Add(this.lblCName);
             this.Name = "FrmClerkAdd";
             this.Text = "增加店员信息";
+            this.Load += new System.EventHandler(this.FrmClerkAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +175,7 @@
         private System.Windows.Forms.Label lblCName;
         private System.Windows.Forms.Label lblCardID;
         private System.Windows.Forms.TextBox txtCardID;
+        private System.Windows.Forms.Label lblSName;
+        private System.Windows.Forms.ComboBox cmbSName;
     }
 }

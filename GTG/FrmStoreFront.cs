@@ -115,6 +115,7 @@ namespace GTG
             while (reader.Read())
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
+                lst.Tag = reader.GetString(reader.GetOrdinal("SID"));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
@@ -163,6 +164,19 @@ namespace GTG
             {
                 this.cmbSManagerName.Text = "";
             }
+        }
+
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            FrmStoreFrontDelete f = new FrmStoreFrontDelete();
+            f.ShowDialog();
+        }
+
+        private void tsmiModify_Click(object sender, EventArgs e)
+        {
+            string SID= this.lstTable.SelectedItems[0].Tag.ToString();
+            FrmStoreFrontModify f = new FrmStoreFrontModify(SID);
+            f.ShowDialog();
         }
     }
 }

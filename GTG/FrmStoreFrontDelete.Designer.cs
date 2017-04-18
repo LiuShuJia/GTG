@@ -42,7 +42,7 @@
             // lblSmanagerName
             // 
             this.lblSmanagerName.AutoSize = true;
-            this.lblSmanagerName.Location = new System.Drawing.Point(261, 202);
+            this.lblSmanagerName.Location = new System.Drawing.Point(217, 155);
             this.lblSmanagerName.Name = "lblSmanagerName";
             this.lblSmanagerName.Size = new System.Drawing.Size(17, 12);
             this.lblSmanagerName.TabIndex = 26;
@@ -51,7 +51,7 @@
             // lblSmanagerName1
             // 
             this.lblSmanagerName1.AutoSize = true;
-            this.lblSmanagerName1.Location = new System.Drawing.Point(126, 202);
+            this.lblSmanagerName1.Location = new System.Drawing.Point(82, 155);
             this.lblSmanagerName1.Name = "lblSmanagerName1";
             this.lblSmanagerName1.Size = new System.Drawing.Size(65, 12);
             this.lblSmanagerName1.TabIndex = 25;
@@ -59,17 +59,18 @@
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(172, 321);
+            this.btnDetermine.Location = new System.Drawing.Point(128, 274);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 24;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
             // lblSPhone
             // 
             this.lblSPhone.AutoSize = true;
-            this.lblSPhone.Location = new System.Drawing.Point(261, 263);
+            this.lblSPhone.Location = new System.Drawing.Point(217, 216);
             this.lblSPhone.Name = "lblSPhone";
             this.lblSPhone.Size = new System.Drawing.Size(17, 12);
             this.lblSPhone.TabIndex = 23;
@@ -78,7 +79,7 @@
             // lblSAddress
             // 
             this.lblSAddress.AutoSize = true;
-            this.lblSAddress.Location = new System.Drawing.Point(261, 142);
+            this.lblSAddress.Location = new System.Drawing.Point(217, 95);
             this.lblSAddress.Name = "lblSAddress";
             this.lblSAddress.Size = new System.Drawing.Size(17, 12);
             this.lblSAddress.TabIndex = 22;
@@ -87,7 +88,7 @@
             // lblSName
             // 
             this.lblSName.AutoSize = true;
-            this.lblSName.Location = new System.Drawing.Point(261, 86);
+            this.lblSName.Location = new System.Drawing.Point(217, 39);
             this.lblSName.Name = "lblSName";
             this.lblSName.Size = new System.Drawing.Size(17, 12);
             this.lblSName.TabIndex = 21;
@@ -96,7 +97,7 @@
             // lblSPhone1
             // 
             this.lblSPhone1.AutoSize = true;
-            this.lblSPhone1.Location = new System.Drawing.Point(126, 263);
+            this.lblSPhone1.Location = new System.Drawing.Point(82, 216);
             this.lblSPhone1.Name = "lblSPhone1";
             this.lblSPhone1.Size = new System.Drawing.Size(65, 12);
             this.lblSPhone1.TabIndex = 20;
@@ -105,7 +106,7 @@
             // lblSAddress1
             // 
             this.lblSAddress1.AutoSize = true;
-            this.lblSAddress1.Location = new System.Drawing.Point(126, 142);
+            this.lblSAddress1.Location = new System.Drawing.Point(82, 95);
             this.lblSAddress1.Name = "lblSAddress1";
             this.lblSAddress1.Size = new System.Drawing.Size(41, 12);
             this.lblSAddress1.TabIndex = 19;
@@ -114,17 +115,17 @@
             // lblSName1
             // 
             this.lblSName1.AutoSize = true;
-            this.lblSName1.Location = new System.Drawing.Point(126, 86);
+            this.lblSName1.Location = new System.Drawing.Point(82, 39);
             this.lblSName1.Name = "lblSName1";
             this.lblSName1.Size = new System.Drawing.Size(65, 12);
             this.lblSName1.TabIndex = 18;
             this.lblSName1.Text = "店面名称：";
             // 
-            // FrmSalesStoreDelete
+            // FrmStoreFrontDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 430);
+            this.ClientSize = new System.Drawing.Size(317, 356);
             this.Controls.Add(this.lblSmanagerName);
             this.Controls.Add(this.lblSmanagerName1);
             this.Controls.Add(this.btnDetermine);
@@ -134,8 +135,9 @@
             this.Controls.Add(this.lblSPhone1);
             this.Controls.Add(this.lblSAddress1);
             this.Controls.Add(this.lblSName1);
-            this.Name = "FrmSalesStoreDelete";
+            this.Name = "FrmStoreFrontDelete";
             this.Text = "删除店面信息";
+            this.Load += new System.EventHandler(this.FrmStoreFrontDelete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

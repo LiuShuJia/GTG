@@ -37,21 +37,24 @@
             this.lblCName1 = new System.Windows.Forms.Label();
             this.lblCCardID1 = new System.Windows.Forms.Label();
             this.lblCCardID = new System.Windows.Forms.Label();
+            this.lblSName1 = new System.Windows.Forms.Label();
+            this.lblSName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(161, 293);
+            this.btnDetermine.Location = new System.Drawing.Point(138, 300);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 15;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
             // lblCPhone
             // 
             this.lblCPhone.AutoSize = true;
-            this.lblCPhone.Location = new System.Drawing.Point(250, 235);
+            this.lblCPhone.Location = new System.Drawing.Point(234, 253);
             this.lblCPhone.Name = "lblCPhone";
             this.lblCPhone.Size = new System.Drawing.Size(17, 12);
             this.lblCPhone.TabIndex = 14;
@@ -60,7 +63,7 @@
             // lblCSex
             // 
             this.lblCSex.AutoSize = true;
-            this.lblCSex.Location = new System.Drawing.Point(250, 114);
+            this.lblCSex.Location = new System.Drawing.Point(234, 132);
             this.lblCSex.Name = "lblCSex";
             this.lblCSex.Size = new System.Drawing.Size(17, 12);
             this.lblCSex.TabIndex = 13;
@@ -69,7 +72,7 @@
             // lblCName
             // 
             this.lblCName.AutoSize = true;
-            this.lblCName.Location = new System.Drawing.Point(250, 58);
+            this.lblCName.Location = new System.Drawing.Point(234, 76);
             this.lblCName.Name = "lblCName";
             this.lblCName.Size = new System.Drawing.Size(17, 12);
             this.lblCName.TabIndex = 12;
@@ -78,7 +81,7 @@
             // lblCPhone1
             // 
             this.lblCPhone1.AutoSize = true;
-            this.lblCPhone1.Location = new System.Drawing.Point(115, 235);
+            this.lblCPhone1.Location = new System.Drawing.Point(99, 253);
             this.lblCPhone1.Name = "lblCPhone1";
             this.lblCPhone1.Size = new System.Drawing.Size(65, 12);
             this.lblCPhone1.TabIndex = 11;
@@ -87,7 +90,7 @@
             // lblCSex1
             // 
             this.lblCSex1.AutoSize = true;
-            this.lblCSex1.Location = new System.Drawing.Point(115, 114);
+            this.lblCSex1.Location = new System.Drawing.Point(99, 132);
             this.lblCSex1.Name = "lblCSex1";
             this.lblCSex1.Size = new System.Drawing.Size(41, 12);
             this.lblCSex1.TabIndex = 10;
@@ -96,7 +99,7 @@
             // lblCName1
             // 
             this.lblCName1.AutoSize = true;
-            this.lblCName1.Location = new System.Drawing.Point(115, 58);
+            this.lblCName1.Location = new System.Drawing.Point(99, 76);
             this.lblCName1.Name = "lblCName1";
             this.lblCName1.Size = new System.Drawing.Size(65, 12);
             this.lblCName1.TabIndex = 9;
@@ -105,7 +108,7 @@
             // lblCCardID1
             // 
             this.lblCCardID1.AutoSize = true;
-            this.lblCCardID1.Location = new System.Drawing.Point(115, 174);
+            this.lblCCardID1.Location = new System.Drawing.Point(99, 192);
             this.lblCCardID1.Name = "lblCCardID1";
             this.lblCCardID1.Size = new System.Drawing.Size(77, 12);
             this.lblCCardID1.TabIndex = 16;
@@ -114,17 +117,37 @@
             // lblCCardID
             // 
             this.lblCCardID.AutoSize = true;
-            this.lblCCardID.Location = new System.Drawing.Point(250, 174);
+            this.lblCCardID.Location = new System.Drawing.Point(234, 192);
             this.lblCCardID.Name = "lblCCardID";
             this.lblCCardID.Size = new System.Drawing.Size(17, 12);
             this.lblCCardID.TabIndex = 17;
             this.lblCCardID.Text = "11";
             // 
+            // lblSName1
+            // 
+            this.lblSName1.AutoSize = true;
+            this.lblSName1.Location = new System.Drawing.Point(99, 31);
+            this.lblSName1.Name = "lblSName1";
+            this.lblSName1.Size = new System.Drawing.Size(65, 12);
+            this.lblSName1.TabIndex = 18;
+            this.lblSName1.Text = "店面名称：";
+            // 
+            // lblSName
+            // 
+            this.lblSName.AutoSize = true;
+            this.lblSName.Location = new System.Drawing.Point(234, 31);
+            this.lblSName.Name = "lblSName";
+            this.lblSName.Size = new System.Drawing.Size(17, 12);
+            this.lblSName.TabIndex = 19;
+            this.lblSName.Text = "11";
+            // 
             // FrmClerkDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 357);
+            this.ClientSize = new System.Drawing.Size(340, 357);
+            this.Controls.Add(this.lblSName);
+            this.Controls.Add(this.lblSName1);
             this.Controls.Add(this.lblCCardID);
             this.Controls.Add(this.lblCCardID1);
             this.Controls.Add(this.btnDetermine);
@@ -136,6 +159,7 @@
             this.Controls.Add(this.lblCName1);
             this.Name = "FrmClerkDelete";
             this.Text = "删除店员信息";
+            this.Load += new System.EventHandler(this.FrmClerkDelete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +176,7 @@
         private System.Windows.Forms.Label lblCName1;
         private System.Windows.Forms.Label lblCCardID1;
         private System.Windows.Forms.Label lblCCardID;
+        private System.Windows.Forms.Label lblSName1;
+        private System.Windows.Forms.Label lblSName;
     }
 }

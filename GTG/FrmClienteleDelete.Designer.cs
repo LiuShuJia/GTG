@@ -99,8 +99,9 @@
             this.btnDetermine.TabIndex = 8;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
-            // FrmClienteltDelete
+            // FrmClienteleDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,8 +113,9 @@
             this.Controls.Add(this.lblCTPhone1);
             this.Controls.Add(this.lblCTAddress1);
             this.Controls.Add(this.lblCTName1);
-            this.Name = "FrmClienteltDelete";
+            this.Name = "FrmClienteleDelete";
             this.Text = "删除客户信息";
+            this.Load += new System.EventHandler(this.FrmClienteleDelete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

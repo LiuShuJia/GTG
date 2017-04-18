@@ -100,5 +100,17 @@ namespace GTG
             FrmClienteleAdd f = new FrmClienteleAdd();
             f.ShowDialog();
         }
+
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            FrmClienteleDelete f = new FrmClienteleDelete();
+            f.ShowDialog();
+        }
+
+        private void tsmiModify_Click(object sender, EventArgs e)
+        {
+            FrmClienteleModify f = new FrmClienteleModify();
+            f.ShowDialog();
+        }
     }
 }

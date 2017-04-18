@@ -24,12 +24,18 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
+        //public FrmClerk(string CCardID)
+        //{
+        //    this.CardID = CCardID;
+        //    InitializeComponent();
+        //}
+        //private string CardID;
         private FrmClerk f;
         private DBHelper helper = new DBHelper();
         private void FrmClerk_Load(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select SName,CName,CSex,CCardID,CPhone from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID";
+            string strSQL = "select * from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
@@ -43,7 +49,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
-
+               
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -58,14 +64,14 @@ namespace GTG
                 new SqlParameter("@CName", this.cmbCName.Text.Trim()),
                 new SqlParameter("@CSex", this.cmbCSex.Text.Trim())
                 );
-            while (reader.Read())
+            while (reader.Read()) 
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
-
+                lst.Tag = CCardID;
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -110,6 +116,18 @@ namespace GTG
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FrmClerkAdd f = new FrmClerkAdd();
+            f.ShowDialog();
+        }
+
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            FrmClerkDelete f = new FrmClerkDelete();
+            f.ShowDialog();
+        }
+
+        private void tsmiModify_Click(object sender, EventArgs e)
+        {
+            FrmClerkModify f = new FrmClerkModify();
             f.ShowDialog();
         }
     }
