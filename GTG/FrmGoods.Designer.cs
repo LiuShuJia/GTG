@@ -32,8 +32,8 @@
             this.商品信息表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.供应商资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.送货单表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblGName = new System.Windows.Forms.Label();
+            this.GStyle = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -77,23 +77,23 @@
             this.送货单表ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.送货单表ToolStripMenuItem.Text = "送货单表";
             // 
-            // label1
+            // lblGName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "商品名：";
+            this.lblGName.AutoSize = true;
+            this.lblGName.Location = new System.Drawing.Point(43, 46);
+            this.lblGName.Name = "lblGName";
+            this.lblGName.Size = new System.Drawing.Size(53, 12);
+            this.lblGName.TabIndex = 3;
+            this.lblGName.Text = "商品名：";
             // 
-            // label3
+            // GStyle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "商品类别：";
+            this.GStyle.AutoSize = true;
+            this.GStyle.Location = new System.Drawing.Point(31, 94);
+            this.GStyle.Name = "GStyle";
+            this.GStyle.Size = new System.Drawing.Size(65, 12);
+            this.GStyle.TabIndex = 5;
+            this.GStyle.Text = "商品类别：";
             // 
             // txtName
             // 
@@ -171,8 +171,8 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtStyle);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.GStyle);
+            this.Controls.Add(this.lblGName);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -192,8 +192,8 @@
         private System.Windows.Forms.ToolStripMenuItem 商品信息表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 供应商资料ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 送货单表ToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGName;
+        private System.Windows.Forms.Label GStyle;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtStyle;
         private System.Windows.Forms.Button btnSelect;

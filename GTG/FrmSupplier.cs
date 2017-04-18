@@ -22,7 +22,7 @@ namespace GTG
         private void btnQue_Click(object sender, EventArgs e)
         {
             string Sname = txtName.Text;
-            string SPMan = txtPhone.Text;
+            string SPMan = txtMan.Text;
             this.listView1.Items.Clear();
             string strSQL = "select * from Supplier where (CHARINDEX(@Sname,SPName)>0 or (len(@Sname)=0)) and((CHARINDEX(@SPMan,SPMan)>0) or (len(@SPMan)=0))";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
