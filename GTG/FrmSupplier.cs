@@ -22,20 +22,19 @@ namespace GTG
         private void btnQue_Click(object sender, EventArgs e)
         {
             string Sname = txtName.Text;
-            string SPhone = txtPhone.Text;
-
+            string SPMan = txtPhone.Text;
             this.listView1.Items.Clear();
-            string strSQL = "select * from Supplier where (CHARINDEX(@Sname,Sname)>0 or len(@Sname)=0) and(CHARINDEX(@SPhone,SPhone)>0 or len(@SPhone)=0)";
+            string strSQL = "select * from Supplier where (CHARINDEX(@Sname,SPName)>0 or (len(@Sname)=0)) and((CHARINDEX(@SPMan,SPMan)>0) or (len(@SPMan)=0))";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                 new SqlParameter("@Sname", Sname),
-                new SqlParameter("@SPhone", SPhone)
+                new SqlParameter("@SPMan", SPMan)
                 );
             while (reader.Read())
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SPName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPMan")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPPhone")));
-                lst.Tag = reader.GetString(reader.GetOrdinal("SPID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SPID"));
                 this.listView1.Items.Add(lst);
             }
             reader.Close();
@@ -52,7 +51,7 @@ namespace GTG
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SPName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPMan")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPPhone")));
-                lst.Tag = reader.GetString(reader.GetOrdinal("SPID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SPID"));
 
                 this.listView1.Items.Add(lst);
             }
