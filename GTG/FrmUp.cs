@@ -27,13 +27,11 @@ namespace GTG
         private void FrmUp_Load(object sender, EventArgs e)
         {
             string strSQL = "select * from Goods where GID=@GID";
-            
             using (IDataReader reader = helpler.ExecuteReader(strSQL, CommandType.Text,
-                new SqlParameter("@GID", f)))
+                new SqlParameter("@GID", Convert.ToInt32(f))))
             {
                 while (reader.Read())
                 {
-
                     txtName.Text = reader.GetString(reader.GetOrdinal("GName"));
                     txtNum.Text = reader.GetInt32(reader.GetOrdinal("GNum")).ToString();
                     txtStyle.Text = reader.GetString(reader.GetOrdinal("GStyle"));

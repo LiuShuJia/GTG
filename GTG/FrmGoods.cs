@@ -46,7 +46,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStyle")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStandard")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GUnit")));
-                lst.Tag = reader.GetString(reader.GetOrdinal("GID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("GID"));
                 this.listView1.Items.Add(lst);
             }
             reader.Close();
@@ -66,7 +66,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStyle")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GStandard")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("GUnit")));
-                lst.Tag = reader.GetString(reader.GetOrdinal("GID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("GID"));
                 this.listView1.Items.Add(lst);
             }
             reader.Close();
@@ -86,7 +86,7 @@ namespace GTG
             }
             string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
 
-            FrmUp f = new FrmUp();
+            FrmUp f = new FrmUp(GID);
             f.ShowDialog();
             this.btnSelect.PerformClick();
         }
