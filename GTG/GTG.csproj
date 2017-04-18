@@ -120,11 +120,17 @@
     <Compile Include="FrmDeliveryNote.Designer.cs">
       <DependentUpon>FrmDeliveryNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDetailed.cs">
+    <Compile Include="FrmOutDetailed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDetailed.Designer.cs">
-      <DependentUpon>FrmDetailed.cs</DependentUpon>
+    <Compile Include="FrmOutDetailed.Designer.cs">
+      <DependentUpon>FrmOutDetailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPutDetailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPutDetailed.Designer.cs">
+      <DependentUpon>FrmPutDetailed.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDNRemove.cs">
       <SubType>Form</SubType>
@@ -149,6 +155,12 @@
     </Compile>
     <Compile Include="FrmHelper.Designer.cs">
       <DependentUpon>FrmHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInfo.Designer.cs">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -278,8 +290,11 @@
     <EmbeddedResource Include="FrmDeliveryNote.resx">
       <DependentUpon>FrmDeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetailed.resx">
-      <DependentUpon>FrmDetailed.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOutDetailed.resx">
+      <DependentUpon>FrmOutDetailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPutDetailed.resx">
+      <DependentUpon>FrmPutDetailed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDNRemove.resx">
       <DependentUpon>FrmDNRemove.cs</DependentUpon>
@@ -292,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelper.resx">
       <DependentUpon>FrmHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInfo.resx">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -366,6 +384,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImageFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wareHouse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2a5ac85aaaa2d951-48ebc1dba4f3112d-7022ab585b7468744cee99e7cfc47231.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beach.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,12 +16,14 @@ namespace GTG
         {
             InitializeComponent();
         }
-        public FrmMain(FrmLogin f)
+        public FrmMain(FrmLogin f,string username)
         {
+            this.userName = username;
             this.frm = f;
             InitializeComponent();
         }
         Form frm;
+        string userName;
         private void lblregister_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,6 +32,26 @@ namespace GTG
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             frm.Show();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            this.lblUserName.Text = userName;
+           
+        }
+
+        private void treeView1_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode.Name == "节点3")
+            {
+                FrmInfo f = new FrmInfo();
+                f.Size = this.pictureBox1.Size;
+                f.Location = this.pictureBox1.Location;
+                f.MdiParent = this;
+                this.pictureBox1.Visible = false;
+                f.Show();
+            }
+            
         }
     }
 }

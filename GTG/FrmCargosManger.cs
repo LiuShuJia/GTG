@@ -55,7 +55,7 @@ namespace GTG
         
         private void tsmiDetailed_Click(object sender, EventArgs e)
         {
-            FrmDetailed f = new FrmDetailed(this);
+            FrmPutDetailed f = new FrmPutDetailed(this);
             f.ShowDialog();
         }
 

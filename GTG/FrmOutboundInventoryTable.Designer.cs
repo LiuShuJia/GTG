@@ -126,7 +126,7 @@
             this.WLDate});
             this.lstWarehouseList.Location = new System.Drawing.Point(5, 95);
             this.lstWarehouseList.Name = "lstWarehouseList";
-            this.lstWarehouseList.Size = new System.Drawing.Size(263, 149);
+            this.lstWarehouseList.Size = new System.Drawing.Size(263, 150);
             this.lstWarehouseList.TabIndex = 22;
             this.lstWarehouseList.UseCompatibleStateImageBehavior = false;
             this.lstWarehouseList.View = System.Windows.Forms.View.Details;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 449);
+            this.ClientSize = new System.Drawing.Size(279, 449);
             this.Controls.Add(this.lstPurchaseList);
             this.Controls.Add(this.lstWarehouseList);
             this.Controls.Add(this.cboName);
