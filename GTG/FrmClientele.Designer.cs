@@ -121,19 +121,21 @@
             this.tsmiDelete,
             this.tsmiModify});
             this.ctmsStrip.Name = "ctmsStrip";
-            this.ctmsStrip.Size = new System.Drawing.Size(101, 48);
+            this.ctmsStrip.Size = new System.Drawing.Size(153, 70);
             // 
             // tsmiDelete
             // 
             this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(100, 22);
+            this.tsmiDelete.Size = new System.Drawing.Size(152, 22);
             this.tsmiDelete.Text = "删除";
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
             // 
             // tsmiModify
             // 
             this.tsmiModify.Name = "tsmiModify";
-            this.tsmiModify.Size = new System.Drawing.Size(100, 22);
+            this.tsmiModify.Size = new System.Drawing.Size(152, 22);
             this.tsmiModify.Text = "修改";
+            this.tsmiModify.Click += new System.EventHandler(this.tsmiModify_Click);
             // 
             // cmbCTName
             // 

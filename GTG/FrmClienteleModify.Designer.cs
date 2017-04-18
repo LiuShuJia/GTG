@@ -43,6 +43,8 @@
             this.txtCTPhone.Name = "txtCTPhone";
             this.txtCTPhone.Size = new System.Drawing.Size(176, 21);
             this.txtCTPhone.TabIndex = 25;
+            this.txtCTPhone.Enter += new System.EventHandler(this.txtCTPhone_Enter);
+            this.txtCTPhone.Leave += new System.EventHandler(this.txtCTPhone_Leave);
             // 
             // txtCTAddress
             // 
@@ -50,6 +52,8 @@
             this.txtCTAddress.Name = "txtCTAddress";
             this.txtCTAddress.Size = new System.Drawing.Size(176, 21);
             this.txtCTAddress.TabIndex = 24;
+            this.txtCTAddress.Enter += new System.EventHandler(this.txtCTAddress_Enter);
+            this.txtCTAddress.Leave += new System.EventHandler(this.txtCTAddress_Leave);
             // 
             // txtCTName
             // 
@@ -57,6 +61,8 @@
             this.txtCTName.Name = "txtCTName";
             this.txtCTName.Size = new System.Drawing.Size(176, 21);
             this.txtCTName.TabIndex = 23;
+            this.txtCTName.Enter += new System.EventHandler(this.txtCTName_Enter);
+            this.txtCTName.Leave += new System.EventHandler(this.txtCTName_Leave);
             // 
             // btnDetermine
             // 
@@ -66,6 +72,7 @@
             this.btnDetermine.TabIndex = 22;
             this.btnDetermine.Text = "确定";
             this.btnDetermine.UseVisualStyleBackColor = true;
+            this.btnDetermine.Click += new System.EventHandler(this.btnDetermine_Click);
             // 
             // lblCTPhone
             // 
@@ -108,6 +115,7 @@
             this.Controls.Add(this.lblCTName);
             this.Name = "FrmClienteleModify";
             this.Text = "修改客户信息";
+            this.Load += new System.EventHandler(this.FrmClienteleModify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
