@@ -39,7 +39,7 @@ namespace GTG
             string CSex = this.txtCSex.Text.Trim();
             string CPhone= this.txtCPhone.Text.Trim();
 
-            string strSQL = "Update Clerk set(CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone) where CCardID=@CCardID";
+            string strSQL = "Update Clerk set(CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone) where CID=@CID";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                   new SqlParameter("@CCardID", CCardID),
@@ -59,8 +59,8 @@ namespace GTG
 
         private void FrmClerkModify_Load(object sender, EventArgs e)
         {
-            //this.txtCardID.Text=CCardID;
-            //txtCardID.Enabled = false;
+            this.txtCardID.Text = CCardID;
+            txtCardID.Enabled = false;
             string strSQL = "select * from Clerk where CCardID=@CCardID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CCardID", this.txtCardID.Text));
             while (reader.Read())

@@ -24,12 +24,6 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
-        //public FrmClerk(string CCardID)
-        //{
-        //    this.CardID = CCardID;
-        //    InitializeComponent();
-        //}
-        //private string CardID;
         private FrmClerk f;
         private DBHelper helper = new DBHelper();
         private void FrmClerk_Load(object sender, EventArgs e)
@@ -115,19 +109,39 @@ namespace GTG
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmClerkAdd f = new FrmClerkAdd();
+            FrmClerkAdd f = new FrmClerkAdd(this);
             f.ShowDialog();
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
-            FrmClerkDelete f = new FrmClerkDelete();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string CID = lstTable.SelectedItems[0].Tag.ToString();
+            FrmClerkDelete f = new FrmClerkDelete(CID);
             f.ShowDialog();
         }
 
         private void tsmiModify_Click(object sender, EventArgs e)
         {
-            FrmClerkModify f = new FrmClerkModify();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string CID = lstTable.SelectedItems[0].Tag.ToString();
+            FrmClerkModify f = new FrmClerkModify(CID);
             f.ShowDialog();
         }
     }

@@ -18,12 +18,12 @@ namespace GTG
         {
             InitializeComponent();
         }
-        public FrmClienteleAdd(FrmClienteleAdd f)
+        public FrmClienteleAdd(FrmClientele f)
         {
             this.f = f;
             InitializeComponent();
         }
-        private FrmClienteleAdd f;
+        private FrmClientele f;
         private DBHelper helper = new DBHelper();
         private void btnDetermine_Click(object sender, EventArgs e)
         {
@@ -32,10 +32,9 @@ namespace GTG
             string CTAddress = this.txtCTAddress.Text.Trim();
             string CTPhone = this.txtCTPhone.Text.Trim();
 
-            string strSQL = "insert into Client(CTID,CTName,CTAddress,CTPhone)values(@CTID,@CTName,@CTAddress,@CTPhone)";
+            string strSQL = "insert into Client(CTName,CTAddress,CTPhone)values(@CTName,@CTAddress,@CTPhone)";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                  new SqlParameter("@CTID", CTID),
                   new SqlParameter("@CTName", CTName),
                   new SqlParameter("@CTAddress", CTAddress),
                   new SqlParameter("@CTPhone", CTPhone));

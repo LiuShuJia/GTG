@@ -41,7 +41,7 @@ namespace GTG
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("CTName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTPhone")));
-                
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -60,7 +60,7 @@ namespace GTG
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("CTName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTPhone")));
-
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -97,19 +97,34 @@ namespace GTG
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmClienteleAdd f = new FrmClienteleAdd();
+            FrmClienteleAdd f = new FrmClienteleAdd(this);
             f.ShowDialog();
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
-            FrmClienteleDelete f = new FrmClienteleDelete();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return; 
+            }
+            string CTID = lstTable.SelectedItems[0].Tag.ToString();
+            FrmClienteleDelete f = new FrmClienteleDelete(CTID);
             f.ShowDialog();
         }
 
         private void tsmiModify_Click(object sender, EventArgs e)
         {
-            FrmClienteleModify f = new FrmClienteleModify();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            string CTID = lstTable.SelectedItems[0].Tag.ToString();
+            FrmClienteleModify f = new FrmClienteleModify(CTID);
             f.ShowDialog();
         }
     }

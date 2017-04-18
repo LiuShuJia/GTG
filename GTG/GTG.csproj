@@ -126,6 +126,18 @@
     <Compile Include="FrmDetailed.Designer.cs">
       <DependentUpon>FrmDetailed.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDNRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDNRemove.Designer.cs">
+      <DependentUpon>FrmDNRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDNUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDNUpdate.Designer.cs">
+      <DependentUpon>FrmDNUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGoods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     <Compile Include="FrmWarehouseList.Designer.cs">
       <DependentUpon>FrmWarehouseList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmWDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWDelete.Designer.cs">
+      <DependentUpon>FrmWDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -262,6 +280,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetailed.resx">
       <DependentUpon>FrmDetailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDNRemove.resx">
+      <DependentUpon>FrmDNRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDNUpdate.resx">
+      <DependentUpon>FrmDNUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGoods.resx">
       <DependentUpon>FrmGoods.cs</DependentUpon>
@@ -310,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWarehouseList.resx">
       <DependentUpon>FrmWarehouseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWDelete.resx">
+      <DependentUpon>FrmWDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

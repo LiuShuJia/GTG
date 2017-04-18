@@ -37,8 +37,6 @@
             this.lblCName = new System.Windows.Forms.Label();
             this.lblCardID = new System.Windows.Forms.Label();
             this.txtCardID = new System.Windows.Forms.TextBox();
-            this.lblSName = new System.Windows.Forms.Label();
-            this.cmbSName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtCPhone
@@ -123,30 +121,11 @@
             this.txtCardID.Enter += new System.EventHandler(this.txtCardID_Enter);
             this.txtCardID.Leave += new System.EventHandler(this.txtCardID_Leave);
             // 
-            // lblSName
-            // 
-            this.lblSName.AutoSize = true;
-            this.lblSName.Location = new System.Drawing.Point(51, 30);
-            this.lblSName.Name = "lblSName";
-            this.lblSName.Size = new System.Drawing.Size(65, 12);
-            this.lblSName.TabIndex = 28;
-            this.lblSName.Text = "店面名称：";
-            // 
-            // cmbSName
-            // 
-            this.cmbSName.FormattingEnabled = true;
-            this.cmbSName.Location = new System.Drawing.Point(129, 27);
-            this.cmbSName.Name = "cmbSName";
-            this.cmbSName.Size = new System.Drawing.Size(176, 20);
-            this.cmbSName.TabIndex = 29;
-            // 
             // FrmClerkAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 329);
-            this.Controls.Add(this.cmbSName);
-            this.Controls.Add(this.lblSName);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
             this.Controls.Add(this.txtCPhone);
@@ -175,7 +154,5 @@
         private System.Windows.Forms.Label lblCName;
         private System.Windows.Forms.Label lblCardID;
         private System.Windows.Forms.TextBox txtCardID;
-        private System.Windows.Forms.Label lblSName;
-        private System.Windows.Forms.ComboBox cmbSName;
     }
 }

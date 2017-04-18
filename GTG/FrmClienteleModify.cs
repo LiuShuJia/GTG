@@ -36,21 +36,22 @@ namespace GTG
             string CTName = this.txtCTName.Text.Trim();
             string CTAddress = this.txtCTAddress.Text.Trim();
             string CTPhone = this.txtCTPhone.Text.Trim();
-            string strSQL = "Update Client set(CTName=@CTName,STAddress=@STAddress,STPhone=@STPhone) where STID=@STID";
+            string strSQL = "Update Client set CTName=@CTName,CTAddress=@CTAddress,CTPhone=@CTPhone where CTID=@CTID";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                   new SqlParameter("@CTID", CTID),
                   new SqlParameter("@CTName", CTName),
                   new SqlParameter("@CTAddress", CTAddress),
                   new SqlParameter("@CTPhone", CTPhone));
+
             if (row > 0)
             {
-                MessageBox.Show("添加成功");
+                MessageBox.Show("修改成功");
                 this.Close();//成功即关闭该窗体
             }
             else
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show("修改失败");
             }
         }
 
@@ -61,7 +62,7 @@ namespace GTG
             while (reader.Read())
             {
                 this.txtCTName.Text = reader.GetString(reader.GetOrdinal("CTName"));
-                this.txtCTAddress.Text = reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? null : reader.GetString(reader.GetOrdinal("SAddress"));
+                this.txtCTAddress.Text = reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? null : reader.GetString(reader.GetOrdinal("CTAddress"));
                 this.txtCTPhone.Text = reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? null : reader.GetString(reader.GetOrdinal("CTPhone"));
             }
             reader.Close();

@@ -74,6 +74,30 @@ namespace GTG
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            
+        }
+
+        private void tsmiRemove_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择商品！");
+                return;
+            }
+            DialogResult result = MessageBox.Show("确认是否删除！", "确认", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
+
+            FrmWDelete f = new FrmWDelete(GID);
+            f.ShowDialog();
+            this.btnSelect.PerformClick();
+        }
+
+        private void tsmiUp_Click(object sender, EventArgs e)
+        {
             if (this.listView1.SelectedItems.Count < 1)
             {
                 MessageBox.Show("请选择商品！");
@@ -89,6 +113,18 @@ namespace GTG
             FrmUp f = new FrmUp(GID);
             f.ShowDialog();
             this.btnSelect.PerformClick();
+        }
+
+        private void 供应商资料ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSupplier f = new FrmSupplier(this);
+            f.ShowDialog();
+        }
+
+        private void 送货单表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDeliveryNote f = new FrmDeliveryNote();
+            f.ShowDialog();
         }
     }
 }

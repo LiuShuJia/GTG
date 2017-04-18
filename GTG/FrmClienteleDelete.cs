@@ -35,7 +35,7 @@ namespace GTG
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string strSQL = "Delete from Client where CTID=@CTID";
-            int row = helper.ExecuteNonQuery(strSQL, CommandType.Text, new SqlParameter("CTID", CTID));
+            int row = helper.ExecuteNonQuery(strSQL, CommandType.Text, new SqlParameter("@CTID", CTID));
             if (row > 0)
             {
                 MessageBox.Show("删除成功!");
@@ -49,8 +49,8 @@ namespace GTG
 
         private void FrmClienteleDelete_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from SalesStore where CTID=@CTID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CTID", CTID));
+            string strSQL = "select * from Client where CTID=@CTID";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CTID", Convert.ToInt32(CTID)));
             while (reader.Read())
             {
                 this.lblCTName.Text = reader.GetString(reader.GetOrdinal("CTName"));

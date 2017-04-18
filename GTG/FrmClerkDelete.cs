@@ -22,20 +22,19 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
-        public FrmClerkDelete(string CCardID)
+        public FrmClerkDelete(string CID)
         {
-            this.CCardID = CCardID;
+            this.CID = CID;
             InitializeComponent();
         }
+        private string CID;
         private FrmClerkDelete f;
-        private string CCardID;
         private DBHelper helper = new DBHelper();
 
         private void FrmClerkDelete_Load(object sender, EventArgs e)
         {
-            this.lblCCardID.Text=CCardID;
-            string strSQL = "select * from Clerk where CCardID=@CCardID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CCardID", this.lblCCardID.Text));
+            string strSQL = "select * from Clerk where CID=@CID";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CID", CID));
             while (reader.Read())
             {
                 this.lblCName.Text = reader.GetString(reader.GetOrdinal("CName"));
@@ -48,18 +47,17 @@ namespace GTG
 
         private void btnDetermine_Click(object sender, EventArgs e)
         {
-            this.lblCCardID.Text =CCardID;
-            string strSQL = "Delete from Clerk where CCardID=@CCardID";
+            string strSQL = "Delete from Clerk where CID=@CID";
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                  new SqlParameter("@CCardID", CCardID));
+                  new SqlParameter("@CID", CID));
             if (row > 0)
             {
-                MessageBox.Show("添加成功");
+                MessageBox.Show("删除成功");
                 this.Close();//成功即关闭该窗体
             }
             else
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show("删除失败");
             }
         }
     }

@@ -23,14 +23,14 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
-        //public FrmStoreFront(string CCardID)
-        //{
-        //    this.CCardID = CCardID;
-        //    InitializeComponent();
-        //}
+        public FrmStoreFront(string SID)
+        {
+            this.SID = SID;
+            InitializeComponent();
+        }
         private FrmStoreFront f;
         private DBHelper helper = new DBHelper();
-        
+        private string SID;
         private void tsmiClerk_Click(object sender, EventArgs e)
         {
            

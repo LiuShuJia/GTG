@@ -49,26 +49,31 @@ namespace GTG
             if (txtName.Text=="")
             {
                 MessageBox.Show("商品名不能为空！");
+                return;
             }
             if (txtStandard.Text == "")
             {
                 MessageBox.Show("商品规格不能为空！");
+                return;
             }
             if (txtStyle.Text == "")
             {
                 MessageBox.Show("商品类别不能为空！");
+                return;
             }
             if (txtUnit.Text == "")
             {
                 MessageBox.Show("商品单位不能为空！");
+                return;
             }
         
             if (!int.TryParse(txtNum.Text,out a)||txtNum.Text=="")
             {
                 MessageBox.Show("数量格式不正确！");
+                return;
             }
             string strSQL = "update goods set GName=@GName,GNum=@GNum,GStyle=@GStyle,GStandard=@GStandard,GUnit=@GUnit where GID=@GID";
-            object o = helpler.ExecuteNonQuery(strSQL, CommandType.Text,
+            int o = helpler.ExecuteNonQuery(strSQL, CommandType.Text,
                 new SqlParameter("@GName", txtName.Text),
                 new SqlParameter("@GNum", Convert.ToInt32(txtNum.Text)),
                 new SqlParameter("@GStyle", txtStyle.Text),
@@ -76,7 +81,7 @@ namespace GTG
                 new SqlParameter("@GUnit", txtUnit.Text),
                 new SqlParameter("@GID", f)
                 );
-            if(Convert.ToInt32(o) > 0)
+            if(o > 0)
             {
                 MessageBox.Show("修改成功！");
                 this.Close();

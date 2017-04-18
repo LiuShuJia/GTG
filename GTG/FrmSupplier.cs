@@ -17,7 +17,12 @@ namespace GTG
         {
             InitializeComponent();
         }
-        private FrmClientele f;
+        public FrmSupplier(FrmGoods frm)
+        {
+            InitializeComponent();
+            this.f = frm;
+        }
+        private FrmGoods f;
         private DBHelper helper = new DBHelper();
         private void btnQue_Click(object sender, EventArgs e)
         {
@@ -56,6 +61,16 @@ namespace GTG
                 this.listView1.Items.Add(lst);
             }
             reader.Close();
+        }
+
+        private void tsmiUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmiRemove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

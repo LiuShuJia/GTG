@@ -18,25 +18,24 @@ namespace GTG
         {
             InitializeComponent();
         }
-        public FrmClerkAdd(FrmClerkAdd f)
+        public FrmClerkAdd(FrmClerk f)
         {
             this.f = f;
             InitializeComponent();
         }
-        private FrmClerkAdd f;
+        private FrmClerk f;
         private DBHelper helper =new DBHelper();
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string CID = Guid.NewGuid().ToString();
-           // string SName = this.txtSName.Text.Trim();
             string CName = this.txtCName.Text.Trim();
             string CSex = this.txtCSex.Text.Trim();
             string CCardID = this.txtCardID.Text.Trim();
             string CPhone = this.txtCPhone.Text.Trim();
-            string strSQL = "insert into Clerk (CID,CName,CSex,CCardID,CPhone)values(@CID,@CName,@CSex,@CCardID,@CPhone)";
+
+            string strSQL = "insert into Clerk (CName,CSex,CCardID,CPhone)values(@CName,@CSex,@CCardID,@CPhone)";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                  new SqlParameter("@CID", CID),
                   new SqlParameter("@CName", CName),
                   new SqlParameter("@CSex", CSex),
                    new SqlParameter("@CCardID", CCardID),
@@ -123,13 +122,7 @@ namespace GTG
 
         private void FrmClerkAdd_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from SalesStore";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
-            while (reader.Read())
-            {
-                string SName = reader.GetString(reader.GetOrdinal("SName"));
-                this.cmbSName.Items.Add(SName);
-            }
+           
         }
     }
 }
