@@ -33,10 +33,10 @@ namespace GTG
             string SManagerName = this.txtSManagerName.Text.Trim();
             string SPhone = this.txtPhone.Text.Trim();
 
-            string strSQL = "insert into SalesStore(SID,SName,SAddress,SManagerName,SPhone)values(@SID,@SName,@SAddress,@SManagerName,@SPhone)";
+            string strSQL = "insert into SalesStore(SName,SAddress,SManagerName,SPhone)values(@SName,@SAddress,@SManagerName,@SPhone)";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                  new SqlParameter("@SID", SID),
+                  //new SqlParameter("@SID", SID),
                   new SqlParameter("@SName", SName),
                   new SqlParameter("@SAddress", SAddress),
                   new SqlParameter("@SManagerName", SManagerName),

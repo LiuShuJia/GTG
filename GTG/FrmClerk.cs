@@ -29,7 +29,7 @@ namespace GTG
         private void FrmClerk_Load(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID";
+            string strSQL = "select distinct * from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
@@ -43,7 +43,8 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
-               
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("CID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -52,7 +53,7 @@ namespace GTG
         private void btnSelect_Click(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID where (CHARINDEX(@SName,SName)>0 or len(@SName)=0)and (CHARINDEX(@CName,CName)>0 or len(@CName)=0)and(CSex=@CSex or len(@CSex)=0)";
+            string strSQL = "select distinct * from Clerk inner join SalesStore on Clerk.SID=SalesStore.SID where (CHARINDEX(@SName,SName)>0 or len(@SName)=0)and (CHARINDEX(@CName,CName)>0 or len(@CName)=0)and(CSex=@CSex or len(@CSex)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                 new SqlParameter("@SName", this.cmbSName.Text.Trim()),
                 new SqlParameter("@CName", this.cmbCName.Text.Trim()),
@@ -60,12 +61,14 @@ namespace GTG
                 );
             while (reader.Read()) 
             {
+                
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("CID"));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
-                lst.Tag = CCardID;
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -115,34 +118,40 @@ namespace GTG
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
-            if (lstTable.SelectedItems.Count < 1)
+            if (lstTable.SelectedItems.Count >0)
             {
-                return;
-            }
-            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-            string CID = lstTable.SelectedItems[0].Tag.ToString();
-            FrmClerkDelete f = new FrmClerkDelete(CID);
-            f.ShowDialog();
+                DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    string CID = lstTable.SelectedItems[0].Tag.ToString();
+                    FrmClerkDelete f = new FrmClerkDelete(CID);
+                    f.ShowDialog();
+                    this.btnSelect.PerformClick();
+                }
+            } 
         }
 
         private void tsmiModify_Click(object sender, EventArgs e)
         {
-            if (lstTable.SelectedItems.Count < 1)
+            if (lstTable.SelectedItems.Count >0)
             {
-                return;
+                DialogResult result = MessageBox.Show("是否修改？", "信息", MessageBoxButtons.OKCancel);
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    string CID = lstTable.SelectedItems[0].Tag.ToString();
+                    FrmClerkModify f = new FrmClerkModify(CID);
+                    f.ShowDialog();
+                    this.btnSelect.PerformClick();
+                }
             }
-            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-            string CID = lstTable.SelectedItems[0].Tag.ToString();
-            FrmClerkModify f = new FrmClerkModify(CID);
-            f.ShowDialog();
         }
     }
 }

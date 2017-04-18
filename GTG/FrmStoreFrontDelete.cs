@@ -33,7 +33,7 @@ namespace GTG
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string strSQL = "Delete from SalesStore where SID=@SID";
-            int row = helper.ExecuteNonQuery(strSQL, CommandType.Text, new SqlParameter("SID", SID));
+            int row = helper.ExecuteNonQuery(strSQL, CommandType.Text, new SqlParameter("@SID", SID));
             if (row > 0)
             {
                 MessageBox.Show("删除成功!");
@@ -47,8 +47,8 @@ namespace GTG
 
         private void FrmStoreFrontDelete_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from SalesStore where SID=@SID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@SID", SID));
+            string strSQL = "select distinct * from SalesStore where SID=@SID";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@SID",SID));
             while (reader.Read())
             {
                 this.lblSName.Text = reader.GetString(reader.GetOrdinal("SName"));

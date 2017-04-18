@@ -36,8 +36,8 @@ namespace GTG
             string SName =this.txtSName.Text.Trim();
             string SAddress = this.txtSAddress.Text.Trim();
             string SManagerName = this.txtSManagerName.Text.Trim();
-            string SPhone = this.txtPhone.Text.Trim();
-            string strSQL = "Update SalesStore set(SName=@SName,SAddress=@SAddress,SManagerName=@SManagerName,SPhone=@SPhone) where SID=@SID";
+            string SPhone = this.txtSPhone.Text.Trim();
+            string strSQL = "Update SalesStore set SName=@SName,SAddress=@SAddress,SManagerName=@SManagerName,SPhone=@SPhone where SID=@SID";
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text, new SqlParameter("SID", SID),
                 new SqlParameter("SName", SName),
                 new SqlParameter("SAddress", SAddress),
@@ -64,7 +64,7 @@ namespace GTG
                 this.txtSName.Text = reader.GetString(reader.GetOrdinal("SName"));
                 this.txtSAddress.Text = reader.IsDBNull(reader.GetOrdinal("SAddress")) ? null : reader.GetString(reader.GetOrdinal("SAddress"));
                 this.txtSManagerName.Text = reader.IsDBNull(reader.GetOrdinal("SManagerName")) ? null : reader.GetString(reader.GetOrdinal("SManagerName"));
-                this.txtSName.Text = reader.IsDBNull(reader.GetOrdinal("SPhone")) ? null : reader.GetString(reader.GetOrdinal("SPhone"));
+                this.txtSPhone.Text = reader.IsDBNull(reader.GetOrdinal("SPhone")) ? null : reader.GetString(reader.GetOrdinal("SPhone"));
             }
             reader.Close();
         }
@@ -122,18 +122,18 @@ namespace GTG
 
         private void txtPhone_Enter(object sender, EventArgs e)
         {
-            if (this.txtPhone.Text.Trim() != "")
+            if (this.txtSPhone.Text.Trim() != "")
             {
-                this.txtPhone.Clear();
+                this.txtSPhone.Clear();
             }
         }
 
         private void txtPhone_Leave(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(this.txtPhone.Text.Trim(), @"^[0-9]+$"))
+            if (!Regex.IsMatch(this.txtSPhone.Text.Trim(), @"^[0-9]+$"))
             {
                 MessageBox.Show("您输入的格式错误，请重新输入！");
-                this.txtPhone.Focus();
+                this.txtSPhone.Focus();
             }
         }
     }

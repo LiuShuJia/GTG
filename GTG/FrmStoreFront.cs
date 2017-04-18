@@ -31,16 +31,6 @@ namespace GTG
         private FrmStoreFront f;
         private DBHelper helper = new DBHelper();
         private string SID;
-        private void tsmiClerk_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void tsmi_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tsmiStore_Click(object sender, EventArgs e)
         {
 
@@ -49,7 +39,7 @@ namespace GTG
         private void FrmStoreFront_Load(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from SalesStore";
+            string strSQL = "select distinct * from SalesStore";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
@@ -64,7 +54,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
-
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -75,6 +65,7 @@ namespace GTG
         {
             FrmStoreFrontAdd f = new FrmStoreFrontAdd();
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
 
         private void tsmiBillOfLading_Click(object sender, EventArgs e)                            //提货表
@@ -107,7 +98,7 @@ namespace GTG
             string SAddress = this.cmbAddress.Text;
             string SManagerName = this.cmbSManagerName.Text;
             this.lstTable.Items.Clear();
-            string strSQL = "select * from SalesStore where(CHARINDEX(@SName,SName)>0 or len(@SName)=0) and(CHARINDEX(@SAddress,SAddress)>0 or len(@SAddress)=0) and (CHARINDEX(@SManagerName,SManagerName)>0 or len(@SManagerName)=0)";
+            string strSQL = "select distinct  * from SalesStore where(CHARINDEX(@SName,SName)>0 or len(@SName)=0) and(CHARINDEX(@SAddress,SAddress)>0 or len(@SAddress)=0) and (CHARINDEX(@SManagerName,SManagerName)>0 or len(@SManagerName)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                   new SqlParameter("@SName", SName),
                    new SqlParameter("@SAddress", SAddress),
@@ -115,11 +106,11 @@ namespace GTG
             while (reader.Read())
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
-                lst.Tag = reader.GetString(reader.GetOrdinal("SID"));
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
-
+                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -168,15 +159,36 @@ namespace GTG
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
-            FrmStoreFrontDelete f = new FrmStoreFrontDelete();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("是否删除？", "信息", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string SID = lstTable.SelectedItems[0].Tag.ToString();
+            FrmStoreFrontDelete f = new FrmStoreFrontDelete(SID);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
 
         private void tsmiModify_Click(object sender, EventArgs e)
         {
-            string SID= this.lstTable.SelectedItems[0].Tag.ToString();
+            if (lstTable.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("是否修改？", "信息", MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+            string SID = lstTable.SelectedItems[0].Tag.ToString();
             FrmStoreFrontModify f = new FrmStoreFrontModify(SID);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
     }
 }

@@ -57,7 +57,7 @@ namespace GTG
 
         private void FrmClienteleModify_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from Client where CTID=@CTID";
+            string strSQL = "select distinct * from Client where CTID=@CTID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CTID", CTID));
             while (reader.Read())
             {

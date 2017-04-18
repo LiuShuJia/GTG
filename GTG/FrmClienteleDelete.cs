@@ -49,10 +49,11 @@ namespace GTG
 
         private void FrmClienteleDelete_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from Client where CTID=@CTID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CTID", Convert.ToInt32(CTID)));
+            string strSQL = "select distinct * from Client where CTID=@CTID";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CTID", CTID));
             while (reader.Read())
             {
+                this.Tag= reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lblCTName.Text = reader.GetString(reader.GetOrdinal("CTName"));
                 this.lblCTAddress.Text = reader.GetString(reader.GetOrdinal("CTAddress"));
                 this.lblCTPhone.Text = reader.GetString(reader.GetOrdinal("CTPhone"));

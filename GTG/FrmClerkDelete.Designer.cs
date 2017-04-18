@@ -43,7 +43,7 @@
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(138, 300);
+            this.btnDetermine.Location = new System.Drawing.Point(115, 297);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 15;
@@ -54,7 +54,7 @@
             // lblCPhone
             // 
             this.lblCPhone.AutoSize = true;
-            this.lblCPhone.Location = new System.Drawing.Point(234, 253);
+            this.lblCPhone.Location = new System.Drawing.Point(211, 250);
             this.lblCPhone.Name = "lblCPhone";
             this.lblCPhone.Size = new System.Drawing.Size(17, 12);
             this.lblCPhone.TabIndex = 14;
@@ -63,7 +63,7 @@
             // lblCSex
             // 
             this.lblCSex.AutoSize = true;
-            this.lblCSex.Location = new System.Drawing.Point(234, 132);
+            this.lblCSex.Location = new System.Drawing.Point(211, 129);
             this.lblCSex.Name = "lblCSex";
             this.lblCSex.Size = new System.Drawing.Size(17, 12);
             this.lblCSex.TabIndex = 13;
@@ -72,7 +72,7 @@
             // lblCName
             // 
             this.lblCName.AutoSize = true;
-            this.lblCName.Location = new System.Drawing.Point(234, 76);
+            this.lblCName.Location = new System.Drawing.Point(211, 73);
             this.lblCName.Name = "lblCName";
             this.lblCName.Size = new System.Drawing.Size(17, 12);
             this.lblCName.TabIndex = 12;
@@ -81,7 +81,7 @@
             // lblCPhone1
             // 
             this.lblCPhone1.AutoSize = true;
-            this.lblCPhone1.Location = new System.Drawing.Point(99, 253);
+            this.lblCPhone1.Location = new System.Drawing.Point(76, 250);
             this.lblCPhone1.Name = "lblCPhone1";
             this.lblCPhone1.Size = new System.Drawing.Size(65, 12);
             this.lblCPhone1.TabIndex = 11;
@@ -90,7 +90,7 @@
             // lblCSex1
             // 
             this.lblCSex1.AutoSize = true;
-            this.lblCSex1.Location = new System.Drawing.Point(99, 132);
+            this.lblCSex1.Location = new System.Drawing.Point(76, 129);
             this.lblCSex1.Name = "lblCSex1";
             this.lblCSex1.Size = new System.Drawing.Size(41, 12);
             this.lblCSex1.TabIndex = 10;
@@ -99,7 +99,7 @@
             // lblCName1
             // 
             this.lblCName1.AutoSize = true;
-            this.lblCName1.Location = new System.Drawing.Point(99, 76);
+            this.lblCName1.Location = new System.Drawing.Point(76, 73);
             this.lblCName1.Name = "lblCName1";
             this.lblCName1.Size = new System.Drawing.Size(65, 12);
             this.lblCName1.TabIndex = 9;
@@ -108,7 +108,7 @@
             // lblCCardID1
             // 
             this.lblCCardID1.AutoSize = true;
-            this.lblCCardID1.Location = new System.Drawing.Point(99, 192);
+            this.lblCCardID1.Location = new System.Drawing.Point(76, 189);
             this.lblCCardID1.Name = "lblCCardID1";
             this.lblCCardID1.Size = new System.Drawing.Size(77, 12);
             this.lblCCardID1.TabIndex = 16;
@@ -117,7 +117,7 @@
             // lblCCardID
             // 
             this.lblCCardID.AutoSize = true;
-            this.lblCCardID.Location = new System.Drawing.Point(234, 192);
+            this.lblCCardID.Location = new System.Drawing.Point(211, 189);
             this.lblCCardID.Name = "lblCCardID";
             this.lblCCardID.Size = new System.Drawing.Size(17, 12);
             this.lblCCardID.TabIndex = 17;
@@ -126,7 +126,7 @@
             // lblSName1
             // 
             this.lblSName1.AutoSize = true;
-            this.lblSName1.Location = new System.Drawing.Point(99, 31);
+            this.lblSName1.Location = new System.Drawing.Point(76, 28);
             this.lblSName1.Name = "lblSName1";
             this.lblSName1.Size = new System.Drawing.Size(65, 12);
             this.lblSName1.TabIndex = 18;
@@ -135,7 +135,7 @@
             // lblSName
             // 
             this.lblSName.AutoSize = true;
-            this.lblSName.Location = new System.Drawing.Point(234, 31);
+            this.lblSName.Location = new System.Drawing.Point(211, 28);
             this.lblSName.Name = "lblSName";
             this.lblSName.Size = new System.Drawing.Size(17, 12);
             this.lblSName.TabIndex = 19;

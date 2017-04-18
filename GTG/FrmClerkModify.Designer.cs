@@ -37,11 +37,13 @@
             this.lblCPhone = new System.Windows.Forms.Label();
             this.lblCSex = new System.Windows.Forms.Label();
             this.lblCName = new System.Windows.Forms.Label();
+            this.lblSName = new System.Windows.Forms.Label();
+            this.cmbSName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtCardID
             // 
-            this.txtCardID.Location = new System.Drawing.Point(137, 141);
+            this.txtCardID.Location = new System.Drawing.Point(137, 167);
             this.txtCardID.Name = "txtCardID";
             this.txtCardID.Size = new System.Drawing.Size(176, 21);
             this.txtCardID.TabIndex = 36;
@@ -50,7 +52,7 @@
             // lblCardID
             // 
             this.lblCardID.AutoSize = true;
-            this.lblCardID.Location = new System.Drawing.Point(59, 144);
+            this.lblCardID.Location = new System.Drawing.Point(59, 170);
             this.lblCardID.Name = "lblCardID";
             this.lblCardID.Size = new System.Drawing.Size(77, 12);
             this.lblCardID.TabIndex = 35;
@@ -58,7 +60,7 @@
             // 
             // txtCPhone
             // 
-            this.txtCPhone.Location = new System.Drawing.Point(137, 192);
+            this.txtCPhone.Location = new System.Drawing.Point(137, 218);
             this.txtCPhone.Name = "txtCPhone";
             this.txtCPhone.Size = new System.Drawing.Size(176, 21);
             this.txtCPhone.TabIndex = 34;
@@ -66,7 +68,7 @@
             // 
             // txtCSex
             // 
-            this.txtCSex.Location = new System.Drawing.Point(137, 92);
+            this.txtCSex.Location = new System.Drawing.Point(137, 118);
             this.txtCSex.Name = "txtCSex";
             this.txtCSex.Size = new System.Drawing.Size(176, 21);
             this.txtCSex.TabIndex = 33;
@@ -74,7 +76,7 @@
             // 
             // txtCName
             // 
-            this.txtCName.Location = new System.Drawing.Point(137, 43);
+            this.txtCName.Location = new System.Drawing.Point(137, 69);
             this.txtCName.Name = "txtCName";
             this.txtCName.Size = new System.Drawing.Size(176, 21);
             this.txtCName.TabIndex = 32;
@@ -82,7 +84,7 @@
             // 
             // btnDetermine
             // 
-            this.btnDetermine.Location = new System.Drawing.Point(137, 258);
+            this.btnDetermine.Location = new System.Drawing.Point(137, 284);
             this.btnDetermine.Name = "btnDetermine";
             this.btnDetermine.Size = new System.Drawing.Size(75, 23);
             this.btnDetermine.TabIndex = 31;
@@ -93,7 +95,7 @@
             // lblCPhone
             // 
             this.lblCPhone.AutoSize = true;
-            this.lblCPhone.Location = new System.Drawing.Point(59, 195);
+            this.lblCPhone.Location = new System.Drawing.Point(59, 221);
             this.lblCPhone.Name = "lblCPhone";
             this.lblCPhone.Size = new System.Drawing.Size(65, 12);
             this.lblCPhone.TabIndex = 30;
@@ -102,7 +104,7 @@
             // lblCSex
             // 
             this.lblCSex.AutoSize = true;
-            this.lblCSex.Location = new System.Drawing.Point(59, 95);
+            this.lblCSex.Location = new System.Drawing.Point(59, 121);
             this.lblCSex.Name = "lblCSex";
             this.lblCSex.Size = new System.Drawing.Size(41, 12);
             this.lblCSex.TabIndex = 29;
@@ -111,17 +113,36 @@
             // lblCName
             // 
             this.lblCName.AutoSize = true;
-            this.lblCName.Location = new System.Drawing.Point(59, 46);
+            this.lblCName.Location = new System.Drawing.Point(59, 72);
             this.lblCName.Name = "lblCName";
             this.lblCName.Size = new System.Drawing.Size(65, 12);
             this.lblCName.TabIndex = 28;
             this.lblCName.Text = "店员名称：";
+            // 
+            // lblSName
+            // 
+            this.lblSName.AutoSize = true;
+            this.lblSName.Location = new System.Drawing.Point(59, 26);
+            this.lblSName.Name = "lblSName";
+            this.lblSName.Size = new System.Drawing.Size(65, 12);
+            this.lblSName.TabIndex = 37;
+            this.lblSName.Text = "店面名称：";
+            // 
+            // cmbSName
+            // 
+            this.cmbSName.FormattingEnabled = true;
+            this.cmbSName.Location = new System.Drawing.Point(137, 23);
+            this.cmbSName.Name = "cmbSName";
+            this.cmbSName.Size = new System.Drawing.Size(176, 20);
+            this.cmbSName.TabIndex = 38;
             // 
             // FrmClerkModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 345);
+            this.Controls.Add(this.cmbSName);
+            this.Controls.Add(this.lblSName);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
             this.Controls.Add(this.txtCPhone);
@@ -150,5 +171,7 @@
         private System.Windows.Forms.Label lblCPhone;
         private System.Windows.Forms.Label lblCSex;
         private System.Windows.Forms.Label lblCName;
+        private System.Windows.Forms.Label lblSName;
+        private System.Windows.Forms.ComboBox cmbSName;
     }
 }

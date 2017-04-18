@@ -33,11 +33,12 @@ namespace GTG
 
         private void FrmClerkDelete_Load(object sender, EventArgs e)
         {
-            string strSQL = "select * from Clerk where CID=@CID";
+            string strSQL = "select distinct CName,SName,CSex,CCardID,CPhone from Clerk inner join SalesStore on SalesStore.SID=Clerk.SID where CID=@CID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CID", CID));
             while (reader.Read())
             {
                 this.lblCName.Text = reader.GetString(reader.GetOrdinal("CName"));
+                this.lblSName.Text= reader.GetString(reader.GetOrdinal("SName"));
                 this.lblCSex.Text = reader.IsDBNull(reader.GetOrdinal("CSex")) ? null : reader.GetString(reader.GetOrdinal("CSex"));
                 this.lblCCardID.Text = reader.IsDBNull(reader.GetOrdinal("CCardID")) ? null : reader.GetString(reader.GetOrdinal("CCardID"));
                 this.lblCPhone.Text = reader.IsDBNull(reader.GetOrdinal("CPhone")) ? null : reader.GetString(reader.GetOrdinal("CPhone"));

@@ -23,19 +23,27 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
+        public FrmClerkAdd(string SID)
+        {
+            this.SID = SID;
+            InitializeComponent();
+        }
+        private string SID;
         private FrmClerk f;
         private DBHelper helper =new DBHelper();
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string CID = Guid.NewGuid().ToString();
+            string SName = this.cmbSName.Text.Trim();
             string CName = this.txtCName.Text.Trim();
             string CSex = this.txtCSex.Text.Trim();
             string CCardID = this.txtCardID.Text.Trim();
             string CPhone = this.txtCPhone.Text.Trim();
 
-            string strSQL = "insert into Clerk (CName,CSex,CCardID,CPhone)values(@CName,@CSex,@CCardID,@CPhone)";
+            string strSQL = "insert into Clerk inner join SalesStore on SalesStore.SID=Clerk.SID (SName,CName,CSex,CCardID,CPhone)values(@SName,@CName,@CSex,@CCardID,@CPhone)";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
+                new SqlParameter("@SName", SName),
                   new SqlParameter("@CName", CName),
                   new SqlParameter("@CSex", CSex),
                    new SqlParameter("@CCardID", CCardID),
@@ -61,7 +69,6 @@ namespace GTG
 
         private void txtCName_Leave(object sender, EventArgs e)
         {
-
             if (!Regex.IsMatch(this.txtCName.Text.Trim(), @"^\w+$"))
             {
                 MessageBox.Show("您输入的格式错误，请重新输入！");
@@ -122,7 +129,14 @@ namespace GTG
 
         private void FrmClerkAdd_Load(object sender, EventArgs e)
         {
-           
+            this.cmbSName.Items.Clear();
+            string strSQL = "select distinct * from SalesStore";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
+            while (reader.Read())
+            {
+                string SName = reader.GetString(reader.GetOrdinal("SName"));
+                this.cmbSName.Items.Add(SName);
+            }
         }
     }
 }

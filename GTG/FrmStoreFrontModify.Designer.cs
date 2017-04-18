@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtSPhone = new System.Windows.Forms.TextBox();
             this.txtSManagerName = new System.Windows.Forms.TextBox();
             this.txtSAddress = new System.Windows.Forms.TextBox();
             this.txtSName = new System.Windows.Forms.TextBox();
@@ -39,14 +39,14 @@
             this.lblSName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtPhone
+            // txtSPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(136, 206);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(176, 21);
-            this.txtPhone.TabIndex = 18;
-            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
-            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
+            this.txtSPhone.Location = new System.Drawing.Point(136, 206);
+            this.txtSPhone.Name = "txtSPhone";
+            this.txtSPhone.Size = new System.Drawing.Size(176, 21);
+            this.txtSPhone.TabIndex = 18;
+            this.txtSPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtSPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // txtSManagerName
             // 
@@ -126,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 349);
-            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtSPhone);
             this.Controls.Add(this.txtSManagerName);
             this.Controls.Add(this.txtSAddress);
             this.Controls.Add(this.txtSName);
@@ -145,7 +145,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtSPhone;
         private System.Windows.Forms.TextBox txtSManagerName;
         private System.Windows.Forms.TextBox txtSAddress;
         private System.Windows.Forms.TextBox txtSName;

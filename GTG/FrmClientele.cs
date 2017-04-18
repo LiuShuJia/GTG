@@ -29,7 +29,7 @@ namespace GTG
         private void FrmClientele_Load(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from Client";
+            string strSQL = "select distinct * from Client";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
@@ -50,7 +50,7 @@ namespace GTG
         private void btnSelect_Click(object sender, EventArgs e)
         {
             this.lstTable.Items.Clear();
-            string strSQL = "select * from Client where (CHARINDEX(@CTName,CTName)>0 or len(@CTName)=0) and(CHARINDEX(@CTAddress,CTAddress)>0 or len(@CTAddress)=0)";
+            string strSQL = "select distinct * from Client where (CHARINDEX(@CTName,CTName)>0 or len(@CTName)=0) and(CHARINDEX(@CTAddress,CTAddress)>0 or len(@CTAddress)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                 new SqlParameter("@CTName", this.cmbCTName.Text.Trim()),
                 new SqlParameter("@CTAddress", this.cmbCTAddress.Text.Trim())
@@ -99,6 +99,7 @@ namespace GTG
         {
             FrmClienteleAdd f = new FrmClienteleAdd(this);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)
@@ -115,6 +116,7 @@ namespace GTG
             string CTID = lstTable.SelectedItems[0].Tag.ToString();
             FrmClienteleDelete f = new FrmClienteleDelete(CTID);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
 
         private void tsmiModify_Click(object sender, EventArgs e)
@@ -126,6 +128,7 @@ namespace GTG
             string CTID = lstTable.SelectedItems[0].Tag.ToString();
             FrmClienteleModify f = new FrmClienteleModify(CTID);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
     }
 }

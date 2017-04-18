@@ -27,7 +27,6 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void btnDetermine_Click(object sender, EventArgs e)
         {
-            string CTID = Guid.NewGuid().ToString();
             string CTName = this.txtCTName.Text.Trim();
             string CTAddress = this.txtCTAddress.Text.Trim();
             string CTPhone = this.txtCTPhone.Text.Trim();

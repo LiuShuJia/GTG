@@ -18,30 +18,27 @@ namespace GTG
         {
             InitializeComponent();
         }
-        public FrmClerkModify(FrmClerkModify f)
+        public FrmClerkModify(string CID)
         {
-            this.f = f;
+            this.CID = CID;
             InitializeComponent();
         }
-        public FrmClerkModify(string CCardID)
-        {
-            this.CCardID = CCardID;
-            InitializeComponent();
-        }
-        private FrmClerkModify f;
-        private string CCardID;
+        private string CID;
         private DBHelper helper = new DBHelper();
 
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string CCardID = this.txtCardID.Text.Trim();
+            string SName = this.cmbSName.Text.Trim();
             string CName = this.txtCName.Text.Trim();
             string CSex = this.txtCSex.Text.Trim();
             string CPhone= this.txtCPhone.Text.Trim();
 
-            string strSQL = "Update Clerk set(CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone) where CID=@CID";
+            string strSQL = "Update Clerk inner join SalesStore on SalesStore.SID=Clerk.SID set SName=@SName,CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone where CID=@CID";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
+                new SqlParameter("@CID", CID),
+                new SqlParameter("@SName", SName),
                   new SqlParameter("@CCardID", CCardID),
                   new SqlParameter("@CName", CName),
                   new SqlParameter("@CSex", CSex),
@@ -59,12 +56,16 @@ namespace GTG
 
         private void FrmClerkModify_Load(object sender, EventArgs e)
         {
-            this.txtCardID.Text = CCardID;
-            txtCardID.Enabled = false;
-            string strSQL = "select * from Clerk where CCardID=@CCardID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CCardID", this.txtCardID.Text));
+            //this.txtCardID.Text = CID;
+            //txtCardID.Enabled = false;
+            string strSQL = "select distinct SName,CID,CName,CSex,CCardID,CPhone from Clerk inner join SalesStore on SalesStore.SID=Clerk.SID where CID=@CID";
+            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CID", CID));
             while (reader.Read())
             {
+                string SName = reader.GetString(reader.GetOrdinal("SName"));
+                this.cmbSName.Items.Add(SName);
+
+                int CID= reader.GetInt32(reader.GetOrdinal("CID"));
                 this.txtCName.Text = reader.GetString(reader.GetOrdinal("CName"));
                 this.txtCSex.Text = reader.IsDBNull(reader.GetOrdinal("CSex")) ? null : reader.GetString(reader.GetOrdinal("CSex"));
                 this.txtCardID.Text = reader.IsDBNull(reader.GetOrdinal("CCardID")) ? null : reader.GetString(reader.GetOrdinal("CCardID"));
@@ -83,7 +84,7 @@ namespace GTG
 
         private void txtCSex_Leave(object sender, EventArgs e)
         {
-            if (this.txtCSex.Text.Trim() == "" || this.txtCSex.Text.Trim() != "女"|| this.txtCSex.Text.Trim() !="男")
+            if (this.txtCSex.Text.Trim()!="女"|| this.txtCSex.Text.Trim()!="男")
             {
                 MessageBox.Show("您输入的格式错误，请重新输入！");
             }

@@ -73,7 +73,7 @@
             this.tsmiSalesStore.Name = "tsmiSalesStore";
             this.tsmiSalesStore.Size = new System.Drawing.Size(68, 21);
             this.tsmiSalesStore.Text = "店面信息";
-            this.tsmiSalesStore.Click += new System.EventHandler(this.tsmi_Click);
+         //   this.tsmiSalesStore.Click += new System.EventHandler(this.tsmi_Click);
             // 
             // tsmiClientele
             // 
