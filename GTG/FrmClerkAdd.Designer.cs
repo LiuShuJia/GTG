@@ -37,8 +37,8 @@
             this.lblCName = new System.Windows.Forms.Label();
             this.lblCardID = new System.Windows.Forms.Label();
             this.txtCardID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbSName = new System.Windows.Forms.ComboBox();
+            this.lblSID = new System.Windows.Forms.Label();
+            this.cmbSID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtCPhone
@@ -56,6 +56,7 @@
             this.txtCSex.Name = "txtCSex";
             this.txtCSex.Size = new System.Drawing.Size(176, 21);
             this.txtCSex.TabIndex = 24;
+            this.txtCSex.TextChanged += new System.EventHandler(this.txtCSex_TextChanged);
             this.txtCSex.Enter += new System.EventHandler(this.txtCSex_Enter);
             this.txtCSex.Leave += new System.EventHandler(this.txtCSex_Leave);
             // 
@@ -123,30 +124,31 @@
             this.txtCardID.Enter += new System.EventHandler(this.txtCardID_Enter);
             this.txtCardID.Leave += new System.EventHandler(this.txtCardID_Leave);
             // 
-            // label1
+            // lblSID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "店面名称：";
+            this.lblSID.AutoSize = true;
+            this.lblSID.Location = new System.Drawing.Point(51, 27);
+            this.lblSID.Name = "lblSID";
+            this.lblSID.Size = new System.Drawing.Size(65, 12);
+            this.lblSID.TabIndex = 28;
+            this.lblSID.Text = "店面编号：";
             // 
-            // cmbSName
+            // cmbSID
             // 
-            this.cmbSName.FormattingEnabled = true;
-            this.cmbSName.Location = new System.Drawing.Point(122, 24);
-            this.cmbSName.Name = "cmbSName";
-            this.cmbSName.Size = new System.Drawing.Size(183, 20);
-            this.cmbSName.TabIndex = 29;
+            this.cmbSID.FormattingEnabled = true;
+            this.cmbSID.Location = new System.Drawing.Point(122, 24);
+            this.cmbSID.Name = "cmbSID";
+            this.cmbSID.Size = new System.Drawing.Size(183, 20);
+            this.cmbSID.TabIndex = 29;
+            this.cmbSID.Leave += new System.EventHandler(this.cmbSID_Leave);
             // 
             // FrmClerkAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 329);
-            this.Controls.Add(this.cmbSName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbSID);
+            this.Controls.Add(this.lblSID);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
             this.Controls.Add(this.txtCPhone);
@@ -175,7 +177,7 @@
         private System.Windows.Forms.Label lblCName;
         private System.Windows.Forms.Label lblCardID;
         private System.Windows.Forms.TextBox txtCardID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbSName;
+        private System.Windows.Forms.Label lblSID;
+        private System.Windows.Forms.ComboBox cmbSID;
     }
 }

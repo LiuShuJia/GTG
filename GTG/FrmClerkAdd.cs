@@ -23,27 +23,28 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
-        public FrmClerkAdd(string SID)
+        public FrmClerkAdd(string CID)
         {
-            this.SID = SID;
+            this.CID = CID;
             InitializeComponent();
         }
-        private string SID;
+        private string CID;
         private FrmClerk f;
         private DBHelper helper =new DBHelper();
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string CID = Guid.NewGuid().ToString();
-            string SName = this.cmbSName.Text.Trim();
+            string SID = this.cmbSID.Text.Trim();
+            //string SName = this.cmbSID.Text.Trim();
             string CName = this.txtCName.Text.Trim();
             string CSex = this.txtCSex.Text.Trim();
             string CCardID = this.txtCardID.Text.Trim();
             string CPhone = this.txtCPhone.Text.Trim();
 
-            string strSQL = "insert into Clerk inner join SalesStore on SalesStore.SID=Clerk.SID (SName,CName,CSex,CCardID,CPhone)values(@SName,@CName,@CSex,@CCardID,@CPhone)";
+            string strSQL = "insert into Clerk(SID,CName,CSex,CCardID,CPhone)values(@SID,@CName,@CSex,@CCardID,@CPhone)";
 
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
-                new SqlParameter("@SName", SName),
+                new SqlParameter("@SID", SID),
                   new SqlParameter("@CName", CName),
                   new SqlParameter("@CSex", CSex),
                    new SqlParameter("@CCardID", CCardID),
@@ -61,10 +62,7 @@ namespace GTG
 
         private void txtCName_Enter(object sender, EventArgs e)
         {
-            if (this.txtCName.Text.Trim() != "")
-            {
                 this.txtCName.Clear();
-            }
         }
 
         private void txtCName_Leave(object sender, EventArgs e)
@@ -78,10 +76,7 @@ namespace GTG
 
         private void txtCSex_Enter(object sender, EventArgs e)
         {
-            if (this.txtCSex.Text.Trim() != "")
-            {
                 this.txtCSex.Clear();
-            }
         }
 
         private void txtCSex_Leave(object sender, EventArgs e)
@@ -95,15 +90,12 @@ namespace GTG
 
         private void txtCardID_Enter(object sender, EventArgs e)
         {
-            if (this.txtCardID.Text.Trim() != "")
-            {
                 this.txtCardID.Clear();
-            }
         }
 
         private void txtCardID_Leave(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(this.txtCardID.Text.Trim(), @"^\w+$"))
+            if (!Regex.IsMatch(this.txtCardID.Text.Trim(), @"^[1-9][0-9]{14}|[1-9][0-9]{16}[0-9Xx]$"))
             {
                 MessageBox.Show("您输入的格式错误，请重新输入！");
                 this.txtCardID.Focus();
@@ -120,7 +112,7 @@ namespace GTG
 
         private void txtCPhone_Leave(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(this.txtCPhone.Text.Trim(), @"^\w+$"))
+            if (!Regex.IsMatch(this.txtCPhone.Text.Trim(), @"^[0-9]+$"))
             {
                 MessageBox.Show("您输入的格式错误，请重新输入！");
                 this.txtCPhone.Focus();
@@ -129,14 +121,29 @@ namespace GTG
 
         private void FrmClerkAdd_Load(object sender, EventArgs e)
         {
-            this.cmbSName.Items.Clear();
-            string strSQL = "select distinct * from SalesStore";
+            this.cmbSID.Items.Clear();
+            string strSQL = "select distinct * from SalesStore inner join Clerk on SalesStore.SID=Clerk.SID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
-                string SName = reader.GetString(reader.GetOrdinal("SName"));
-                this.cmbSName.Items.Add(SName);
+                int SID = reader.GetInt32(reader.GetOrdinal("SID"));
+                this.cmbSID.Items.Add(SID);
             }
+            reader.Close();
+        }
+
+        private void cmbSID_Leave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(this.cmbSID.Text.Trim(), @"^[1-9]$"))
+            {
+                MessageBox.Show("您输入的格式错误，请重新输入！");
+                this.cmbSID.Focus();
+            }
+        }
+
+        private void txtCSex_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
