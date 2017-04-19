@@ -62,8 +62,8 @@ namespace GTG
             while (reader.Read())
             {
                 this.txtCTName.Text = reader.GetString(reader.GetOrdinal("CTName"));
-                this.txtCTAddress.Text = reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? null : reader.GetString(reader.GetOrdinal("CTAddress"));
-                this.txtCTPhone.Text = reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? null : reader.GetString(reader.GetOrdinal("CTPhone"));
+                this.txtCTAddress.Text = reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? "" : reader.GetString(reader.GetOrdinal("CTAddress"));
+                this.txtCTPhone.Text = reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? "" : reader.GetString(reader.GetOrdinal("CTPhone"));
             }
             reader.Close();
         }

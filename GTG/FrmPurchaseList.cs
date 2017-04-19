@@ -55,61 +55,86 @@ namespace GTG
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
             }
             reader.Close();
-            if (numble > 0)
-            {
 
-                int wid = 1;
-                strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
-                int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+
+            int wid = 1;
+            strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
+            int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+            if (rows > 0)
+            {
+                strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values((select max(PID) from PurchaseList)," +
+                    "(select GID from Goods where GName=@GName),@GNum)  ";
+                rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                 new SqlParameter("@GNum", Numble));
                 if (rows > 0)
                 {
-                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values((select max(PID) from PurchaseList)," +
-                        "(select GID from Goods where GName=@GName),@GNum)  ";
-                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                     new SqlParameter("@GNum", Numble));
+                    if (numble > 0)
+                    {
+                        strSQl = "update Goods  set GNum+=@GNum where  GName=@GName  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                             new SqlParameter("@GNum", Numble));
+                    }
+                    else
+                    {
+                        strSQl = "insert into Goods (GName,GNum,GUnit,GStyle,GStandard)values(@GName,@GNum,@GUnit,@GStyle,@GStandard)  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                           new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit), 
+                           new SqlParameter("@GStandard", "***"), new SqlParameter("@GStyle", "***"));
+                    }
                     if (rows > 0)
                     {
+                        this.lblUnit1.Text = "";
                         if (numble > 0)
                         {
-                            strSQl = "update Goods  set GNum+=@GNum where  GName=@GName  ";
-                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                                 new SqlParameter("@GNum", Numble));
+                            MessageBox.Show("入库成功！");
+                            this.Close();
                         }
                         else
                         {
-                            strSQl = "insert into Goods (GName,GNum,GUnit)values(@GName,@GNum,@GUnit)  ";
-                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                                new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit));
-                        }
-                        if (rows > 0)
-                        {
-                            this.lblUnit1.Text = "";
-                            if (numble > 0)
-                            {
-                                MessageBox.Show("入库成功！");
-                                this.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("新增货物，入库成功！");
-                                this.Close();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("入库失败！");
+                            MessageBox.Show("新增货物，入库成功！");
+                            this.Close();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("生成出库详细信息单失败！");
+                        strSQl = "delete PurchaseListDetail  where PID=(select max(PID) from PurchaseList)  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                        if (rows > 0)
+                        {
+                            strSQl = "delete PurchaseList where PID=(select max(PID) from PurchaseList)  ";
+                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                            if (rows > 0)
+                            {
+                                MessageBox.Show("出库失败！出库记录删除成功！");
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("出库失败！出库记录删除失败！");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("生成出库单失败！");
+                    strSQl = "delete PurchaseList where PID=(select max(PID) from PurchaseList)  ";
+                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("出库失败！出库记录删除成功！");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("出库失败！出库记录删除失败！");
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("生成出库单失败！");
+            }
+
         }
 
         private void txtName_Leave(object sender, EventArgs e)

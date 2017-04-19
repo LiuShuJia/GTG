@@ -221,6 +221,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FrmGoods";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "商品界面";
             this.Load += new System.EventHandler(this.FrmGoods_Load);
             this.menuStrip1.ResumeLayout(false);

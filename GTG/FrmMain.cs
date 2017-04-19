@@ -255,6 +255,18 @@ namespace GTG
                         f.Show();
                     }
                 }
+                else if (e.Node.Name == "商品信息")
+                {
+                    if (!ShowChildrenForm("FrmGoods"))
+                    {
+                        FrmGoods f = new FrmGoods();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+                }
             }
         }
     }

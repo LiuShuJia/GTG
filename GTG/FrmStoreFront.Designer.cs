@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.msStrip = new System.Windows.Forms.MenuStrip();
-            this.tsmiSalesStore = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiClientele = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiBillOfLading = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSalesTicket = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiClerk = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblSaleName = new System.Windows.Forms.Label();
@@ -51,60 +45,12 @@
             this.lblSManagerName = new System.Windows.Forms.Label();
             this.cmbSManagerName = new System.Windows.Forms.ComboBox();
             this.cmbAddress = new System.Windows.Forms.ComboBox();
-            this.msStrip.SuspendLayout();
             this.ctmsStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // msStrip
-            // 
-            this.msStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiSalesStore,
-            this.tsmiClientele,
-            this.tsmiBillOfLading,
-            this.tsmiSalesTicket,
-            this.tsmiClerk});
-            this.msStrip.Location = new System.Drawing.Point(0, 0);
-            this.msStrip.Name = "msStrip";
-            this.msStrip.Size = new System.Drawing.Size(487, 25);
-            this.msStrip.TabIndex = 0;
-            // 
-            // tsmiSalesStore
-            // 
-            this.tsmiSalesStore.Name = "tsmiSalesStore";
-            this.tsmiSalesStore.Size = new System.Drawing.Size(68, 21);
-            this.tsmiSalesStore.Text = "店面信息";
-            // 
-            // tsmiClientele
-            // 
-            this.tsmiClientele.Name = "tsmiClientele";
-            this.tsmiClientele.Size = new System.Drawing.Size(80, 21);
-            this.tsmiClientele.Text = "客户信息表";
-            this.tsmiClientele.Click += new System.EventHandler(this.tsmiClientele_Click);
-            // 
-            // tsmiBillOfLading
-            // 
-            this.tsmiBillOfLading.Name = "tsmiBillOfLading";
-            this.tsmiBillOfLading.Size = new System.Drawing.Size(92, 21);
-            this.tsmiBillOfLading.Text = "提货单信息表";
-            this.tsmiBillOfLading.Click += new System.EventHandler(this.tsmiBillOfLading_Click);
-            // 
-            // tsmiSalesTicket
-            // 
-            this.tsmiSalesTicket.Name = "tsmiSalesTicket";
-            this.tsmiSalesTicket.Size = new System.Drawing.Size(92, 21);
-            this.tsmiSalesTicket.Text = "销售单信息表";
-            this.tsmiSalesTicket.Click += new System.EventHandler(this.tsmiSalesTicket_Click);
-            // 
-            // tsmiClerk
-            // 
-            this.tsmiClerk.Name = "tsmiClerk";
-            this.tsmiClerk.Size = new System.Drawing.Size(68, 21);
-            this.tsmiClerk.Text = "店员信息";
-            this.tsmiClerk.Click += new System.EventHandler(this.tsmiClerk_Click_1);
-            // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(359, 56);
+            this.btnSelect.Location = new System.Drawing.Point(355, 47);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
@@ -114,7 +60,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(359, 114);
+            this.btnAdd.Location = new System.Drawing.Point(355, 105);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -125,7 +71,7 @@
             // lblSaleName
             // 
             this.lblSaleName.AutoSize = true;
-            this.lblSaleName.Location = new System.Drawing.Point(43, 46);
+            this.lblSaleName.Location = new System.Drawing.Point(39, 37);
             this.lblSaleName.Name = "lblSaleName";
             this.lblSaleName.Size = new System.Drawing.Size(65, 12);
             this.lblSaleName.TabIndex = 5;
@@ -134,7 +80,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(67, 92);
+            this.lblAddress.Location = new System.Drawing.Point(63, 83);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(41, 12);
             this.lblAddress.TabIndex = 6;
@@ -145,7 +91,7 @@
             this.cmbSaleName.FormattingEnabled = true;
             this.cmbSaleName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbSaleName.Location = new System.Drawing.Point(114, 43);
+            this.cmbSaleName.Location = new System.Drawing.Point(110, 34);
             this.cmbSaleName.Name = "cmbSaleName";
             this.cmbSaleName.Size = new System.Drawing.Size(195, 20);
             this.cmbSaleName.TabIndex = 8;
@@ -215,7 +161,7 @@
             // lblSManagerName
             // 
             this.lblSManagerName.AutoSize = true;
-            this.lblSManagerName.Location = new System.Drawing.Point(43, 141);
+            this.lblSManagerName.Location = new System.Drawing.Point(39, 132);
             this.lblSManagerName.Name = "lblSManagerName";
             this.lblSManagerName.Size = new System.Drawing.Size(65, 12);
             this.lblSManagerName.TabIndex = 16;
@@ -226,7 +172,7 @@
             this.cmbSManagerName.FormattingEnabled = true;
             this.cmbSManagerName.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbSManagerName.Location = new System.Drawing.Point(114, 138);
+            this.cmbSManagerName.Location = new System.Drawing.Point(110, 129);
             this.cmbSManagerName.Name = "cmbSManagerName";
             this.cmbSManagerName.Size = new System.Drawing.Size(195, 20);
             this.cmbSManagerName.TabIndex = 17;
@@ -237,7 +183,7 @@
             this.cmbAddress.FormattingEnabled = true;
             this.cmbAddress.Items.AddRange(new object[] {
             "查询全部"});
-            this.cmbAddress.Location = new System.Drawing.Point(114, 89);
+            this.cmbAddress.Location = new System.Drawing.Point(110, 80);
             this.cmbAddress.Name = "cmbAddress";
             this.cmbAddress.Size = new System.Drawing.Size(195, 20);
             this.cmbAddress.TabIndex = 18;
@@ -257,14 +203,9 @@
             this.Controls.Add(this.lblSaleName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.msStrip);
-            this.MainMenuStrip = this.msStrip;
             this.Name = "FrmStoreFront";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "店面销售界面";
             this.Load += new System.EventHandler(this.FrmStoreFront_Load);
-            this.msStrip.ResumeLayout(false);
-            this.msStrip.PerformLayout();
             this.ctmsStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,18 +213,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip msStrip;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSalesStore;
-        private System.Windows.Forms.ToolStripMenuItem tsmiClientele;
-        private System.Windows.Forms.ToolStripMenuItem tsmiBillOfLading;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSalesTicket;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblSaleName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.ComboBox cmbSaleName;
-        private System.Windows.Forms.ToolStripMenuItem tsmiClerk;
         private System.Windows.Forms.ListView lstTable;
         private System.Windows.Forms.ColumnHeader SaleName;
         private System.Windows.Forms.ColumnHeader SAddress;

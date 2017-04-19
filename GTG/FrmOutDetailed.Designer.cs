@@ -114,6 +114,7 @@
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.lblName);
             this.Name = "FrmOutDetailed";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "出库详情";
             this.Load += new System.EventHandler(this.FrmDetailed_Load);
             this.ResumeLayout(false);

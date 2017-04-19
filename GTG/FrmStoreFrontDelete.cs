@@ -54,7 +54,7 @@ namespace GTG
                 this.lblSName.Text = reader.GetString(reader.GetOrdinal("SName"));
                 this.lblSAddress.Text = reader.GetString(reader.GetOrdinal("SAddress"));
                 this.lblSmanagerName.Text = reader.GetString(reader.GetOrdinal("SManagerName"));
-                this.lblSPhone.Text = reader.GetString(reader.GetOrdinal("SPhone"));
+                this.lblSPhone.Text = reader.IsDBNull(reader.GetOrdinal("SPhone")) ? null : reader.GetString(reader.GetOrdinal("SPhone"));
             }
             reader.Close();
         }
