@@ -89,7 +89,7 @@ namespace GTG
                 MessageBox.Show("请选择供应商！");
                 return;
             }
-            DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("确认是否删除！", "确认", MessageBoxButtons.OKCancel);
             if (result != DialogResult.OK)
             {
                 return;
@@ -97,6 +97,14 @@ namespace GTG
             string GID = Convert.ToString(this.listView1.SelectedItems[0].Tag);
 
             FrmDNRemove f = new FrmDNRemove(GID);
+            f.ShowDialog();
+            this.btnQue.PerformClick();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            FrmSInsert f = new FrmSInsert();
             f.ShowDialog();
             this.btnQue.PerformClick();
         }

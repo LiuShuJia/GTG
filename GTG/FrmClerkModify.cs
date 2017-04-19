@@ -29,43 +29,44 @@ namespace GTG
         private void btnDetermine_Click(object sender, EventArgs e)
         {
             string CCardID = this.txtCardID.Text.Trim();
-            string SName = this.cmbSName.Text.Trim();
+            string SName = this.cmbSID.Text.Trim();
             string CName = this.txtCName.Text.Trim();
             string CSex = this.txtCSex.Text.Trim();
             string CPhone= this.txtCPhone.Text.Trim();
+            string SID = this.cmbSID.Text.Trim();
 
-            string strSQL = "Update Clerk inner join SalesStore on SalesStore.SID=Clerk.SID set SName=@SName,CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone where CID=@CID";
-
+            string strSQL = "Update Clerk  set SID=@SID,CCardID=@CCardID,CName=@CName,CSex=@CSex,CPhone=@CPhone where CID=@CID";
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                 new SqlParameter("@CID", CID),
-                new SqlParameter("@SName", SName),
+                new SqlParameter("@SID", SID),
                   new SqlParameter("@CCardID", CCardID),
                   new SqlParameter("@CName", CName),
                   new SqlParameter("@CSex", CSex),
                   new SqlParameter("@CPhone", CPhone));
             if (row > 0)
             {
-                MessageBox.Show("添加成功");
+                MessageBox.Show("修改成功");
                 this.Close();//成功即关闭该窗体
             }
             else
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show("修改失败");
             }
         }
 
         private void FrmClerkModify_Load(object sender, EventArgs e)
         {
-            //this.txtCardID.Text = CID;
-            //txtCardID.Enabled = false;
-            string strSQL = "select distinct SName,CID,CName,CSex,CCardID,CPhone from Clerk inner join SalesStore on SalesStore.SID=Clerk.SID where CID=@CID";
+            //this.cmbSName.Text = CID;
+            //cmbSName.Enabled = false;
+            string strSQL = "select distinct Clerk.SID,SName,CName,CSex,CCardID,CPhone from Clerk inner join SalesStore on SalesStore.SID=Clerk.SID where CID=@CID";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@CID", CID));
             while (reader.Read())
             {
-                string SName = reader.GetString(reader.GetOrdinal("SName"));
-                this.cmbSName.Items.Add(SName);
+                int SID = reader.GetInt32(reader.GetOrdinal("SID"));
+                this.cmbSID.Items.Add(SID);
 
-                int CID= reader.GetInt32(reader.GetOrdinal("CID"));
+                //int CID= reader.GetInt32(reader.GetOrdinal("CID"));
+                this.cmbSID.Text= reader.GetInt32(reader.GetOrdinal("SID")).ToString();
                 this.txtCName.Text = reader.GetString(reader.GetOrdinal("CName"));
                 this.txtCSex.Text = reader.IsDBNull(reader.GetOrdinal("CSex")) ? null : reader.GetString(reader.GetOrdinal("CSex"));
                 this.txtCardID.Text = reader.IsDBNull(reader.GetOrdinal("CCardID")) ? null : reader.GetString(reader.GetOrdinal("CCardID"));

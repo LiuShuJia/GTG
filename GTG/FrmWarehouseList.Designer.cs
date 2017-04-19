@@ -133,6 +133,7 @@
             this.Controls.Add(this.lblNumble);
             this.Controls.Add(this.lblName);
             this.Name = "FrmWarehouseList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "出库";
             this.Load += new System.EventHandler(this.FrmWarehouseList_Load);
             this.ResumeLayout(false);

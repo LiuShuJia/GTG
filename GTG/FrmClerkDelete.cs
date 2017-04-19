@@ -48,7 +48,7 @@ namespace GTG
 
         private void btnDetermine_Click(object sender, EventArgs e)
         {
-            string strSQL = "Delete from Clerk where CID=@CID";
+            string strSQL = "Delete from Clerk  where CID=@CID";
             int row = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                   new SqlParameter("@CID", CID));
             if (row > 0)

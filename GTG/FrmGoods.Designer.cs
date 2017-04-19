@@ -47,6 +47,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiUp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGoodsAdd = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -118,7 +119,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(298, 58);
+            this.btnSelect.Location = new System.Drawing.Point(287, 83);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(134, 23);
             this.btnSelect.TabIndex = 9;
@@ -194,11 +195,22 @@
             this.tsmiRemove.Text = "删除信息";
             this.tsmiRemove.Click += new System.EventHandler(this.tsmiRemove_Click);
             // 
+            // btnGoodsAdd
+            // 
+            this.btnGoodsAdd.Location = new System.Drawing.Point(287, 35);
+            this.btnGoodsAdd.Name = "btnGoodsAdd";
+            this.btnGoodsAdd.Size = new System.Drawing.Size(134, 23);
+            this.btnGoodsAdd.TabIndex = 11;
+            this.btnGoodsAdd.Text = "增加商品信息";
+            this.btnGoodsAdd.UseVisualStyleBackColor = true;
+            this.btnGoodsAdd.Click += new System.EventHandler(this.btnGoodsAdd_Click);
+            // 
             // FrmGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 400);
+            this.Controls.Add(this.btnGoodsAdd);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtStyle);
@@ -209,6 +221,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FrmGoods";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "商品界面";
             this.Load += new System.EventHandler(this.FrmGoods_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -239,5 +252,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiUp;
         private System.Windows.Forms.ToolStripMenuItem tsmiRemove;
+        private System.Windows.Forms.Button btnGoodsAdd;
     }
 }

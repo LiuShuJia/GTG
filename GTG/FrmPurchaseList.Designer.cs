@@ -149,6 +149,7 @@
             this.Controls.Add(this.lblNumble);
             this.Controls.Add(this.lblName);
             this.Name = "FrmPurchaseList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "入库";
             this.ResumeLayout(false);
             this.PerformLayout();

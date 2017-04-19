@@ -35,12 +35,12 @@ namespace GTG
             {
                 string CTName = reader.GetString(reader.GetOrdinal("CTName"));
                 this.cmbCTName.Items.Add(CTName);
-                string CTAddress = reader.GetString(reader.GetOrdinal("CTAddress"));
+                string CTAddress = reader.IsDBNull(reader.GetOrdinal("CTAddress"))?null: reader.GetString(reader.GetOrdinal("CTAddress"));
                 this.cmbCTAddress.Items.Add(CTAddress);
 
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("CTName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTAddress")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CTAddress"))?null: reader.GetString(reader.GetOrdinal("CTAddress")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? null : reader.GetString(reader.GetOrdinal("CTPhone")));
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lstTable.Items.Add(lst);
             }
@@ -58,8 +58,8 @@ namespace GTG
             while (reader.Read())
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("CTName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTAddress")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CTPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? null : reader.GetString(reader.GetOrdinal("CTAddress")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? null : reader.GetString(reader.GetOrdinal("CTPhone")));
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lstTable.Items.Add(lst);
             }

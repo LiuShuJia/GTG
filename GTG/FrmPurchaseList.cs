@@ -29,6 +29,16 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
+            {
+                MessageBox.Show("商品名不能为空！");
+                return;
+            }
+            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            {
+                MessageBox.Show("商品数量必须大于0！");
+                return;
+            }
             if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
             {
                 MessageBox.Show("商品单位不能为空！");
@@ -45,69 +55,90 @@ namespace GTG
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
             }
             reader.Close();
-            if (numble > 0)
-            {
 
-                int wid = 1;
-                strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
-                int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+
+            int wid = 1;
+            strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
+            int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
+            if (rows > 0)
+            {
+                strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values((select max(PID) from PurchaseList)," +
+                    "(select GID from Goods where GName=@GName),@GNum)  ";
+                rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                 new SqlParameter("@GNum", Numble));
                 if (rows > 0)
                 {
-                    strSQl = "insert into PurchaseListDetail (PID,GID,PLDNum)values((select max(PID) from PurchaseList)," +
-                        "(select GID from Goods where GName=@GName),@GNum)  ";
-                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                     new SqlParameter("@GNum", Numble));
+                    if (numble > 0)
+                    {
+                        strSQl = "update Goods  set GNum+=@GNum where  GName=@GName  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                             new SqlParameter("@GNum", Numble));
+                    }
+                    else
+                    {
+                        strSQl = "insert into Goods (GName,GNum,GUnit,GStyle,GStandard)values(@GName,@GNum,@GUnit,@GStyle,@GStandard)  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
+                           new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit), 
+                           new SqlParameter("@GStandard", "***"), new SqlParameter("@GStyle", "***"));
+                    }
                     if (rows > 0)
                     {
+                        this.lblUnit1.Text = "";
                         if (numble > 0)
                         {
-                            strSQl = "update Goods  set GNum+=@GNum where  GName=@GName  ";
-                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                                 new SqlParameter("@GNum", Numble));
+                            MessageBox.Show("入库成功！");
+                            this.Close();
                         }
                         else
                         {
-                            strSQl = "insert into Goods (GName,GNum,GUnit)values(@GName,@GNum,@GUnit)  ";
-                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@GName", GName),
-                                new SqlParameter("@GNum", Numble), new SqlParameter("@GUnit", unit));
-                        }
-                        if (rows > 0)
-                        {
-                            this.lblUnit1.Text = "";
-                            if (numble > 0)
-                            {
-                                MessageBox.Show("入库成功！");
-                                this.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("新增货物，入库成功！");
-                                this.Close();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("入库失败！");
+                            MessageBox.Show("新增货物，入库成功！");
+                            this.Close();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("生成出库详细信息单失败！");
+                        strSQl = "delete PurchaseListDetail  where PID=(select max(PID) from PurchaseList)  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                        if (rows > 0)
+                        {
+                            strSQl = "delete PurchaseList where PID=(select max(PID) from PurchaseList)  ";
+                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                            if (rows > 0)
+                            {
+                                MessageBox.Show("出库失败！出库记录删除成功！");
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("出库失败！出库记录删除失败！");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("生成出库单失败！");
+                    strSQl = "delete PurchaseList where PID=(select max(PID) from PurchaseList)  ";
+                    rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("出库失败！出库记录删除成功！");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("出库失败！出库记录删除失败！");
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("生成出库单失败！");
+            }
+
         }
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
             string GName = txtName.Text.Trim();
             string strSQl = "select * from Goods where  GName=@GName  ";
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
@@ -125,34 +156,34 @@ namespace GTG
 
         private void txtNumble_Enter(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
+            //if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
+            //{
+            //    MessageBox.Show("商品名不能为空！");
+            //}
         }
 
         private void txtNumble_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
-            {
-                MessageBox.Show("商品数量必须大于0！");
-            }
+            //if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            //{
+            //    MessageBox.Show("商品数量必须大于0！");
+            //}
         }
 
         private void txtUnit_Enter(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
-            {
-                MessageBox.Show("商品数量必须大于0！");
-            }
+            //if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            //{
+            //    MessageBox.Show("商品数量必须大于0！");
+            //}
         }
 
         private void txtUnit_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品单位不能为空！");
-            }
+            ////if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
+            ////{
+            ////    MessageBox.Show("商品单位不能为空！");
+            ////}
         }
     }
 }

@@ -41,6 +41,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiUp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +126,7 @@
             this.tsmiUp,
             this.tsmiRemove});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 48);
             // 
             // tsmiUp
             // 
@@ -141,11 +142,22 @@
             this.tsmiRemove.Text = "删除供应商信息";
             this.tsmiRemove.Click += new System.EventHandler(this.tsmiRemove_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(272, 31);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "增加供货商";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FrmSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 382);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnQue);
             this.Controls.Add(this.txtMan);
@@ -154,6 +166,7 @@
             this.Controls.Add(this.lblSPname);
             this.MaximizeBox = false;
             this.Name = "FrmSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "供应商表";
             this.Load += new System.EventHandler(this.FrmSupplier_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiUp;
         private System.Windows.Forms.ToolStripMenuItem tsmiRemove;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
