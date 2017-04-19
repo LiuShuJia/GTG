@@ -28,6 +28,11 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
+            {
+                MessageBox.Show("商品名不能为空！");
+                return;
+            }
             if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
             {
                 MessageBox.Show("商品数量必须大于0！");
@@ -96,10 +101,10 @@ namespace GTG
 
         private void txtNumble_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
-            {
-                MessageBox.Show("商品数量必须大于0！");
-            }
+            //if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            //{
+            //    MessageBox.Show("商品数量必须大于0！");
+            //}
         }
 
         private void FrmWarehouseList_Load(object sender, EventArgs e)
@@ -116,12 +121,12 @@ namespace GTG
         
         private void cboName_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
-            else
-            {
+            ////if (Regex.IsMatch(cboName.Text.Trim(), @"^\w+$") == false)
+            ////{
+            ////    MessageBox.Show("商品名不能为空！");
+            ////}
+            ////else
+            ////{
                 lblStock.Text = "";
                 string GName = cboName.Text.Trim();
                 string unit = "";
@@ -145,7 +150,7 @@ namespace GTG
                         lblStock.Text = GName + "的库存为：" + numble + unit;
                     }
                 }
-            }
+            
         }
     }
 }
