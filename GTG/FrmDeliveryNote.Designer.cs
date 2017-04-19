@@ -47,10 +47,10 @@
             this.columnHeader3});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(10, 96);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(13, 120);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(350, 282);
+            this.listView1.Size = new System.Drawing.Size(465, 352);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -72,9 +72,10 @@
             // 
             // btnQue
             // 
-            this.btnQue.Location = new System.Drawing.Point(284, 47);
+            this.btnQue.Location = new System.Drawing.Point(379, 59);
+            this.btnQue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQue.Name = "btnQue";
-            this.btnQue.Size = new System.Drawing.Size(75, 23);
+            this.btnQue.Size = new System.Drawing.Size(100, 29);
             this.btnQue.TabIndex = 11;
             this.btnQue.Text = "查询";
             this.btnQue.UseVisualStyleBackColor = true;
@@ -82,51 +83,55 @@
             // 
             // txtGname
             // 
-            this.txtGname.Location = new System.Drawing.Point(139, 50);
+            this.txtGname.Location = new System.Drawing.Point(185, 62);
+            this.txtGname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGname.Name = "txtGname";
-            this.txtGname.Size = new System.Drawing.Size(117, 21);
+            this.txtGname.Size = new System.Drawing.Size(155, 25);
             this.txtGname.TabIndex = 10;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(139, 10);
+            this.txtName.Location = new System.Drawing.Point(185, 12);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(117, 21);
+            this.txtName.Size = new System.Drawing.Size(155, 25);
             this.txtName.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 53);
+            this.label2.Location = new System.Drawing.Point(75, 66);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "商品：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 14);
+            this.label1.Location = new System.Drawing.Point(43, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "供应商：";
             // 
             // FrmDeliveryNote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 387);
+            this.ClientSize = new System.Drawing.Size(493, 484);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnQue);
             this.Controls.Add(this.txtGname);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDeliveryNote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "FrmDeliveryNote";
+            this.Text = "送货单详情";
             this.Load += new System.EventHandler(this.FrmDeliveryNote_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

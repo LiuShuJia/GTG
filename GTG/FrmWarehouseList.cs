@@ -48,7 +48,7 @@ namespace GTG
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
             }
             reader.Close();
-            if (numble > Convert.ToInt32(Numble))
+            if (numble >= Convert.ToInt32(Numble))
             {
                 int wid = 1;
                 strSQl = "insert into WarehouseList (WID,WLDate)values(@WID,getdate())  ";
@@ -65,17 +65,59 @@ namespace GTG
                          new SqlParameter("@GNum", Numble));
                         if (rows > 0)
                         {
-                            MessageBox.Show("出库成功！");
-                            this.Close();
+                            if (numble == Convert.ToInt32(Numble))
+                            {
+                                strSQl = "delete Goods  where GNum=0  ";
+                                rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                                if (rows > 0)
+                                {
+                                    MessageBox.Show("出库成功！库存为0，已删除！");
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("出库成功！库存为0，删除失败！");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("出库成功！");
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("出库失败！");
+                            strSQl = "delete WarehouseListDetail  where WLID=(select max(WLID) from WarehouseList)  ";
+                            rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                            if (rows > 0)
+                            {
+                                strSQl = "delete WarehouseList where WLID=(select max(WLID) from WarehouseList)  ";
+                                rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                                if (rows > 0)
+                                {
+                                    MessageBox.Show("出库失败！出库记录删除成功！");
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("出库失败！出库记录删除失败！");
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("生成出库详细信息单失败！");
+                        strSQl = "delete WarehouseList where WLID=(select max(WLID) from WarehouseList)  ";
+                        rows = helper.ExecuteNonQuery(strSQl, CommandType.Text);
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("出库失败！出库记录删除成功！");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("出库失败！出库记录删除失败！");
+                        }
                     }
                 }
                 else

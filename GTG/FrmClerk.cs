@@ -39,7 +39,7 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
-                string SName = reader.GetString(reader.GetOrdinal("SName"));
+                string SName = reader.IsDBNull(reader.GetOrdinal("SName"))?null: reader.GetString(reader.GetOrdinal("SName"));
                 this.cmbSName.Items.Add(SName);
                 string CName = reader.GetString(reader.GetOrdinal("CName"));
                 this.cmbCName.Items.Add(CName);
@@ -48,7 +48,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CPhone"))?null: reader.GetString(reader.GetOrdinal("CPhone")));
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("CID"));
                 this.lstTable.Items.Add(lst);
             }
@@ -71,7 +71,7 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CPhone")) ? null : reader.GetString(reader.GetOrdinal("CPhone")));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
