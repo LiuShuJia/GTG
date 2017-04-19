@@ -109,7 +109,7 @@ namespace GTG
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SAddress")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SManagerName")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("SPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("SPhone")) ? null : reader.GetString(reader.GetOrdinal("SPhone")));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
