@@ -180,6 +180,12 @@
     <Compile Include="FrmPurchaseList.Designer.cs">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSInsert.Designer.cs">
+      <DependentUpon>FrmSInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStoreFrontDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPurchaseList.resx">
       <DependentUpon>FrmPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSInsert.resx">
+      <DependentUpon>FrmSInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStoreFrontDelete.resx">
       <DependentUpon>FrmStoreFrontDelete.cs</DependentUpon>

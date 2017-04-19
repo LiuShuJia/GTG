@@ -100,5 +100,13 @@ namespace GTG
             f.ShowDialog();
             this.btnQue.PerformClick();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            FrmSInsert f = new FrmSInsert();
+            f.ShowDialog();
+            this.btnQue.PerformClick();
+        }
     }
 }
