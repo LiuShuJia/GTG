@@ -73,7 +73,6 @@
             this.tsmiSalesStore.Name = "tsmiSalesStore";
             this.tsmiSalesStore.Size = new System.Drawing.Size(68, 21);
             this.tsmiSalesStore.Text = "店面信息";
-         //   this.tsmiSalesStore.Click += new System.EventHandler(this.tsmi_Click);
             // 
             // tsmiClientele
             // 
@@ -197,19 +196,19 @@
             this.tsmiDelete,
             this.tsmiModify});
             this.ctmsStrip.Name = "ctmsStrip";
-            this.ctmsStrip.Size = new System.Drawing.Size(153, 70);
+            this.ctmsStrip.Size = new System.Drawing.Size(101, 48);
             // 
             // tsmiDelete
             // 
             this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsmiDelete.Size = new System.Drawing.Size(100, 22);
             this.tsmiDelete.Text = "删除";
             this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
             // 
             // tsmiModify
             // 
             this.tsmiModify.Name = "tsmiModify";
-            this.tsmiModify.Size = new System.Drawing.Size(152, 22);
+            this.tsmiModify.Size = new System.Drawing.Size(100, 22);
             this.tsmiModify.Text = "修改";
             this.tsmiModify.Click += new System.EventHandler(this.tsmiModify_Click);
             // 
@@ -261,6 +260,7 @@
             this.Controls.Add(this.msStrip);
             this.MainMenuStrip = this.msStrip;
             this.Name = "FrmStoreFront";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "店面销售界面";
             this.Load += new System.EventHandler(this.FrmStoreFront_Load);
             this.msStrip.ResumeLayout(false);

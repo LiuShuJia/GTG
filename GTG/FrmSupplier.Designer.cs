@@ -166,6 +166,7 @@
             this.Controls.Add(this.lblSPname);
             this.MaximizeBox = false;
             this.Name = "FrmSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "供应商表";
             this.Load += new System.EventHandler(this.FrmSupplier_Load);
             this.contextMenuStrip1.ResumeLayout(false);

@@ -24,6 +24,12 @@ namespace GTG
             this.f = f;
             InitializeComponent();
         }
+        public FrmClerk(string CID)
+        {
+            this.CID = CID;
+            InitializeComponent();
+        }
+        private string CID;
         private FrmClerk f;
         private DBHelper helper = new DBHelper();
         private void FrmClerk_Load(object sender, EventArgs e)
@@ -33,7 +39,7 @@ namespace GTG
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text);
             while (reader.Read())
             {
-                string SName = reader.GetString(reader.GetOrdinal("SName"));
+                string SName = reader.IsDBNull(reader.GetOrdinal("SName"))?null: reader.GetString(reader.GetOrdinal("SName"));
                 this.cmbSName.Items.Add(SName);
                 string CName = reader.GetString(reader.GetOrdinal("CName"));
                 this.cmbCName.Items.Add(CName);
@@ -42,9 +48,8 @@ namespace GTG
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CPhone"))?null: reader.GetString(reader.GetOrdinal("CPhone")));
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("CID"));
-                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -61,14 +66,12 @@ namespace GTG
                 );
             while (reader.Read()) 
             {
-                
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SName")));
                 lst.Tag = reader.GetInt32(reader.GetOrdinal("CID"));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CName")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CSex")));
                 lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CCardID")));
-                lst.SubItems.Add(reader.GetString(reader.GetOrdinal("CPhone")));
-                lst.Tag = reader.GetInt32(reader.GetOrdinal("SID"));
+                lst.SubItems.Add(reader.IsDBNull(reader.GetOrdinal("CPhone")) ? null : reader.GetString(reader.GetOrdinal("CPhone")));
                 this.lstTable.Items.Add(lst);
             }
             reader.Close();
@@ -114,6 +117,7 @@ namespace GTG
         {
             FrmClerkAdd f = new FrmClerkAdd(this);
             f.ShowDialog();
+            this.btnSelect.PerformClick();
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)

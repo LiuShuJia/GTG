@@ -203,6 +203,7 @@
             this.btnGoodsAdd.TabIndex = 11;
             this.btnGoodsAdd.Text = "增加商品信息";
             this.btnGoodsAdd.UseVisualStyleBackColor = true;
+            this.btnGoodsAdd.Click += new System.EventHandler(this.btnGoodsAdd_Click);
             // 
             // FrmGoods
             // 

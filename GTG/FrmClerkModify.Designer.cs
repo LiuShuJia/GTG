@@ -38,7 +38,7 @@
             this.lblCSex = new System.Windows.Forms.Label();
             this.lblCName = new System.Windows.Forms.Label();
             this.lblSName = new System.Windows.Forms.Label();
-            this.cmbSName = new System.Windows.Forms.ComboBox();
+            this.cmbSID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtCardID
@@ -126,22 +126,22 @@
             this.lblSName.Name = "lblSName";
             this.lblSName.Size = new System.Drawing.Size(65, 12);
             this.lblSName.TabIndex = 37;
-            this.lblSName.Text = "店面名称：";
+            this.lblSName.Text = "店面编号：";
             // 
-            // cmbSName
+            // cmbSID
             // 
-            this.cmbSName.FormattingEnabled = true;
-            this.cmbSName.Location = new System.Drawing.Point(137, 23);
-            this.cmbSName.Name = "cmbSName";
-            this.cmbSName.Size = new System.Drawing.Size(176, 20);
-            this.cmbSName.TabIndex = 38;
+            this.cmbSID.FormattingEnabled = true;
+            this.cmbSID.Location = new System.Drawing.Point(137, 23);
+            this.cmbSID.Name = "cmbSID";
+            this.cmbSID.Size = new System.Drawing.Size(176, 20);
+            this.cmbSID.TabIndex = 38;
             // 
             // FrmClerkModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 345);
-            this.Controls.Add(this.cmbSName);
+            this.Controls.Add(this.cmbSID);
             this.Controls.Add(this.lblSName);
             this.Controls.Add(this.txtCardID);
             this.Controls.Add(this.lblCardID);
@@ -172,6 +172,6 @@
         private System.Windows.Forms.Label lblCSex;
         private System.Windows.Forms.Label lblCName;
         private System.Windows.Forms.Label lblSName;
-        private System.Windows.Forms.ComboBox cmbSName;
+        private System.Windows.Forms.ComboBox cmbSID;
     }
 }

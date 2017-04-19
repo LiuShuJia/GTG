@@ -89,7 +89,7 @@ namespace GTG
                 MessageBox.Show("请选择供应商！");
                 return;
             }
-            DialogResult result = MessageBox.Show("确认是否修改！", "确认", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("确认是否删除！", "确认", MessageBoxButtons.OKCancel);
             if (result != DialogResult.OK)
             {
                 return;

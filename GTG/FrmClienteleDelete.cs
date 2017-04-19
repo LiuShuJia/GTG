@@ -55,8 +55,8 @@ namespace GTG
             {
                 this.Tag= reader.GetInt32(reader.GetOrdinal("CTID"));
                 this.lblCTName.Text = reader.GetString(reader.GetOrdinal("CTName"));
-                this.lblCTAddress.Text = reader.GetString(reader.GetOrdinal("CTAddress"));
-                this.lblCTPhone.Text = reader.GetString(reader.GetOrdinal("CTPhone"));
+                this.lblCTAddress.Text = reader.IsDBNull(reader.GetOrdinal("CTAddress")) ? null : reader.GetString(reader.GetOrdinal("CTAddress"));
+                this.lblCTPhone.Text = reader.IsDBNull(reader.GetOrdinal("CTPhone")) ? null : reader.GetString(reader.GetOrdinal("CTPhone"));
             }
             reader.Close();
         }
