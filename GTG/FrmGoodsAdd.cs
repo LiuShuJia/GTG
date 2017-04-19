@@ -47,7 +47,7 @@ namespace GTG
                 MessageBox.Show("数量格式不正确！");
                 return;
             }
-            string strSQL = "insertinto goods (GName,GNum,GStyle,GStandard,GUnit) values(@GName,@GNum,@GStyle,@GStandard,@GUnit)";
+            string strSQL = "insert into goods(GName,GNum,GStyle,GStandard,GUnit) values (@GName,@GNum,@GStyle,@GStandard,@GUnit)";
             int o = helper.ExecuteNonQuery(strSQL, CommandType.Text,
                 new SqlParameter("@GName", txtName.Text),
                 new SqlParameter("@GNum", Convert.ToInt32(txtNum.Text)),
