@@ -16,7 +16,7 @@ namespace GTG
         {
             InitializeComponent();
         }
-        public FrmMain(FrmLogin f,string username)
+        public FrmMain(FrmLogin f, string username)
         {
             this.userName = username;
             this.frm = f;
@@ -53,7 +53,7 @@ namespace GTG
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.lblUserName.Text = userName;
-           
+
         }
 
         private void treeView1_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace GTG
             //    this.pictureBox1.Visible = false;
             //    f.Show();
             //}
-            
+
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -75,7 +75,7 @@ namespace GTG
             if (e.Action == TreeViewAction.ByMouse)
             {
 
-                if (e.Node.Name == "节点01")
+                if (e.Node.Name == "产品信息")
                 {
                     if (!ShowChildrenForm("FrmInfo"))
                     {
@@ -89,7 +89,7 @@ namespace GTG
 
                 }
 
-                else if (e.Node.Name == "节点02")
+                else if (e.Node.Name == "入库管理")
                 {
                     if (!ShowChildrenForm("FrmPurchaseList"))
                     {
@@ -100,9 +100,9 @@ namespace GTG
                         this.pictureBox1.Visible = false;
                         f.Show();
                     }
-                   
+
                 }
-                else if (e.Node.Name == "节点03")
+                else if (e.Node.Name == "入库详情表")
                 {
                     if (!ShowChildrenForm("FrmPutDetailed"))
                     {
@@ -115,7 +115,7 @@ namespace GTG
                     }
 
                 }
-                else if (e.Node.Name == "节点06")
+                else if (e.Node.Name == "提货管理")
                 {
                     if (!ShowChildrenForm("FrmWarehouseList"))
                     {
@@ -128,7 +128,7 @@ namespace GTG
                     }
 
                 }
-                else if (e.Node.Name == "节点07")
+                else if (e.Node.Name == "提货单详情")
                 {
                     if (!ShowChildrenForm("FrmOutDetailed"))
                     {
@@ -141,7 +141,7 @@ namespace GTG
                     }
 
                 }
-                else if (e.Node.Name == "节点08")
+                else if (e.Node.Name == "供货商信息")
                 {
                     if (!ShowChildrenForm("FrmSupplier"))
                     {
@@ -154,11 +154,11 @@ namespace GTG
                     }
 
                 }
-                else if (e.Node.Name == "节点09")
+                else if (e.Node.Name == "送货详情表")
                 {
-                    if (!ShowChildrenForm("FrmSupplier"))
+                    if (!ShowChildrenForm("FrmDeliveryNote"))
                     {
-                        FrmSupplier f = new FrmSupplier();
+                        FrmDeliveryNote f = new FrmDeliveryNote();
                         f.Size = this.pictureBox1.Size;
                         f.Location = this.pictureBox1.Location;
                         f.MdiParent = this;
@@ -166,9 +166,97 @@ namespace GTG
                         f.Show();
                     }
 
+                }
+                else if (e.Node.Name == "店员信息")
+                {
+                    if (!ShowChildrenForm("FrmClerk"))
+                    {
+                        FrmClerk f = new FrmClerk();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+
+                }
+                else if (e.Node.Name == "客户信息")
+                {
+                    if (!ShowChildrenForm("FrmClientele"))
+                    {
+                        FrmClientele f = new FrmClientele();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+
+                }
+                else if (e.Node.Name == "销售店面信息")
+                {
+                    if (!ShowChildrenForm("FrmStoreFront"))
+                    {
+                        FrmStoreFront f = new FrmStoreFront();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+
+                }
+                else if (e.Node.Name == "销售单详情表")
+                {
+                    if (!ShowChildrenForm("FrmSalesTicket"))
+                    {
+                        FrmSalesTicket f = new FrmSalesTicket();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+
+                }
+                else if (e.Node.Name == "备份与恢复")
+                {
+                    if (!ShowChildrenForm("FrmHelper"))
+                    {
+                        FrmHelper f = new FrmHelper();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+                }
+                else if (e.Node.Name == "修改用户密码")
+                {
+                    if (!ShowChildrenForm("FrmUpdateUserKey"))
+                    {
+                        FrmUpdateUserKey f = new FrmUpdateUserKey();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
+                }
+                else if (e.Node.Name == "修改用户信息")
+                {
+                    if (!ShowChildrenForm("FrmUpdateUserInfo"))
+                    {
+                        FrmUpdateUserInfo f = new FrmUpdateUserInfo();
+                        f.Size = this.pictureBox1.Size;
+                        f.Location = this.pictureBox1.Location;
+                        f.MdiParent = this;
+                        this.pictureBox1.Visible = false;
+                        f.Show();
+                    }
                 }
             }
-
         }
     }
 }
+

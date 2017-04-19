@@ -132,6 +132,7 @@
             this.Controls.Add(this.lblSName);
             this.Controls.Add(this.lstTable);
             this.Name = "FrmSalesTicket";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "销售单界面";
             this.Load += new System.EventHandler(this.FrmSalesTicket_Load);
             this.ResumeLayout(false);
