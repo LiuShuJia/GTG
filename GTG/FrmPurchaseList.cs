@@ -57,7 +57,6 @@ namespace GTG
             reader.Close();
             if (numble > 0)
             {
-
                 int wid = 1;
                 strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
                 int rows = helper.ExecuteNonQuery(strSQl, CommandType.Text, new SqlParameter("@WID", wid));
