@@ -108,7 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmSInsert";
-            this.Text = "FrmSInsert";
+            this.Text = "增加供货商";
             this.ResumeLayout(false);
             this.PerformLayout();
 
