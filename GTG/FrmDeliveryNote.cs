@@ -26,7 +26,7 @@ namespace GTG
             string Gname = txtGname.Text;
 
             this.listView1.Items.Clear();
-            string strSQL = "select * from DeliveryNote innor join goods on GID=DGID innor join Supplier on SPID=DSPID  where (CHARINDEX(@SPName,SPName)>0 or len(@SPName)=0) and(CHARINDEX(@Gname,Gname)>0 or len(@Gname)=0)";
+            string strSQL = "select * from DeliveryNote d inner join goods g on g.GID=d.GID inner join Supplier s on s.SPID=d.SPID where (CHARINDEX(@SPName,SPName)>0 or len(@SPName)=0) and(CHARINDEX(@Gname,Gname)>0 or len(@Gname)=0)";
             IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text,
                 new SqlParameter("@SPName", SPName),
                 new SqlParameter("@Gname", Gname)
@@ -45,8 +45,8 @@ namespace GTG
         private void FrmDeliveryNote_Load(object sender, EventArgs e)
         {
             this.listView1.Items.Clear();
-            string strSQL = "select * from DeliveryNote innor join goods on GID=DGID innor join Supplier on SPID=DSPID";
-            IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text );
+            string strSQL = "select * from DeliveryNote d inner join goods g on g.GID=d.GID inner join Supplier s on s.SPID=d.SPID";
+            IDataReader reader = helper.ExecuteReader(strSQL,CommandType.Text );
             while (reader.Read())
             {
                 ListViewItem lst = new ListViewItem(reader.GetString(reader.GetOrdinal("SPName")));
