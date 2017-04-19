@@ -43,7 +43,7 @@ namespace GTG
                 MessageBox.Show("号码格式不正确！");
                 return;
             }
-            string strSQL = "update Supplier set  where DID=@DID";
+            string strSQL = "update Supplier set SPName=@SPName,SPMan=@SPMan,SPPhone=@SPPhone  where SPID=@SPID";
             int reader = helpler.ExecuteNonQuery(strSQL, CommandType.Text,
                  new SqlParameter("@SPName", txtName.Text),
                  new SqlParameter("@SPMan", txtRname.Text),
