@@ -16,7 +16,7 @@ namespace GTG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmOutDetailed());
+            Application.Run(new FrmGoods());
         }
     }
 }
