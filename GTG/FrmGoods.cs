@@ -126,5 +126,12 @@ namespace GTG
             FrmDeliveryNote f = new FrmDeliveryNote();
             f.ShowDialog();
         }
+
+        private void btnGoodsAdd_Click(object sender, EventArgs e)
+        {
+            FrmGoodsAdd f = new FrmGoodsAdd();
+            f.ShowDialog();
+            this.btnSelect.PerformClick();
+        }
     }
 }
