@@ -29,6 +29,16 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
+            {
+                MessageBox.Show("商品名不能为空！");
+                return;
+            }
+            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            {
+                MessageBox.Show("商品数量必须大于0！");
+                return;
+            }
             if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
             {
                 MessageBox.Show("商品单位不能为空！");
@@ -104,10 +114,6 @@ namespace GTG
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
             string GName = txtName.Text.Trim();
             string strSQl = "select * from Goods where  GName=@GName  ";
             IDataReader reader = helper.ExecuteReader(strSQl, CommandType.Text, new SqlParameter("@GName", GName));
@@ -125,34 +131,34 @@ namespace GTG
 
         private void txtNumble_Enter(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品名不能为空！");
-            }
+            //if (Regex.IsMatch(txtName.Text.Trim(), @"^\w+$") == false)
+            //{
+            //    MessageBox.Show("商品名不能为空！");
+            //}
         }
 
         private void txtNumble_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
-            {
-                MessageBox.Show("商品数量必须大于0！");
-            }
+            //if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            //{
+            //    MessageBox.Show("商品数量必须大于0！");
+            //}
         }
 
         private void txtUnit_Enter(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
-            {
-                MessageBox.Show("商品数量必须大于0！");
-            }
+            //if (Regex.IsMatch(txtNumble.Text.Trim(), @"^[1-9][0-9]*$") == false)
+            //{
+            //    MessageBox.Show("商品数量必须大于0！");
+            //}
         }
 
         private void txtUnit_Leave(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
-            {
-                MessageBox.Show("商品单位不能为空！");
-            }
+            ////if (Regex.IsMatch(txtUnit.Text.Trim(), @"^\w+$") == false)
+            ////{
+            ////    MessageBox.Show("商品单位不能为空！");
+            ////}
         }
     }
 }
