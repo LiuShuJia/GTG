@@ -93,7 +93,7 @@ namespace GTG
         {
             this.txtpassword.PasswordChar = (char)0;//鼠标离开变成*
         }
-
+        
         private void piceye_Click(object sender, EventArgs e)
         {
             if (this.txtpassword.PasswordChar == '*')//如果为*，则变成字符串，反之也是

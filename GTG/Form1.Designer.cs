@@ -98,9 +98,9 @@
             // piceye
             // 
             this.piceye.Image = global::GTG.Properties.Resources.eye1;
-            this.piceye.Location = new System.Drawing.Point(190, 136);
+            this.piceye.Location = new System.Drawing.Point(206, 137);
             this.piceye.Name = "piceye";
-            this.piceye.Size = new System.Drawing.Size(20, 21);
+            this.piceye.Size = new System.Drawing.Size(20, 20);
             this.piceye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piceye.TabIndex = 20;
             this.piceye.TabStop = false;

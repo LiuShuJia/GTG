@@ -125,7 +125,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "文档";
+            this.Text = "备份恢复";
             this.Load += new System.EventHandler(this.FrmHelper_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
