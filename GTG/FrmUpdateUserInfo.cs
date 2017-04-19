@@ -26,6 +26,22 @@ namespace GTG
         private DBHelper helper = new DBHelper();
         private void btnMofidy_Click(object sender, EventArgs e)
         {
+            if (this.txtrealname.Text.Trim() == "")
+            {
+                this.errorNotNull.SetError(this.txtrealname, "真实姓名不能为空！");
+                return;
+            }
+            if (this.txtIDcard.Text.Trim() == "")
+            {
+                this.errorNotNull.SetError(this.txtIDcard, "联系方式不能为空！");
+                return;
+            }
+            if (this.txtIDcard.Text.Trim() == "")
+            {
+                this.errorNotNull.SetError(this.txtIDcard, "身份证号不能为空！");
+                return;
+            }
+
             bool fName = Isnull(this.txtrealname.Text.Trim());
             bool fsex = (this .rdoMan .Checked ==true ||this .rdoFamale .Checked ==true)?(true ):(false);
             bool fIDcard = Isnull(this.txtIDcard.Text.Trim());
@@ -83,36 +99,6 @@ namespace GTG
                 f = true;
             }
             return f;
-        }
-
-        private void txtrealname_Leave(object sender, EventArgs e)
-        {
-            while (this.txtrealname.Text.Trim() == "")
-            {
-                MessageBox.Show("真实姓名不能为空！");
-                this.txtrealname.Focus();
-                return;
-            }
-        }
-
-        private void txtIDcard_Leave(object sender, EventArgs e)
-        {
-            while (this.txtIDcard.Text.Trim() == "")
-            {
-                MessageBox.Show("身份证号不能为空！");
-                this.txtIDcard.Focus();
-                return;
-            }
-        }
-
-        private void txtPhone_Leave(object sender, EventArgs e)
-        {
-            while (this.txtPhone.Text.Trim() == "")
-            {
-                MessageBox.Show("联系方式不能为空！");
-                this.txtPhone.Focus();
-                return;
-            }
         }
     }
 }

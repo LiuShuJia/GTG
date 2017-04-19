@@ -39,8 +39,8 @@
             this.btnMofidy = new System.Windows.Forms.Button();
             this.rdoMan = new System.Windows.Forms.RadioButton();
             this.rdoFamale = new System.Windows.Forms.RadioButton();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.errorNotNull = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIDcard
@@ -49,7 +49,6 @@
             this.txtIDcard.Name = "txtIDcard";
             this.txtIDcard.Size = new System.Drawing.Size(100, 21);
             this.txtIDcard.TabIndex = 3;
-            this.txtIDcard.Leave += new System.EventHandler(this.txtIDcard_Leave);
             // 
             // lblrealName
             // 
@@ -84,7 +83,6 @@
             this.txtrealname.Name = "txtrealname";
             this.txtrealname.Size = new System.Drawing.Size(100, 21);
             this.txtrealname.TabIndex = 9;
-            this.txtrealname.Leave += new System.EventHandler(this.txtrealname_Leave);
             // 
             // lblPhone
             // 
@@ -101,7 +99,6 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 21);
             this.txtPhone.TabIndex = 11;
-            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // btnMofidy
             // 
@@ -117,7 +114,7 @@
             // 
             this.rdoMan.AutoSize = true;
             this.rdoMan.Location = new System.Drawing.Point(110, 81);
-            this.rdoMan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoMan.Margin = new System.Windows.Forms.Padding(2);
             this.rdoMan.Name = "rdoMan";
             this.rdoMan.Size = new System.Drawing.Size(35, 16);
             this.rdoMan.TabIndex = 13;
@@ -129,7 +126,7 @@
             // 
             this.rdoFamale.AutoSize = true;
             this.rdoFamale.Location = new System.Drawing.Point(176, 81);
-            this.rdoFamale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoFamale.Margin = new System.Windows.Forms.Padding(2);
             this.rdoFamale.Name = "rdoFamale";
             this.rdoFamale.Size = new System.Drawing.Size(35, 16);
             this.rdoFamale.TabIndex = 14;
@@ -137,9 +134,9 @@
             this.rdoFamale.Text = "女";
             this.rdoFamale.UseVisualStyleBackColor = true;
             // 
-            // errorProvider1
+            // errorNotNull
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.errorNotNull.ContainerControl = this;
             // 
             // FrmUpdateUserInfo
             // 
@@ -161,7 +158,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "修改用户信息";
             this.Load += new System.EventHandler(this.FrmUpdateUserInfo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +176,6 @@
         private System.Windows.Forms.Button btnMofidy;
         private System.Windows.Forms.RadioButton rdoMan;
         private System.Windows.Forms.RadioButton rdoFamale;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorNotNull;
     }
 }

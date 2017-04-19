@@ -235,7 +235,7 @@ namespace GTG
                 {
                     if (!ShowChildrenForm("FrmUpdateUserKey"))
                     {
-                        FrmUpdateUserKey f = new FrmUpdateUserKey();
+                        FrmUpdateUserKey f = new FrmUpdateUserKey(userName);
                         f.Size = this.pictureBox1.Size;
                         f.Location = this.pictureBox1.Location;
                         f.MdiParent = this;
@@ -247,7 +247,7 @@ namespace GTG
                 {
                     if (!ShowChildrenForm("FrmUpdateUserInfo"))
                     {
-                        FrmUpdateUserInfo f = new FrmUpdateUserInfo();
+                        FrmUpdateUserInfo f = new FrmUpdateUserInfo(userName);
                         f.Size = this.pictureBox1.Size;
                         f.Location = this.pictureBox1.Location;
                         f.MdiParent = this;

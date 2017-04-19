@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
@@ -35,7 +36,10 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.piceye = new System.Windows.Forms.PictureBox();
+            this.lblAddUser = new System.Windows.Forms.Label();
+            this.errorNotNull = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.piceye)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -55,8 +59,6 @@
             this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(115, 21);
             this.txtpassword.TabIndex = 1;
-            this.txtpassword.Enter += new System.EventHandler(this.txtKey_Enter);
-            this.txtpassword.Leave += new System.EventHandler(this.txtKey_Leave);
             // 
             // txtUserName
             // 
@@ -67,7 +69,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(77, 190);
+            this.btnLogin.Location = new System.Drawing.Point(74, 181);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(87, 23);
             this.btnLogin.TabIndex = 2;
@@ -105,12 +107,29 @@
             this.piceye.Click += new System.EventHandler(this.piceye_Click);
             this.piceye.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picsee_MouseDown);
             // 
+            // lblAddUser
+            // 
+            this.lblAddUser.AutoSize = true;
+            this.lblAddUser.Font = new System.Drawing.Font("华文中宋", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblAddUser.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblAddUser.Location = new System.Drawing.Point(100, 225);
+            this.lblAddUser.Name = "lblAddUser";
+            this.lblAddUser.Size = new System.Drawing.Size(135, 11);
+            this.lblAddUser.TabIndex = 21;
+            this.lblAddUser.Text = "没有账号怎么办！注册一个？";
+            this.lblAddUser.Click += new System.EventHandler(this.lblAddUser_Click);
+            // 
+            // errorNotNull
+            // 
+            this.errorNotNull.ContainerControl = this;
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 245);
+            this.Controls.Add(this.lblAddUser);
             this.Controls.Add(this.piceye);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.txtpassword);
@@ -124,6 +143,7 @@
             this.Text = "登录界面";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.piceye)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +157,8 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblAddUser;
+        private System.Windows.Forms.ErrorProvider errorNotNull;
     }
 }
 

@@ -26,73 +26,72 @@ namespace GTG
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if (this.txtpassword.Text.Trim() == "")//如果txtkey从没有获得焦点，就点击按钮时判断是否为空
+            if (this.txtUserName .Text.Trim() == "")
             {
-                MessageBox.Show("请输入密码！");
+                this.errorNotNull.SetError(this .txtUserName ,"用户名不能为空！");
+                return;
+            }
+            if (this.txtpassword.Text.Trim() == "")
+            {
+                this.errorNotNull.SetError(this.txtpassword , "请输入密码！");
                 return;
             }
             string userName = this.txtUserName.Text.Trim();
             string key = this.txtpassword.Text.Trim();
+            bool fuserName = IsNull(userName);
+            bool fkey = IsNull(key);
             int i = 0;//设置i为0
             string password = "";
             string strSQL = @"select LoginPWD from Admin where LoginId=@LoginId";
-            using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@LoginId", userName)))
+            if (fuserName && fkey)
             {
-                if (reader.Read())
+                using (IDataReader reader = helper.ExecuteReader(strSQL, CommandType.Text, new SqlParameter("@LoginId", userName)))
                 {
-                    password = reader.GetString(reader.GetOrdinal("LoginPWD")).Trim();//获取该用户名对应的密码
-                    i++;//能进入这一步说明存在该用户名
+                    if (reader.Read())
+                    {
+                        password = reader.GetString(reader.GetOrdinal("LoginPWD")).Trim();//获取该用户名对应的密码
+                        i++;//能进入这一步说明存在该用户名
+                    }
                 }
-            }
-            if (i == 0)
-            {
-                MessageBox.Show("用户名不存在！");
-                this.txtUserName.Clear();
-                this.txtpassword.Clear();
-            }
-            else
-            {
-                if (password == key)
+                if (i == 0)
                 {
-                    MessageBox.Show("登录成功");
-                    FrmMain f = new FrmMain(this,this.txtUserName.Text);
-                    //FrmUserManger fum = new FrmUserManger(this .txtUserName .Text .Trim ());    
-                    this.Hide();
-                    f.Show();
-                    //fum.ShowDialog();
-                    //this.Show();
+                    MessageBox.Show("用户名不存在！");
+                    this.txtUserName.Clear();
+                    this.txtpassword.Clear();
                 }
                 else
                 {
-                    MessageBox.Show("您的密码不正确！");
-                    this.txtpassword.Clear();
+                    if (password == key)
+                    {
+                        MessageBox.Show("登录成功");
+                        FrmMain f = new FrmMain(this, this.txtUserName.Text);
+                        //FrmUserManger fum = new FrmUserManger(this .txtUserName .Text .Trim ());    
+                        this.Hide();
+                        f.Show();
+                        //fum.ShowDialog();
+                        //this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("您的密码不正确！");
+                        this.txtpassword.Clear();
+                    }
                 }
             }
         }
-
+        private bool IsNull(string s)
+        {
+            bool f = false;
+            if (s != "")
+            {
+                f = true;
+            }
+            return f;
+        }
       
         private void picsee_MouseDown(object sender, MouseEventArgs e)
         {
             this.txtpassword.PasswordChar = (char)0;//鼠标离开变成*
-        }
-
-        private void txtKey_Enter(object sender, EventArgs e)
-        {
-            if (this.txtUserName.Text.Trim() == "")//在输入密码前判断用户名是否为空
-            {
-                MessageBox.Show("用户名不能为空！");
-                this.txtUserName.Focus();
-                return;
-            }
-        }
-
-        private void txtKey_Leave(object sender, EventArgs e)
-        {
-            if (this.txtpassword.Text.Trim() == "")//在离开控件是判断密码是否为空
-            {
-                MessageBox.Show("请输入密码！");
-                return;
-            }
         }
 
         private void piceye_Click(object sender, EventArgs e)
@@ -105,6 +104,12 @@ namespace GTG
             {
                 this.txtpassword.PasswordChar = '*';
             }
+        }
+
+        private void lblAddUser_Click(object sender, EventArgs e)
+        {
+            FrmAddUser fau = new FrmAddUser();
+            fau.ShowDialog();
         }
     }
 }

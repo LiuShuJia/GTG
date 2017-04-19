@@ -36,9 +36,9 @@
             this.txtnewpassword = new System.Windows.Forms.TextBox();
             this.txtsureNewpassword = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNotNull = new System.Windows.Forms.ErrorProvider(this.components);
             this.chexkShow = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).BeginInit();
             this.SuspendLayout();
             // 
             // lbloldpassword
@@ -103,15 +103,15 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // errorProvider1
+            // errorNotNull
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.errorNotNull.ContainerControl = this;
             // 
             // chexkShow
             // 
             this.chexkShow.AutoSize = true;
             this.chexkShow.Location = new System.Drawing.Point(118, 216);
-            this.chexkShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chexkShow.Margin = new System.Windows.Forms.Padding(2);
             this.chexkShow.Name = "chexkShow";
             this.chexkShow.Size = new System.Drawing.Size(72, 16);
             this.chexkShow.TabIndex = 7;
@@ -137,7 +137,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "修改用户密码";
             this.Load += new System.EventHandler(this.FrmUpdateUserKey_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNotNull)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.TextBox txtnewpassword;
         private System.Windows.Forms.TextBox txtsureNewpassword;
         private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorNotNull;
         private System.Windows.Forms.CheckBox chexkShow;
     }
 }
