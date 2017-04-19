@@ -70,26 +70,26 @@ namespace GTG
 
         private void tsmiBillOfLading_Click(object sender, EventArgs e)                            //提货表
         {
-            FrmBillOfLading f = new FrmBillOfLading();
-            f.ShowDialog();
+            //FrmBillOfLading f = new FrmBillOfLading();
+            //f.ShowDialog();
         }
 
         private void tsmiSalesTicket_Click(object sender, EventArgs e)                              //销售表
         {
-            FrmSalesTicket f = new FrmSalesTicket();
-            f.ShowDialog();
+            //FrmSalesTicket f = new FrmSalesTicket();
+            //f.ShowDialog();
         }
 
         private void tsmiClientele_Click(object sender, EventArgs e)                            //客户信息表
         {
-            FrmClientele f = new FrmClientele();
-            f.ShowDialog();
+            //FrmClientele f = new FrmClientele();
+            //f.ShowDialog();
         }
 
         private void tsmiClerk_Click_1(object sender, EventArgs e)
         {
-            FrmClerk f = new FrmClerk();
-            f.ShowDialog();
+            //FrmClerk f = new FrmClerk();
+            //f.ShowDialog();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
