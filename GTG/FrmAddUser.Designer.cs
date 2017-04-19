@@ -180,7 +180,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmAddUser";
-            this.Text = "FrmAddUser";
+            this.Text = "注册";
             ((System.ComponentModel.ISupportInitialize)(this.errortext)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
