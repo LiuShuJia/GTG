@@ -42,16 +42,45 @@ namespace GTG
 
         private void treeView1_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode.Name == "节点3")
-            {
-                FrmInfo f = new FrmInfo();
-                f.Size = this.pictureBox1.Size;
-                f.Location = this.pictureBox1.Location;
-                f.MdiParent = this;
-                this.pictureBox1.Visible = false;
-                f.Show();
-            }
+            //if (treeView1.SelectedNode.Name == "节点3")
+            //{
+            //    FrmInfo f = new FrmInfo();
+            //    f.Size = this.pictureBox1.Size;
+            //    f.Location = this.pictureBox1.Location;
+            //    f.MdiParent = this;
+            //    this.pictureBox1.Visible = false;
+            //    f.Show();
+            //}
             
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Action == TreeViewAction.ByMouse)
+            {
+
+                if (e.Node.Name == "节点3")
+                {
+                    FrmInfo f = new FrmInfo();
+                    f.Size = this.pictureBox1.Size;
+                    f.Location = this.pictureBox1.Location;
+                    f.MdiParent = this;
+                    this.pictureBox1.Visible = false;
+                    f.Show();
+                }
+
+                else if (e.Node.Name == "节点8")
+                {
+                    FrmClerkAdd f = new FrmClerkAdd();
+                    //f.Size = this.pictureBox1.Size;
+                    //f.Location = this.pictureBox1.Location;
+                    f.MdiParent = this;
+                    this.pictureBox1.Visible = false;
+                    f.Show();
+                }
+
+            }
+
         }
     }
 }
