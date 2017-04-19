@@ -55,8 +55,7 @@ namespace GTG
                 numble = reader.GetInt32(reader.GetOrdinal("GNum"));
             }
             reader.Close();
-            if (numble > 0)
-            {
+           
 
                 int wid = 1;
                 strSQl = "insert into PurchaseList (WID,PInDate)values(@WID,getdate())  ";
@@ -109,7 +108,7 @@ namespace GTG
                 {
                     MessageBox.Show("生成出库单失败！");
                 }
-            }
+            
         }
 
         private void txtName_Leave(object sender, EventArgs e)
